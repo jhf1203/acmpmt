@@ -5,6 +5,7 @@ import SignupForm from './pages/Auth/SignupForm';
 import Nav from "./components/Nav";
 import Profile from './pages/Profile';
 import Detail from "./pages/Detail";
+import Search from "./pages/Search";
 import NoMatch from "./pages/NoMatch";
 import AUTH from './utils/AUTH';
 
@@ -63,6 +64,7 @@ function App() {
               <Route exact path="/" component={Profile} />
               <Route exact path="/profile" component={Profile} />
               <Route exact path="/profile/:id" component={Detail} />
+              <Route exact path="/search" component={Search} />
               <Route component={NoMatch} />
             </Switch>
           </div>

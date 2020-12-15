@@ -25,12 +25,22 @@ const Nav = (props) => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-success">
       <Col size="md-6 sm-6">
-        <Link to="/" className="navbar-brand">React Reading List With Auth</Link>
+        <Link to="/" className="navbar-brand">ACMPMT</Link>
       </Col>
       <Col size="md-6 sm-6">
-        <div className="float-right">
-        {greeting} - <Link to="#" className="logout" onClick={props.logout}>Logout</Link>
-        </div>
+        <ul className="navbar-nav float-right">
+        {greeting} - 
+          <li className="nav-item">
+            <Link to="#" className="logout" onClick={props.logout}>Logout</Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/Search" className="logout">Discover</Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/Profile" className="logout">Profile</Link>
+          </li>
+        </ul>
+        
       </Col>
     </nav>
   )

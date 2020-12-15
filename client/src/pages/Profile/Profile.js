@@ -63,51 +63,48 @@ function Profile() {
     return (
       <Container fluid>
         <Row>
-          <Col size="md-6">
-            <Card title="What Profile Should I Read?">
-              <form ref={formEl}>
-                <Input
-                  onChange={handleInputChange}
-                  name="title"
-                  placeholder="Title (required)"
-                />
-                <Input
-                  onChange={handleInputChange}
-                  name="author"
-                  placeholder="Author (required)"
-                />
-                <TextArea
-                  onChange={handleInputChange}
-                  name="synopsis"
-                  placeholder="Synopsis (Optional)"
-                />
-                <FormBtn
-                  disabled={!(formObject.author && formObject.title)}
-                  onClick={handleFormSubmit}
-                >
-                  Submit Book
-                </FormBtn>
-              </form>
+          <Col size="md-4">
+            <Card>
+              <Row>
+                <p className="profile-username-text">{profile.userName}</p>
+              </Row>
+              <Row>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/SNice.svg/1200px-SNice.svg.png" width="200" height="200"></img>
+              </Row>
+              <Row>
+                <p className="profile-realname-text">{profile.firstName} {profile.lastName}</p>
+              </Row>
+              <Row>
+                <p className="profile-membersince-text">Member Since (PLACEHOLDER VALUE FOR WHEN WE ADD JOIN DATE TO DB)</p>
+              </Row>
+              <Row>
+                <button className="btn btn-success follow-btn">Follow {profile.firstName}</button>
+              </Row>
+            </Card>  
+          </Col>
+          <Col size="md-4">
+            <Card>
+              Placeholder Card for an accordion component that will house followers/following
             </Card>
           </Col>
-          <Col size="md-6 sm-12">
-            <Card title="Profile On My List">
-              {profile.length ? (
-                <List>
-                  {profile.map(book => (
-                    <ListItem key={book._id}>
-                      <Link to={"/profile/" + book._id}>
-                        <strong>
-                          {book.title} by {book.author}
-                        </strong>
-                      </Link>
-                      <DeleteBtn onClick={() => deleteBook(book._id)} />
-                    </ListItem>
-                  ))}
-                </List>
-              ) : (
-                <h3>No Results to Display</h3>
-              )}
+          <Col size="md-4">
+            <Card>
+              Another placeholder card for a component that's going to show my most popular tags by size.
+            </Card>
+          </Col>
+        </Row>
+        <Row className="justify-content-center">
+          <p>A quote will go here</p>
+        </Row>
+        <Row>
+          <Col size="md-6">
+            <Card>
+              Here is where we will render Everything that's in my queue
+            </Card>
+          </Col>
+          <Col size="md-6">
+            <Card>
+              Here is where we will render everything that I've recommended.  I'm really going to need to look into doing mySQL for this.
             </Card>
           </Col>
         </Row>
