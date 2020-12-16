@@ -5,16 +5,46 @@ mongoose.promise = Promise;
 
 // Define userSchema
 const userSchema = new Schema({
-	firstName: { type: String, unique: false },
-	lastName: { type: String, unique: false },
-  username: { type: String, unique: false, required: false },
-  password: { type: String, unique: false, required: false },
-  profile: [
+
+	firstName: { 
+		type: String, 
+		unique: false 
+	},
+
+	lastName: { 
+		type: String, 
+		unique: false 
+	},
+
+	username: { 
+		type: String, 
+		unique: false, 
+		required: false 
+	},
+
+	password: { 
+		type: String, 
+		unique: false, 
+		required: false 
+	},
+
+	image: {
+		type: String,
+		unique: false,
+		required: false
+	},
+
+  	queue: [
     {
-      // Store ObjectIds in the array
       type: Schema.Types.ObjectId,
-      // The ObjectIds will refer to the ids in the Book model
-      ref: "Book"
+      ref: "Album"
+    }
+  ],
+
+  recommended: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Album"
     }
   ]
 });

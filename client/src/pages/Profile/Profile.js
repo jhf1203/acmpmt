@@ -7,6 +7,7 @@ import { Card } from "../../components/Card";
 import { Input, TextArea, FormBtn } from "../../components/Form";
 import DeleteBtn from "../../components/DeleteBtn";
 import API from "../../utils/API";
+import Accordion from "../../components/AccordionComp"
 
 function Profile() {
   // Setting our component's initial state
@@ -23,8 +24,8 @@ function Profile() {
   function loadProfile() {
     API.getProfile()
       .then(res => {
-        // console.log(res.data.profile);
-        setProfile(res.data.profile);
+        console.log("In Load Profile", res);
+        // setProfile(res.data.profile);
       })
       .catch(err => console.log(err));
   };
@@ -66,7 +67,7 @@ function Profile() {
           <Col size="md-4">
             <Card>
               <Row>
-                <p className="profile-username-text">{profile.userName}</p>
+                <p className="profile-username-text">Render UserName Here</p>
               </Row>
               <Row>
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/SNice.svg/1200px-SNice.svg.png" width="200" height="200"></img>
@@ -84,7 +85,7 @@ function Profile() {
           </Col>
           <Col size="md-4">
             <Card>
-              Placeholder Card for an accordion component that will house followers/following
+              <Accordion />
             </Card>
           </Col>
           <Col size="md-4">

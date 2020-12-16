@@ -4,6 +4,7 @@ const db = require("../models");
 // Defining methods for the profileController
 module.exports = {
   findAll: function(req, res) {
+    console.log("user.findall")
     if (req.user) {
       db.User
         .find({ _id: req.user._id })
@@ -17,6 +18,7 @@ module.exports = {
     }
   },
   findById: function(req, res) {
+    console.log("user findbyid")
     if (req.user) {
       db.User
         .find({ _id: req.user._id })
@@ -31,7 +33,7 @@ module.exports = {
     }
   },
   create: function(req, res) {
-    db.Book
+    db.Album
       .create(req.body)
       .then(dbBook => {
         return db.User.findOneAndUpdate({ _id: req.user._id }, { $push: { profile: dbBook._id } }, { new: true });
@@ -43,7 +45,7 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   update: function(req, res) {
-    db.Book
+    db.Album
       .findOneAndUpdate({ _id: req.params.id }, req.body)
       .then(dbModel => {
         console.log(dbModel);

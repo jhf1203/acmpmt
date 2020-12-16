@@ -1,13 +1,27 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+mongoose.promise = Promise;
 
-const bookSchema = new Schema({
-  title: { type: String, required: true },
-  author: { type: String, required: true },
-  synopsis: String,
-  date: { type: Date, default: Date.now }
+// Define userSchema
+const albumSchema = new Schema({
+	albumName: { type: String, 
+		unique: false },
+
+	albumArtist: { type: String, 
+		unique: false },
+
+	  albumArt: { type: String, 
+		unique: false, 
+		required: false },
+
+	  AlbumURI: { type: String, 
+		unique: false, 
+		required: false },
 });
 
-const Book = mongoose.model("Book", bookSchema);
 
-module.exports = Book;
+
+
+// Create reference to User & export
+const Album = mongoose.model('Album', albumSchema);
+module.exports = Album;
