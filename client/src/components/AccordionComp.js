@@ -1,38 +1,31 @@
 import React, { useState } from 'react';
-import { Accordion, Card } from "react-bootstrap"
+import { Accordion, Card, Button } from "react-bootstrap"
 
 const AccordionComp = (props) => {
 
     return (
-        <div>
-            <Accordion defaultActiveKey="0">
-                <Card>
-                    <Accordion.Toggle id="Followers">
-                        <h3>Followers</h3>
-                    </Accordion.Toggle>
-                    <Accordion.Collapse eventKey="0">
-                        <Card.Body>
-                        <div className="row">
-                        <p>Here we will render each follower</p>  
-                        </div> 
-                        </Card.Body>
-                    </Accordion.Collapse>
-                </Card>
-                <Card>
-                    <Accordion.Toggle id="Following">
-                        <h3>Followers</h3>
-                    </Accordion.Toggle>
-                    <Accordion.Collapse eventKey="0">
-                        <Card.Body>
-                        <div className="row">
-                        <p>Here we will render each person who the user is following</p>  
-                        </div> 
-                        </Card.Body>
-                    </Accordion.Collapse>
-                </Card>
-        
-      </Accordion>
-    </div>
+        <Accordion defaultActiveKey="0">
+            <Card>
+                <Card.Header>
+                <Accordion.Toggle as={Button} variant="link" eventKey="0">
+                    Followers
+                </Accordion.Toggle>
+                </Card.Header>
+                <Accordion.Collapse eventKey="0">
+                <Card.Body>User's followers will render here</Card.Body>
+                </Accordion.Collapse>
+            </Card>
+            <Card>
+                <Card.Header>
+                <Accordion.Toggle as={Button} variant="link" eventKey="1">
+                    Following
+                </Accordion.Toggle>
+                </Card.Header>
+                <Accordion.Collapse eventKey="1">
+                <Card.Body>People the user follows will render here</Card.Body>
+                </Accordion.Collapse>
+            </Card>
+        </Accordion>
   );
 };
         

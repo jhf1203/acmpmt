@@ -34,6 +34,11 @@ const userSchema = new Schema({
 		required: false
 	},
 
+	joinDate: {
+		type: Date,
+		default: () => new Date(),
+	  },
+
   	queue: [
     {
       type: Schema.Types.ObjectId,

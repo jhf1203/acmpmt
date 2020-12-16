@@ -10,13 +10,25 @@ const albumSchema = new Schema({
 	albumArtist: { type: String, 
 		unique: false },
 
-	  albumArt: { type: String, 
+	albumArt: { type: String, 
 		unique: false, 
 		required: false },
 
-	  AlbumURI: { type: String, 
+	albumURI: { type: String, 
 		unique: false, 
 		required: false },
+
+	albumTags: [{
+		name: {type: String,
+		unique: false,
+		required: false},
+
+		value: {type: Number,
+		unique: false,
+		required: false}
+	}
+	]
+		
 });
 
 
