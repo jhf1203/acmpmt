@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import { Carousel } from "react-bootstrap"
 
 import { Col, Row, Container } from "../../components/Grid";
 import { List, ListItem } from "../../components/List";
@@ -71,16 +72,22 @@ function Search() {
             <p>Placeholder for some song lyrics</p>
         </Row>
         <Row>
-            <Col size="md-8">
+            <Col size="md-6">
                 <Card>
-                    <p>This is where we'll render eight cards with results</p>
+                  <p>Here is where the list of albums will render as results, 4x2.</p>
                 </Card>
             </Col>
-            <Col size="md-4">
-                <Card>
-                    <p>Here is where we'll populate the result on click.</p>
-                    <p>It would be interesting if the results could start as a col-12, then move to a col-8 with a col-4 for the media player as separate components.</p>
-                </Card>
+            <Col size="md-6">
+              <Card>
+                <Row>
+                  <Col size="md-6">
+                    <p>This will house the basic album info from the API pull</p>
+                  </Col>
+                  <Col size="md=6">
+                    <p>A spotify player will be embedded here!</p>
+                  </Col>
+                </Row>
+              </Card>
             </Col>
         </Row>
       </Container>

@@ -11,6 +11,7 @@ export default {
   },
   // Log the user in
   login: function(username, password) {
+    console.log("in login on auth page", username, password)
     return axios.post('/auth/login', { username, password });
   },
   // New user registration

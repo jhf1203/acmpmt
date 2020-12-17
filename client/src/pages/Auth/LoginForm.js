@@ -19,6 +19,7 @@ function LoginForm({login}) {
 	};
 
 	const handleSubmit = (event) => {
+    console.log("USEROBJ", userObject)
 		event.preventDefault();
 		login(userObject.username, userObject.password);
 		setRedirectTo('/');
@@ -44,6 +45,7 @@ function LoginForm({login}) {
             </Card>
           </Col>
           <Col size="md-6">
+            <Card>
               <form style={{marginTop: 10}}>
                 <Input
                   type="text"
@@ -62,6 +64,13 @@ function LoginForm({login}) {
                 <Link to="/signup">Register</Link>
                 <FormBtn onClick={handleSubmit}>Login</FormBtn>
               </form>
+            </Card>
+          </Col>
+        </Row>
+        <Row>
+          <Col size="md-4"></Col>
+          <Col size="md-8">
+            More lyrics here
           </Col>
         </Row>
       </Container>

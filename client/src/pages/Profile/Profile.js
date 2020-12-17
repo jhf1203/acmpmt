@@ -8,6 +8,7 @@ import { Input, TextArea, FormBtn } from "../../components/Form";
 import DeleteBtn from "../../components/DeleteBtn";
 import API from "../../utils/API";
 import Accordion from "../../components/AccordionComp"
+import AlbumCover from "../../components/AlbumCover";
 
 function Profile() {
   // Setting our component's initial state
@@ -100,12 +101,16 @@ function Profile() {
         <Row>
           <Col size="md-6">
             <Card>
-              Here is where we will render Everything that's in my queue
+              <Row>
+                <AlbumCover />
+              </Row> 
             </Card>
           </Col>
           <Col size="md-6">
             <Card>
-              Here is where we will render everything that I've recommended.  I'm really going to need to look into doing mySQL for this.
+              <Row>
+                <AlbumCover />
+              </Row>            
             </Card>
           </Col>
         </Row>
