@@ -24,7 +24,12 @@ module.exports = {
         'firstName': firstName,
         'lastName': lastName,
         'username': username,
-        'password': password
+        'password': password,
+        'joinDate': new Date(),
+        'queue': [],
+        'recommended': [],
+        'followers': [],
+        'following': [],
       });
       newUser.save((err, savedUser) => {
         if (err) return res.json(err);
