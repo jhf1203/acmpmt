@@ -7,12 +7,14 @@ import { Card } from "../../components/Card";
 import { Input, TextArea, FormBtn } from "../../components/Form";
 import DeleteBtn from "../../components/DeleteBtn";
 import API from "../../utils/API";
+import AUTH from "../../utils/AUTH"
 import Accordion from "../../components/AccordionComp"
 import AlbumCover from "../../components/AlbumCover";
 
-function Profile() {
+const Profile = (props) => {
+
   // Setting our component's initial state
-  const [profile, setProfile] = useState([]);
+  const [profile, setProfile] = useState({});
   const [formObject, setFormObject] = useState({});
   const formEl = useRef(null);
 
@@ -21,13 +23,13 @@ function Profile() {
     loadProfile();
   }, []);
 
+  
   // Loads all profile and sets them to profile
   function loadProfile() {
-    API.getProfile()
-      .then(res => {
-        console.log("In Load Profile", res);
-        // setProfile(res.data.profile);
-      })
+    AUTH.getUser()
+      .then(res => {console.log("change to getuser and heres res", res)
+        setProfile(res.data.user);
+      }).then(res => {console.log("profile state", profile)})
       .catch(err => console.log(err));
   };
 
@@ -62,13 +64,14 @@ function Profile() {
     }
   };
 
+
     return (
       <Container fluid>
         <Row>
           <Col size="md-4">
             <Card>
               <Row>
-                <p className="profile-username-text">Render UserName Here</p>
+                <p className="profile-username-text">{profile.username}</p>
               </Row>
               <Row>
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/SNice.svg/1200px-SNice.svg.png" width="200" height="200"></img>
@@ -80,7 +83,7 @@ function Profile() {
                 <p className="profile-membersince-text">Member Since (PLACEHOLDER VALUE FOR WHEN WE ADD JOIN DATE TO DB)</p>
               </Row>
               <Row>
-                <button className="btn btn-success follow-btn">Follow {profile.firstName}</button>
+                <button className="btn btn-success follow-btn">Follow placeholder for name again</button>
               </Row>
             </Card>  
           </Col>

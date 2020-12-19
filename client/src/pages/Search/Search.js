@@ -9,7 +9,7 @@ import { Input, TextArea, FormBtn } from "../../components/Form";
 import DeleteBtn from "../../components/DeleteBtn";
 import API from "../../utils/API";
 
-function Search() {
+const Search = (props) => {
   // Setting our component's initial state
   const [profile, setProfile] = useState([]);
   const [formObject, setFormObject] = useState({});
@@ -29,6 +29,7 @@ function Search() {
       })
       .catch(err => console.log(err));
   };
+  console.log("search props", props)
 
   // Deletes a book from the database with a given id, then reloads profile from the db
   
