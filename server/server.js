@@ -13,7 +13,7 @@ const dbConnection = require('./db'); // loads our connection to the mongo datab
 const routes = require("./routes");
 const passport = require('./passport');
 const app = express();
-const PORT = process.env.PORT || 4001;
+const PORT = process.env.PORT || 4002;
 
 // Middlewares
 app.use(morgan('dev'));
@@ -40,6 +40,7 @@ if (process.env.NODE_ENV === 'production') {
 	});
 }
 
+console.log("backend env", process.env)
 // Add routes, both API and view
 app.use(routes);
 

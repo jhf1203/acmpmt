@@ -10,10 +10,13 @@ import NoMatch from "./pages/NoMatch";
 import Album from "./pages/Album"
 import AUTH from './utils/AUTH';
 
+const dotenv = require("dotenv").config()
+
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [user, setUser] = useState(null);
 
+  console.log("api key test", process.env.REACT_APP_API_KEY)
 
   useEffect(() => {
     AUTH.getUser().then(response => {
