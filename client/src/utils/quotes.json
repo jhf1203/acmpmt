@@ -1,0 +1,105 @@
+[
+    {
+        "artist":  "The Flaming Lips",
+        "title": "Do You Realize?",
+        "quote": "The sun doesn't go down, it's just an illusion caused by the world spinning 'round",
+        "year": "2002"
+    },
+    {
+        "artist":  "The National",
+        "title": "Day I Die",
+        "quote": "Let's just get high enough to see our problems; let's just get high enough to see our Fathers' houses",
+        "year": "2017"
+    },
+    {
+        "artist":  "Twin Shadow",
+        "title": "I Don't Care",
+        "quote": "As long as you can dance me 'round the room while you lie to me",
+        "year": "2012"
+    },
+    {
+        "artist":  "The Weeknd",
+        "title": "Montreal",
+        "quote": "Happiness exists when you don't know a thing",
+        "year": "2012"
+    },
+    {
+        "artist":  "Kanye West",
+        "title": "Only One",
+        "quote": "No you're not perfect, but you're not your mistakes",
+        "year": "2014"
+    },
+    {
+        "artist":  "Ben Folds",
+        "title": "Cologne",
+        "quote": "And in my hotel room I'm wondering if you read that story too.  And if we both might be having the same imaginary conversation",
+        "year": "2008"
+    },
+    {
+        "artist":  "Aesop Rock",
+        "title": "No Regrets",
+        "quote": "I've never had a dream in my life, cause a dream is what you want to do and still haven't pursued.  I knew what I wanted and did it til it was done, so I've been the dream I wanted to be since day one.",
+        "year": "2002"
+    },
+    {
+        "artist":  "Sage Francis",
+        "title": "Makeshift Patriot",
+        "quote": "We taught that dog to squat, how dare he do that shit in our own backyard?",
+        "year": "2001"
+    },
+    {
+        "artist":  "The Decemberists",
+        "title": "We Both Go Down Together",
+        "quote": "And while your head is spinning, hold tight, it's just beginning",
+        "year": "2005"
+    },
+    {
+        "artist":  "Cloud Cult",
+        "title": "May Your Hearts Stay Strong",
+        "quote": "I like the way you touch me, it makes me feel like I have no skeleton",
+        "year": "2007"
+    },
+    {
+        "artist":  "The Notwist",
+        "title": "Consequence",
+        "quote": "Fail with consequence, lose with eloquence and smile",
+        "year": "2002"
+    },
+    {
+        "artist":  "Built To Spill",
+        "title": "Carry the Zero",
+        "quote": "And you've become what you thought was dumb, a fraction of the sum",
+        "year": "1999"
+    },
+    {
+        "artist":  "Elliott Smith",
+        "title": "Twilight",
+        "quote": "Go off to sleep in the sunshine, I don't want to see the day when it's dying",
+        "year": "2004"
+    },
+    {
+        "artist":  "Buck 65",
+        "title": "Blood Of a Young Wolf",
+        "quote": "Afraid to die and so I'm running",
+        "year": "2005"
+    },
+    {
+        "artist":  "The Postal Service",
+        "title": "Brand New Colony",
+        "quote": "I'll be the grapes fermented, bottled & served with the table set.  In my finest suit, like a perfect gentleman",
+        "year": "2003"
+    },
+    {
+        "artist":  "The Explosion",
+        "title": "No Revolution",
+        "quote": "Let's light a match to these dynamite dreams.  Let's let it all go, set it all free.  I call for the outcasts, the losers, and the creeps.  Who can bring it back again, make me believe?",
+        "year": "2000"
+    },
+    {
+        "artist":  "My Morning Jacket",
+        "title": "I Will Be There When You Die",
+        "quote": "There will be bigotry and there will be open minds. There will be days of peace you'll never have the time.  As long as you keep a straight face, I will be there when you die",
+        "year": "2002"
+    }
+    
+]
