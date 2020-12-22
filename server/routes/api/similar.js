@@ -2,7 +2,7 @@ const router = require('express').Router();
 
 // Getting similar artists based off of input
 
-router.get('/:artist', async (req, res) => {
+router.get('/:similar', async (req, res) => {
   const artist = req.params.artist;
 
   const key = process.env.REACT_APP_LASTFM_API_KEY;

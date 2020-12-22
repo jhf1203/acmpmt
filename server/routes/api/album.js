@@ -4,6 +4,7 @@ const router = require('express').Router();
 
 router.get('/:artist/:album', async (req, res) => {
   const artist = req.params.artist;
+  const album = req.params.album;
 
   const key = process.env.REACT_APP_LASTFM_API_KEY;
 
