@@ -2,7 +2,9 @@ import axios from "axios"
 
 export default {
     getSimilar: function (artist) {
+        console.log("process env: ", process.env)
         return axios.get(`api/similar/${artist}`)
+        
     },
     getTopAlbum: function (artist) {
         return axios.get(`api/topalbum/${artist}`)
