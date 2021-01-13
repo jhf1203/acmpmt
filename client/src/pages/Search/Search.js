@@ -21,11 +21,22 @@ const Search = (props) => {
     artist2: "",
     artist3: ""
   })
-  const [similar, setSimilar] = useState ({
-    similar1: [],
-    similar2: [],
-    similar3: []
-  })
+
+  // Commenting the below code because I feel like it's something simple to get it to work.
+
+  // const [similar, setSimilar] = useState ({
+  //   similar1: [],
+  //   similar2: [],
+  //   similar3: []
+  // })
+
+
+// The above doesn't work, but the below does.  
+
+  const [similar1, setSimilar1] = useState([]);
+  const [similar2, setSimilar2] = useState([]);
+  const [similar3, setSimilar3] = useState([])
+
 
   const formEl = useRef(null);
 
@@ -54,47 +65,29 @@ const Search = (props) => {
   }
 
 
-// PUSHING THIS JUST TO FIND WHAT I DID WRONG LATER, BECAUSE I FOUND A FIX.  
-
-// Instead of updating the targeted k/v pair it adds a fourth field logging as "...", which is an array of the
-// results, but it updates and overwrites each time so does no good.  I appear to be doing everything exactly
-// the same as in handleArtistEntry, which works fine.  I've tried [value] both with and without brackets.
-
-// I can get this to work by having three separate array states instead of one object state
-
   function handleFormSubmit (event) {
     event.preventDefault();
       LASTFM.getSimilar(artists.artist1)
     .then(res => {
-      const name = similar.similar1
       const value = res.data.similarartists.artist
       console.log("value1: ", value)
-      setSimilar({...similar, [name]: [value]})
+      setSimilar1([value])
     });
     LASTFM.getSimilar(artists.artist2)
     .then(res => {
-      const name = similar.similar2
       const value = res.data.similarartists.artist
       console.log("value2: ", value)
-      setSimilar({...similar, [name]: [value]})
+      setSimilar2([value])
 
     });
     LASTFM.getSimilar(artists.artist3)
     .then(res => {
-      const name = similar.similar3;
       const value = res.data.similarartists.artist
       console.log("value3: ", value)
-      setSimilar({...similar, [name]: [value]})
+      setSimilar3([value])
     })
   
   }
-
-  console.log("now lets check our state: ", similar)
-
-
-
-
-  
 
     return (
       <Container fluid>
