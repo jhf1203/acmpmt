@@ -70,17 +70,18 @@ const Search = (props) => {
     console.log("in populate: ", similar1)
   }
 
+  const match1 = [];
+  const match2 = [];
+  const match3 = []
+
+
+
   function getSimilarArtists (artistState, similarState) {
     LASTFM.getSimilar(artistState)
     .then(res => {
       similarState(res.data.similarartists.artist)
     })
   }
-
-  
-
-  
-
 
   function handleSlider (event) {
     event.preventDefault();
@@ -96,8 +97,25 @@ const Search = (props) => {
   function handleFormSubmit (event) {
     event.preventDefault()
     
-    const foundIndex = similar1.findIndex(obj => obj.name === "Soundgarden")    
-    console.log("indexing things: ", foundIndex)
+    similar1.map(band => {match1.push(band.name)}) 
+
+    similar2.map(band => {      
+      if (match1.indexOf(band.name) != -1) {
+        match2.push(band.name)
+      } else {
+        match1.push(band.name)
+      }
+    });
+
+    similar3.map(band => {
+      if (match2.indexOf(band.name) != -1) {
+        match3.push(band.name)
+      } else if (match1.indexOf(band.name) != -1) {
+        match2.push(band.name)
+      } else {
+        match1.push(band.name)
+      }
+    })
   }
 
   
