@@ -21,6 +21,7 @@ const Search = (props) => {
     artist2: "",
     artist3: ""
   })
+  const [obscurity, setObscurity] = useState("original")
 
   // Commenting the below code because I feel like it's something simple to get it to work.
 
@@ -39,6 +40,9 @@ const Search = (props) => {
 
 
   const formEl = useRef(null);
+
+
+
 
   // Load all profile and store them with setProfile
   useEffect(() => {
@@ -59,35 +63,44 @@ const Search = (props) => {
     const target = event.target;
     const value = target.value;
     const name = target.name
-    console.log("name", name)
-
     setArtists({...artists, [name]: value})
   }
 
+  function populateMatches () {
+    console.log("in populate: ", similar1)
+  }
+
+  function getSimilarArtists (artistState, similarState) {
+    LASTFM.getSimilar(artistState)
+    .then(res => {
+      similarState(res.data.similarartists.artist)
+    })
+  }
+
+  
+
+  
+
+
+  function handleSlider (event) {
+    event.preventDefault();
+
+    getSimilarArtists(artists.artist1, setSimilar1);
+    getSimilarArtists(artists.artist2, setSimilar2);
+    getSimilarArtists(artists.artist3, setSimilar3);
+
+    setObscurity("Changed!")
+
+  };
 
   function handleFormSubmit (event) {
-    event.preventDefault();
-      LASTFM.getSimilar(artists.artist1)
-    .then(res => {
-      const value = res.data.similarartists.artist
-      console.log("value1: ", value)
-      setSimilar1([value])
-    });
-    LASTFM.getSimilar(artists.artist2)
-    .then(res => {
-      const value = res.data.similarartists.artist
-      console.log("value2: ", value)
-      setSimilar2([value])
-
-    });
-    LASTFM.getSimilar(artists.artist3)
-    .then(res => {
-      const value = res.data.similarartists.artist
-      console.log("value3: ", value)
-      setSimilar3([value])
-    })
-  
+    event.preventDefault()
+    
+    const foundIndex = similar1.findIndex(obj => obj.name === "Soundgarden")    
+    console.log("indexing things: ", foundIndex)
   }
+
+  
 
     return (
       <Container fluid>
@@ -126,7 +139,7 @@ const Search = (props) => {
                   onChange={handleArtistEntry}
 
                 />
-                <p>How obscure should be they be, on a scale from "One Car Garage" to "Radio City Music Hall?"</p>
+                <button onClick={handleSlider}>slider will go here</button>
                 <FormBtn onClick={handleFormSubmit}>Show me!</FormBtn>
               </form>
               </Card>
