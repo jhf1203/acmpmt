@@ -8,6 +8,6 @@ const topAlbumRoutes = require("./topalbum")
 router.use("/profile", profileRoutes);
 router.use("/album", albumRoutes);
 router.use("/similar", similarRoutes);
-router.use("topalbum", topAlbumRoutes)
+router.use("/topalbum", topAlbumRoutes)
 
 module.exports = router;

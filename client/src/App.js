@@ -16,8 +16,6 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [user, setUser] = useState(null);
 
-  console.log("api key test", process.env.REACT_APP_API_KEY)
-
   useEffect(() => {
     AUTH.getUser().then(response => {
         if (!!response.data.user) {

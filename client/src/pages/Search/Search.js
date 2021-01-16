@@ -23,26 +23,11 @@ const Search = (props) => {
   })
   const [obscurity, setObscurity] = useState("original")
 
-  // Commenting the below code because I feel like it's something simple to get it to work.
-
-  // const [similar, setSimilar] = useState ({
-  //   similar1: [],
-  //   similar2: [],
-  //   similar3: []
-  // })
-
-
-// The above doesn't work, but the below does.  
-
   const [similar1, setSimilar1] = useState([]);
   const [similar2, setSimilar2] = useState([]);
   const [similar3, setSimilar3] = useState([])
 
-
   const formEl = useRef(null);
-
-
-
 
   // Load all profile and store them with setProfile
   useEffect(() => {
@@ -66,15 +51,13 @@ const Search = (props) => {
     setArtists({...artists, [name]: value})
   }
 
-  function populateMatches () {
-    console.log("in populate: ", similar1)
-  }
-
   const match1 = [];
   const match2 = [];
   const match3 = []
   const matchWithStrength = []
   const matchStrengthAvg = []
+  const albumsToShow = []
+  const albumDisplayInfo = []
 
 
   function getSimilarArtists (artistState, similarState) {
@@ -84,19 +67,39 @@ const Search = (props) => {
     })
   }
 
+  async function getAlbumInfo () {
+    
+    for (let i = 0; i < albumsToShow.length; i++) {
+      let res = await LASTFM.getAlbumInfo(albumsToShow[i].artist, albumsToShow[i].album)
+      albumDisplayInfo.push(res.data.album)
+    }
 
-  function addBandObj (arrMatch) {
-    console.log("similar", [similar3.name].indexOf("Audioslave"))
+    console.log("infor:" , albumDisplayInfo)
+  }
+
+
+  async function findTopAlbums () {
+
+    for (let i = 0; i < 3; i++) {
+      let res = await LASTFM.getTopAlbum(matchStrengthAvg[i].name)
+      albumsToShow.push({
+        artist: res.data.topalbums.album[0].artist.name,
+        album: res.data.topalbums.album[0].name
+      }) 
+    }
+    getAlbumInfo()
+  }
+
+  async function addBandObj (arrMatch) {
     for (let i = 0; i < arrMatch.length; i++) {
-      let nameIndex1 = similar1.findIndex(index => index.name === arrMatch[i])
-      let nameIndex2 = similar2.findIndex(index => index.name === arrMatch[i])
-      let nameIndex3 = similar3.findIndex(index => index.name === arrMatch[i])
+      let nameIndex1 = await similar1.findIndex(index => index.name === arrMatch[i])
+      let nameIndex2 = await similar2.findIndex(index => index.name === arrMatch[i])
+      let nameIndex3 = await similar3.findIndex(index => index.name === arrMatch[i])
       matchWithStrength.push({
         name: arrMatch[i],
         ratings: [parseFloat(similar1[nameIndex1].match), parseFloat(similar2[nameIndex2].match), parseFloat(similar3[nameIndex3].match)]
       })
     }
-
     for (let i = 0; i < matchWithStrength.length; i++) {
 
       if (arrMatch === match3) {
@@ -117,10 +120,8 @@ const Search = (props) => {
       }
     }
 
-    matchStrengthAvg.sort(function(a, b){return b-a})
-
-    console.log("Arr", matchStrengthAvg)
-    
+    matchStrengthAvg.sort(function(a, b){return b.total-a.total})
+    findTopAlbums()
   }
 
   function handleSlider (event) {
@@ -131,14 +132,11 @@ const Search = (props) => {
     getSimilarArtists(artists.artist3, setSimilar3);
 
     setObscurity("Changed!")
-
   };
 
   function handleFormSubmit (event) {
     event.preventDefault()
-
     similar1.map(band => {match1.push(band.name)}) 
-
     similar2.map(band => {      
       if (match1.indexOf(band.name) != -1) {
         match2.push(band.name)
@@ -146,7 +144,6 @@ const Search = (props) => {
         match1.push(band.name)
       }
     });
-
     similar3.map(band => {
       if (match2.indexOf(band.name) != -1) {
         match3.push(band.name)
@@ -156,12 +153,8 @@ const Search = (props) => {
         match1.push(band.name)
       }
     })
-
     addBandObj(match3);
-
   }
-
-  
 
     return (
       <Container fluid>
