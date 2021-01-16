@@ -73,7 +73,8 @@ const Search = (props) => {
   const match1 = [];
   const match2 = [];
   const match3 = []
-
+  const matchWithStrength = []
+  const matchStrengthAvg = []
 
 
   function getSimilarArtists (artistState, similarState) {
@@ -81,6 +82,45 @@ const Search = (props) => {
     .then(res => {
       similarState(res.data.similarartists.artist)
     })
+  }
+
+
+  function addBandObj (arrMatch) {
+    console.log("similar", [similar3.name].indexOf("Audioslave"))
+    for (let i = 0; i < arrMatch.length; i++) {
+      let nameIndex1 = similar1.findIndex(index => index.name === arrMatch[i])
+      let nameIndex2 = similar2.findIndex(index => index.name === arrMatch[i])
+      let nameIndex3 = similar3.findIndex(index => index.name === arrMatch[i])
+      matchWithStrength.push({
+        name: arrMatch[i],
+        ratings: [parseFloat(similar1[nameIndex1].match), parseFloat(similar2[nameIndex2].match), parseFloat(similar3[nameIndex3].match)]
+      })
+    }
+
+    for (let i = 0; i < matchWithStrength.length; i++) {
+
+      if (arrMatch === match3) {
+        matchStrengthAvg.push({
+          name: matchWithStrength[i].name,
+          total: matchWithStrength[i].ratings[0] + matchWithStrength[i].ratings[1] + matchWithStrength[i].ratings[2]
+        })
+      } else if (arrMatch === match2) {
+          matchStrengthAvg.push({
+          name: matchWithStrength[i].name,
+          total: matchWithStrength[i].ratings[0] + matchWithStrength[i].ratings[1]
+        })
+      } else {
+          matchStrengthAvg.push({
+          name: matchWithStrength[i].name,
+          total: matchWithStrength[i].ratings[0]
+        })
+      }
+    }
+
+    matchStrengthAvg.sort(function(a, b){return b-a})
+
+    console.log("Arr", matchStrengthAvg)
+    
   }
 
   function handleSlider (event) {
@@ -96,7 +136,7 @@ const Search = (props) => {
 
   function handleFormSubmit (event) {
     event.preventDefault()
-    
+
     similar1.map(band => {match1.push(band.name)}) 
 
     similar2.map(band => {      
@@ -116,6 +156,9 @@ const Search = (props) => {
         match1.push(band.name)
       }
     })
+
+    addBandObj(match3);
+
   }
 
   
