@@ -6,6 +6,7 @@ import { Col, Row, Container } from "../../components/Grid";
 import { List, ListItem } from "../../components/List";
 import { Card } from "../../components/Card";
 import { Input, TextArea, FormBtn } from "../../components/Form";
+import AlbumList from "../../components/AlbumList"
 import DeleteBtn from "../../components/DeleteBtn";
 import API from "../../utils/API";
 import LASTFM from "../../utils/LASTFM";
@@ -21,11 +22,14 @@ const Search = (props) => {
     artist2: "",
     artist3: ""
   })
-  const [obscurity, setObscurity] = useState("original")
 
-  const [similar1, setSimilar1] = useState([]);
-  const [similar2, setSimilar2] = useState([]);
-  const [similar3, setSimilar3] = useState([])
+  // const [obscurity, setObscurity] = useState("original")
+
+  // const [similar1, setSimilar1] = useState([]);
+  // const [similar2, setSimilar2] = useState([]);
+  // const [similar3, setSimilar3] = useState([])
+
+  const [displayAlbums, setDisplayAlbums] = useState([])
 
   const formEl = useRef(null);
 
@@ -51,6 +55,7 @@ const Search = (props) => {
     setArtists({...artists, [name]: value})
   }
 
+  const similarArr = []
   const match1 = [];
   const match2 = [];
   const match3 = []
@@ -60,11 +65,9 @@ const Search = (props) => {
   const albumDisplayInfo = []
 
 
-  function getSimilarArtists (artistState, similarState) {
-    LASTFM.getSimilar(artistState)
-    .then(res => {
-      similarState(res.data.similarartists.artist)
-    })
+  async function getSimilarArtists (artistState) {
+    const res = await LASTFM.getSimilar(artistState) 
+    similarArr.push(res.data.similarartists.artist)
   }
 
   async function getAlbumInfo () {
@@ -73,8 +76,8 @@ const Search = (props) => {
       let res = await LASTFM.getAlbumInfo(albumsToShow[i].artist, albumsToShow[i].album)
       albumDisplayInfo.push(res.data.album)
     }
-
-    console.log("infor:" , albumDisplayInfo)
+    await setDisplayAlbums(albumDisplayInfo)
+    console.log("display state", displayAlbums)
   }
 
 
@@ -92,12 +95,12 @@ const Search = (props) => {
 
   async function addBandObj (arrMatch) {
     for (let i = 0; i < arrMatch.length; i++) {
-      let nameIndex1 = await similar1.findIndex(index => index.name === arrMatch[i])
-      let nameIndex2 = await similar2.findIndex(index => index.name === arrMatch[i])
-      let nameIndex3 = await similar3.findIndex(index => index.name === arrMatch[i])
+      let nameIndex1 = await similarArr[0].findIndex(index => index.name === arrMatch[i])
+      let nameIndex2 = await similarArr[1].findIndex(index => index.name === arrMatch[i])
+      let nameIndex3 = await similarArr[2].findIndex(index => index.name === arrMatch[i])
       matchWithStrength.push({
         name: arrMatch[i],
-        ratings: [parseFloat(similar1[nameIndex1].match), parseFloat(similar2[nameIndex2].match), parseFloat(similar3[nameIndex3].match)]
+        ratings: [parseFloat(similarArr[0][nameIndex1].match), parseFloat(similarArr[1][nameIndex2].match), parseFloat(similarArr[2][nameIndex3].match)]
       })
     }
     for (let i = 0; i < matchWithStrength.length; i++) {
@@ -121,30 +124,37 @@ const Search = (props) => {
     }
 
     matchStrengthAvg.sort(function(a, b){return b.total-a.total})
+    console.log("matchstrengthavg is giving us trouble: ", matchStrengthAvg)
     findTopAlbums()
   }
 
-  function handleSlider (event) {
+  async function handleSlider (event) {
     event.preventDefault();
 
-    getSimilarArtists(artists.artist1, setSimilar1);
-    getSimilarArtists(artists.artist2, setSimilar2);
-    getSimilarArtists(artists.artist3, setSimilar3);
+    await getSimilarArtists(artists.artist1);
+    await getSimilarArtists(artists.artist2);
+    await getSimilarArtists(artists.artist3);
 
-    setObscurity("Changed!")
+    // setObscurity("Changed!")
   };
 
-  function handleFormSubmit (event) {
+  async function handleFormSubmit (event) {
     event.preventDefault()
-    similar1.map(band => {match1.push(band.name)}) 
-    similar2.map(band => {      
+    console.log("we clicked it")
+    await getSimilarArtists(artists.artist1);
+    await getSimilarArtists(artists.artist2);
+    await getSimilarArtists(artists.artist3);
+
+    
+    similarArr[0].map(band => {match1.push(band.name)})
+    similarArr[1].map(band => {      
       if (match1.indexOf(band.name) != -1) {
         match2.push(band.name)
       } else {
         match1.push(band.name)
       }
     });
-    similar3.map(band => {
+    similarArr[2].map(band => {
       if (match2.indexOf(band.name) != -1) {
         match3.push(band.name)
       } else if (match1.indexOf(band.name) != -1) {
@@ -154,6 +164,7 @@ const Search = (props) => {
       }
     })
     addBandObj(match3);
+    console.log("match arrays: ", match1, match2, match3)
   }
 
     return (
@@ -205,7 +216,18 @@ const Search = (props) => {
         <Row>
             <Col size="md-6">
                 <Card>
-                  <p>Here is where the list of albums will render as results, 4x2.</p>
+                  <Row>
+                    {displayAlbums.map(album => (
+                      <AlbumList
+                        album={album.name}
+                        artist={album.artist}
+                        image={album.image}
+                        url={album.url}
+                        wiki={album.wiki}
+                        tags={album.tags}
+                      />  
+                    ))}
+                  </Row>
                 </Card>
             </Col>
             <Col size="md-6">
