@@ -7,9 +7,11 @@ import { List, ListItem } from "../../components/List";
 import { Card } from "../../components/Card";
 import { Input, TextArea, FormBtn } from "../../components/Form";
 import AlbumList from "../../components/AlbumList"
+import AlbumDetail from "../../components/AlbumDetail"
 import DeleteBtn from "../../components/DeleteBtn";
 import API from "../../utils/API";
 import LASTFM from "../../utils/LASTFM";
+import PlaceholderObj from "../../utils/placeholder.json"
 import { use } from "passport";
 // import { update } from "../../../../server/models/user";
 import { STATES } from "mongoose";
@@ -23,13 +25,12 @@ const Search = (props) => {
     artist3: ""
   })
 
-  // const [obscurity, setObscurity] = useState("original")
-
-  // const [similar1, setSimilar1] = useState([]);
-  // const [similar2, setSimilar2] = useState([]);
-  // const [similar3, setSimilar3] = useState([])
-
   const [displayAlbums, setDisplayAlbums] = useState([])
+  const [detailAlbum, setDetailAlbum] = useState({
+    PlaceholderObj
+  })
+
+  console.log("placeholder: ", detailAlbum)
 
   const formEl = useRef(null);
 
@@ -77,6 +78,7 @@ const Search = (props) => {
       albumDisplayInfo.push(res.data.album)
     }
     await setDisplayAlbums(albumDisplayInfo)
+    console.log("display arr: ", albumDisplayInfo)
     console.log("display state", displayAlbums)
   }
 
@@ -167,6 +169,11 @@ const Search = (props) => {
     console.log("match arrays: ", match1, match2, match3)
   }
 
+  function changeDetailAlbum (event) {
+    event.preventDefault()
+    setDetailAlbum(displayAlbums[event.target.id])
+  }
+
     return (
       <Container fluid>
         <Row>
@@ -214,32 +221,44 @@ const Search = (props) => {
             <p>Placeholder for some song lyrics</p>
         </Row>
         <Row>
-            <Col size="md-6">
+            <Col size="md-9">
                 <Card>
                   <Row>
-                    {displayAlbums.map(album => (
+                    {
+                    displayAlbums.map((album, index) => (
                       <AlbumList
+                        id={index}
+                        key={index}
                         album={album.name}
                         artist={album.artist}
                         image={album.image}
                         url={album.url}
-                        wiki={album.wiki}
                         tags={album.tags}
+                        tracks={album.tracks}
+                        mbid={album.mbid}
+                        onClick={changeDetailAlbum}
                       />  
                     ))}
                   </Row>
                 </Card>
             </Col>
-            <Col size="md-6">
+            <Col size="md-3">
+            </Col>
+          </Row>
+          <Row>
+            <Col size="md-3">
+            </Col>
+            <Col size="md-9">
               <Card>
-                <Row>
-                  <Col size="md-6">
-                    <p>This will house the basic album info from the API pull</p>
-                  </Col>
-                  <Col size="md=6">
-                    <p>A spotify player will be embedded here!</p>
-                  </Col>
-                </Row>
+                  {/* <AlbumDetail 
+                    album={detailAlbum.name}
+                    artist={detailAlbum.artist}
+                    image={detailAlbum.image}
+                    url={detailAlbum.url}
+                    tags={detailAlbum.tags}
+                    tracks={detailAlbum.tracks}
+                    mbid={detailAlbum.mbid}
+                  /> */}
               </Card>
             </Col>
         </Row>
