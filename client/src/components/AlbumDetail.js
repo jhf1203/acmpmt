@@ -22,13 +22,14 @@ console.log("deez props: ", props)
                             <h4>{props.artist}</h4>
                         </Col>
                         <Col size="md-3">
-                            {/* <img src={props.image[0]["#text"]} alt={props.album} /> */}
+                            <img src={props.image[2]["#text"]} alt={props.album} height="100%" width="100%" />
                         </Col>
                         <Col size="md-3">
                             <h5>Track List</h5>
                                 {props.tracks.track.map(track => {
                                     return (
                                     <TrackList
+                                        track={track.name}
                                         />
                                     )
                                 })} 

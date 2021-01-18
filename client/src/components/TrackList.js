@@ -6,7 +6,7 @@ const TrackList = (props) => {
 
     return (
         <div>
-            <p>hello</p>
+            <p>{props.track}</p>
         </div>
   );
 };

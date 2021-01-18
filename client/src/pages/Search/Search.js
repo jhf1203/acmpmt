@@ -26,11 +26,11 @@ const Search = (props) => {
   })
 
   const [displayAlbums, setDisplayAlbums] = useState([])
-  const [detailAlbum, setDetailAlbum] = useState({
+  const [detailAlbum, setDetailAlbum] = useState(
     PlaceholderObj
-  })
+  )
 
-  console.log("placeholder: ", detailAlbum)
+  console.log("placeholder: ", detailAlbum.image[2]["#text"])
 
   const formEl = useRef(null);
 
@@ -250,7 +250,7 @@ const Search = (props) => {
             </Col>
             <Col size="md-9">
               <Card>
-                  {/* <AlbumDetail 
+                  <AlbumDetail 
                     album={detailAlbum.name}
                     artist={detailAlbum.artist}
                     image={detailAlbum.image}
@@ -258,7 +258,7 @@ const Search = (props) => {
                     tags={detailAlbum.tags}
                     tracks={detailAlbum.tracks}
                     mbid={detailAlbum.mbid}
-                  /> */}
+                  />
               </Card>
             </Col>
         </Row>
