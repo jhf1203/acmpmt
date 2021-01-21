@@ -36,10 +36,12 @@ const Profile = (props) => {
     loadProfile();
   }, []);
 
-  
-  let test = Randomizer.randomVal(Quotes)
-console.log("test: ", Pics[test])
-let picToShow = Pics[test]
+let quoteArr = []
+
+quoteArr.push(Randomizer.randomVal(Quotes))
+
+console.log(quoteArr)
+
   // Loads all profile and sets them to profile
   // function loadProfile() {
   //   AUTH.getUser()
@@ -63,6 +65,8 @@ let picToShow = Pics[test]
   console.log("and profile: ", profile)
 
  
+
+
   
 
   // Deletes a book from the database with a given id, then reloads profile from the db
@@ -131,10 +135,13 @@ let picToShow = Pics[test]
           </Col>
         </Row>
         <Row className="justify-content-center">
-
+          <Col size="md-2"></Col>
           {/* Function is below, but will be slightly more complicated since the quote, artist, and year have to match. 
           Maybe I envoke the function on load in a loop as many times as needed, form an array of objects and populate that way?*/}
-          <p>{Randomizer.randomVal(Quotes)[0]}, {Randomizer.randomVal(Quotes)[1]}</p>
+          <Col size="md-10">
+          <div><p>{quoteArr[0].quote}</p></div>
+          <div><p>- {quoteArr[0].artist}</p></div>
+          </Col>
         </Row>
         <Row>
           <Col size="md-6">
