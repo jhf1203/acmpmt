@@ -131,7 +131,10 @@ let picToShow = Pics[test]
           </Col>
         </Row>
         <Row className="justify-content-center">
-          <p>A quote will go here</p>
+
+          {/* Function is below, but will be slightly more complicated since the quote, artist, and year have to match. 
+          Maybe I envoke the function on load in a loop as many times as needed, form an array of objects and populate that way?*/}
+          <p>{Randomizer.randomVal(Quotes)[0]}, {Randomizer.randomVal(Quotes)[1]}</p>
         </Row>
         <Row>
           <Col size="md-6">

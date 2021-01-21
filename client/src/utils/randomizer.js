@@ -4,7 +4,7 @@
 export default {
 
     randomVal: function (file) {
-        let randomQuote = Math.floor(Math.random() * file.length)
-        return randomQuote
+        let randomInd = Math.floor(Math.random() * file.length)
+        return [file[randomInd].quote, file[randomInd].artist]
     }
 }
