@@ -10,6 +10,7 @@ import AlbumList from "../../components/AlbumList"
 import AlbumDetail from "../../components/AlbumDetail"
 import DeleteBtn from "../../components/DeleteBtn";
 import API from "../../utils/API";
+import AUTH from "../../utils/AUTH"
 import LASTFM from "../../utils/LASTFM";
 import PlaceholderObj from "../../utils/placeholder.json"
 import { use } from "passport";
@@ -24,6 +25,7 @@ const Search = (props) => {
     artist2: "",
     artist3: ""
   })
+  const [loggedIn, setLoggedIn] = useState() 
 
   const [displayAlbums, setDisplayAlbums] = useState([])
   const [detailAlbum, setDetailAlbum] = useState(
@@ -34,6 +36,7 @@ const Search = (props) => {
 
   const formEl = useRef(null);
 
+
   // Load all profile and store them with setProfile
   useEffect(() => {
     loadProfile();
@@ -41,10 +44,12 @@ const Search = (props) => {
 
   // Loads all profile and sets them to profile
   function loadProfile() {
-    API.getProfile()
+    AUTH.getUser()
+    // API.getProfile()
       .then(res => {
         // console.log(res.data.profile);
         setProfile(res.data.profile);
+        setLoggedIn(res.data.user._id)
       })
       .catch(err => console.log(err));
   };
@@ -258,6 +263,7 @@ const Search = (props) => {
                     tags={detailAlbum.tags}
                     tracks={detailAlbum.tracks}
                     mbid={detailAlbum.mbid}
+                    user={loggedIn}
                   />
               </Card>
             </Col>

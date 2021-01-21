@@ -16,5 +16,19 @@ export default {
   // Saves a book to the database
   saveBook: function(bookData) {
     return axios.post("/api/profile", bookData);
+  },
+  addToQueue: function(id, album) {
+    return axios({
+      method: "patch",
+      url: "/api/profile/" + id,
+      data: album
+    });
+  },
+  addToRecs: function(id, album) {
+    return axios({
+      method: "put",
+      url: "/api/profile/" + id,
+      data: album
+    });
   }
 };

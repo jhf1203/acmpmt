@@ -1,4 +1,5 @@
 const ObjectId = require("mongoose").Types.ObjectId;
+const { User } = require("../models");
 const db = require("../models");
 
 // Defining methods for the profileController
@@ -61,5 +62,52 @@ module.exports = {
           .then(dbBook => res.json(dbBook))
           .catch(err => res.status(422).json(err));
       });
+  },
+
+  updateQueue: async function(req, res) {
+    const currentUser = await db.User.findById({ _id: req.params.id })
+    const updateReq = await db.User.findByIdAndUpdate({ _id: req.params.id }, {
+      $set: {
+        queue: [
+          {
+            album:  req.body.album,
+            artist: req.body.artist,
+            image: req.body.image,
+            mbid: req.body.mbid,
+            tags: req.body.tags,
+            tracks: req.body.tracks,
+            url: req.body.url
+          },
+          ...currentUser.queue
+        ]
+      }
+    })
+    .then(dbUser => res.json(dbUser))
+    .then(dbUser => console.log("user!: ", dbUser))
+    .catch(err => res.status(422).json(err))
+    
+  },
+  updateRecs: async function(req, res) {
+    const currentUser = await db.User.findById({ _id: req.params.id })
+    const updateReq = await db.User.findByIdAndUpdate({ _id: req.params.id }, {
+      $set: {
+        recommended: [
+          {
+            album:  req.body.album,
+            artist: req.body.artist,
+            image: req.body.image,
+            mbid: req.body.mbid,
+            tags: req.body.tags,
+            tracks: req.body.tracks,
+            url: req.body.url
+          },
+          ...currentUser.queue
+        ]
+      }
+    })
+    .then(dbUser => res.json(dbUser))
+    .then(dbUser => console.log("user!: ", dbUser))
+    .catch(err => res.status(422).json(err))
+    
   }
 };

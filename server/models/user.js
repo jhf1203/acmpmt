@@ -40,16 +40,26 @@ const userSchema = new Schema({
 	  },
 
   	queue: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Album"
-    }
-  ],
+		{
+			album: {type: String},
+			artist: {type: String},
+			image: {type: String},
+			url: {type: String},
+			tags: [],
+			tracks: [],
+			mbid: {type: String},
+		}
+	  ],
 
   recommended: [
     {
-      type: Schema.Types.ObjectId,
-      ref: "Album"
+		album: {type: String},
+		artist: {type: String},
+		image: {type: String},
+		url: {type: String},
+		tags: [],
+		tracks: [],
+		mbid: {type: String},
     }
   ],
 

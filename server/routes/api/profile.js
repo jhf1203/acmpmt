@@ -10,7 +10,10 @@ router.route("/")
 router
   .route("/:id")
   .get(profileController.findById)
-  .put(profileController.update)
-  .delete(profileController.remove);
+  // .put(profileController.update)
+  .put(profileController.updateRecs)
+  .delete(profileController.remove)
+  .patch(profileController.updateQueue)
+
 
 module.exports = router;
