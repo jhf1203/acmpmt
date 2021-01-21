@@ -2,11 +2,11 @@ import axios from "axios";
 
 export default {
   // Gets all profile
-  getProfile: function() {
-    return axios.get("/api/profile");
-  },
+  // getProfile: function() {
+  //   return axios.get("/api/profile");
+  // },
   // Gets the book with the given id
-  getBook: function(id) {
+  getProfile: function(id) {
     return axios.get("/api/profile/" + id);
   },
   // Deletes the book with the given id

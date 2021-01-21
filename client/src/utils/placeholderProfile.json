@@ -1,0 +1,43 @@
+{
+
+    "firstName": "",
+
+    "lastName": "",
+
+    "username": "",
+
+    "password": "",
+
+    "image": "",
+
+    "joinDate": "",
+
+    "queue": [
+    {
+        "album": "",
+        "artist": "",
+        "image": "",
+        "url": "",
+        "tags": "",
+        "tracks": "",
+        "mbid": ""
+    }
+    ],
+
+    "recommended": [
+    {
+        "album": "",
+        "artist": "",
+        "image": "",
+        "url": "",
+        "tags": "",
+        "tracks": "",
+        "mbid": ""
+    }
+    ],
+
+    "followers": [],
+
+    "following": []
+
+}

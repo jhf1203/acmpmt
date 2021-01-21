@@ -22,11 +22,12 @@ module.exports = {
     console.log("user findbyid")
     if (req.user) {
       db.User
-        .find({ _id: req.user._id })
-        .populate("profile")
-        .then(users => {
-          const book = users[0].profile.filter(b => b._id.toString() === req.params.id);
-          res.json({ book: book[0] });
+        .findOne({ _id: req.user._id })
+        // .populate("profile")
+        .then(user => {
+          console.log("user: ", user) 
+          // book = users[0].profile.filter(b => b._id.toString() === req.params.id);
+          res.json({ user });
         })
         .catch(err => res.status(422).json(err));
     } else {

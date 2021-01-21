@@ -26,7 +26,6 @@ const Search = (props) => {
     artist3: ""
   })
   const [loggedIn, setLoggedIn] = useState() 
-
   const [displayAlbums, setDisplayAlbums] = useState([])
   const [detailAlbum, setDetailAlbum] = useState(
     PlaceholderObj
