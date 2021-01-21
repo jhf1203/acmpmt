@@ -11,8 +11,15 @@ import AUTH from "../../utils/AUTH"
 import Accordion from "../../components/AccordionComp"
 import UserList from "../../components/UserList";
 import PlaceholderObj from "../../utils/placeholderProfile.json"
+import Randomizer from "../../utils/randomizer"
+import Quotes from "../../utils/quotes.json"
+import Pics from "../../utils/pics.json"
+import thisPic from "../../assets/content-imgs/alanis.jpg"
 
 const Profile = (props) => {
+
+
+
 
   // Setting our component's initial state
   const [user, setUser] = useState({});
@@ -30,6 +37,9 @@ const Profile = (props) => {
   }, []);
 
   
+  let test = Randomizer.randomVal(Quotes)
+console.log("test: ", Pics[test])
+let picToShow = Pics[test]
   // Loads all profile and sets them to profile
   // function loadProfile() {
   //   AUTH.getUser()
@@ -52,6 +62,7 @@ const Profile = (props) => {
   console.log("user: ", user)
   console.log("and profile: ", profile)
 
+ 
   
 
   // Deletes a book from the database with a given id, then reloads profile from the db
@@ -95,7 +106,7 @@ const Profile = (props) => {
                 <p className="profile-username-text">{profile.username}</p>
               </Row>
               <Row>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/SNice.svg/1200px-SNice.svg.png" width="200" height="200"></img>
+                <img src={thisPic} width="100%" height="100%" />
               </Row>
               <Row>
                 <p className="profile-realname-text">{profile.firstName} {profile.lastName}</p>
