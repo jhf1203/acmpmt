@@ -15,6 +15,8 @@ import Randomizer from "../../utils/randomizer"
 import Quotes from "../../utils/quotes.json"
 import Pics from "../../utils/pics.json"
 import thisPic from "../../assets/content-imgs/alanis.jpg"
+import RandomQuote from "../../components/RandomQuote"
+
 
 const Profile = (props) => {
 
@@ -139,8 +141,11 @@ console.log(quoteArr)
           {/* Function is below, but will be slightly more complicated since the quote, artist, and year have to match. 
           Maybe I envoke the function on load in a loop as many times as needed, form an array of objects and populate that way?*/}
           <Col size="md-10">
-          <div><p>{quoteArr[0].quote}</p></div>
-          <div><p>- {quoteArr[0].artist}</p></div>
+            <RandomQuote 
+              artist={quoteArr[0].artist}
+              quote={quoteArr[0].quote}
+              year={quoteArr[0].year}
+                />
           </Col>
         </Row>
         <Row>

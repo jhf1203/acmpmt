@@ -1,8 +1,174 @@
 body {
   margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+  padding-left: 5%;
+  padding-right: 5%;
+  font-family: "Raleway";
+  background-color:#ececec
 }
+
+h1 {
+  font-family: "Raleway";
+  font-weight:900;
+  font-size: 80px;
+  padding-left: 15%;
+}
+
+/* ========    COMPONENTS    ======== */
+
+/* RandomQuote */
+
+.quote-body {
+  font-family: "IM Fell Great Primer";
+  font-size:18px;
+  margin-bottom:1%;
+  font-style: italic
+}
+
+.quote-attr {
+  font-family: "IM Fell Great Primer";
+  font-size:12px;
+  margin-top:1%;
+}
+
+/* ========    PAGES    ======== */
+
+/* Login Page */
+
+.auth-wrapper {
+  padding-top:1%!important;
+}
+
+.title-row {
+  border-bottom: 3px solid #F8E9A1;
+  margin-right:-14%;
+  margin-left:-14%;
+  padding-bottom:2%;
+  margin-top:0%
+}
+
+.pronunciation-text {
+  font-family: "IM Fell Great Primer";
+  font-size: 18px;
+  padding-left: 13%;
+  margin-top:3%;
+  text-align: left;
+  margin-bottom: 1%
+}
+.definition-text {
+  font-family: "IM Fell Great Primer";
+  font-size: 14px;
+  font-weight:600;
+  padding-right: 25%;
+  text-align: right;
+}
+
+.border-row {
+  height:3px;
+  margin-right: -14%;
+  margin-left:-14%;
+}
+
+.border-2 {
+  background-color: #F76C6C
+}
+
+.border-3 {
+  background-color: #A8D0E6
+}
+
+.border-4 {
+  background-color: #374785
+}
+
+.border-5 {
+  background-color: #24305E;
+  margin-bottom: 5%
+}
+
+.login-card {
+  background-color: #ececec;
+  border:none
+}
+
+.input-row-name{
+  margin-top:5%
+}
+
+.input-row-password {
+  margin-bottom:6%
+}
+
+.login-input {
+  background-color: #ececec;
+  width: 90%;
+  margin: 5%;
+  border-bottom: 1px solid #24305E!important;
+  border:none;
+  font-size: 50px;
+  font-weight: 800;
+  margin-top:2%;
+  margin-bottom:2%;
+}
+
+.login-input:focus {
+  border:none!important
+}
+
+.img-card-login {
+  background-image:url("./assets/content-imgs/gybe.jpg");
+  background-size:100%;
+  margin-bottom:3%
+}
+
+.img-card-content {
+  opacity: 0%;
+  background-color:#ececec;
+  margin:0%;
+}
+
+.img-card-content:hover {
+  opacity: 95%;
+  transition: opacity 1s ease;
+}
+
+.login-btn {
+  color: #F76C6C;
+  font-weight:600
+}
+
+.signup-btn {
+  color: #24305E;
+  font-weight:600
+}
+
+.desc-header {
+  font-weight:800;
+  font-size:30px;
+  color: #F76C6C;
+  margin-bottom:10%;
+}
+
+.desc-body {
+  font-size:20px;
+  margin-top:0%;
+  margin-bottom:0%
+  
+}
+
+.simple1{
+  font-size: 20px;
+  font-weight: 600;
+  color: #374785;
+  margin-bottom: 0;
+  margin-top:10%
+}
+
+.simple2 {
+  font-size:30px;
+  font-weight:800;
+  color: #F76C6C
+}
+
 
 
 

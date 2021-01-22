@@ -6,7 +6,7 @@ const TrackList = (props) => {
 
     return (
         <div>
-            <p>{props.track}</p>
+            <a href={props.url} target="_blank">{props.track}</a>
         </div>
   );
 };

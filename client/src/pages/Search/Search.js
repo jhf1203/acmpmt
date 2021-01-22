@@ -16,6 +16,9 @@ import PlaceholderObj from "../../utils/placeholder.json"
 import { use } from "passport";
 // import { update } from "../../../../server/models/user";
 import { STATES } from "mongoose";
+import Randomizer from "../../utils/randomizer"
+import Quotes from "../../utils/quotes.json"
+import RandomQuote from "../../components/RandomQuote"
 
 const Search = (props) => {
   // Setting our component's initial state
@@ -52,6 +55,10 @@ const Search = (props) => {
       })
       .catch(err => console.log(err));
   };
+
+  let quoteArr = []
+
+  quoteArr.push(Randomizer.randomVal(Quotes))
 
   function handleArtistEntry (event) {
     const target = event.target;
@@ -222,7 +229,13 @@ const Search = (props) => {
           </Col>
         </Row>
         <Row>
-            <p>Placeholder for some song lyrics</p>
+            <Col size="md-12">
+            <RandomQuote 
+              artist={quoteArr[0].artist}
+              quote={quoteArr[0].quote}
+              year={quoteArr[0].year}
+                />
+            </Col>
         </Row>
         <Row>
             <Col size="md-9">

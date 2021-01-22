@@ -44,13 +44,17 @@ function addToRecs () {
     .catch(err => console.log(err))
 }
 
+function moreInfo () {
+    window.open(props.url, "_blank")
+}
+
     return (
         <div>
             <Card className= "album-detail-card" id={props.mbid}>
                 <Card.Body>
                     <Row>
                         <Col size="md-3">
-                            <h3>{props.album}</h3>
+                            <h3><a href={props.url} target="blank">{props.album}</a></h3>
                             <h4>{props.artist}</h4>
                         </Col>
                         <Col size="md-3">
@@ -62,6 +66,7 @@ function addToRecs () {
                                     return (
                                     <TrackList
                                         track={track.name}
+                                        url={track.url}
                                         />
                                     )
                                 })} 
@@ -69,7 +74,7 @@ function addToRecs () {
                         <Col size="md-3">
                             <button className="btn btn-link" onClick={addToQueue}>Add To Queue</button>
                             <button className="btn btn-link" onClick={addToRecs}>Add To Favorites</button>
-                            <button className="btn btn-link">Explore More Details</button>
+                            <button className="btn btn-link" onClick={moreInfo}>More Info</button>
                         </Col>
                     </Row>
                 </Card.Body>
