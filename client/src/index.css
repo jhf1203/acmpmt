@@ -42,14 +42,14 @@ h1 {
   border-bottom: 3px solid #F8E9A1;
   margin-right:-14%;
   margin-left:-14%;
-  padding-bottom:2%;
+  padding-bottom:1%;
   margin-top:0%
 }
 
 .pronunciation-text {
   font-family: "IM Fell Great Primer";
   font-size: 18px;
-  padding-left: 13%;
+  padding-left: 3%;
   margin-top:3%;
   text-align: left;
   margin-bottom: 1%
@@ -58,7 +58,7 @@ h1 {
   font-family: "IM Fell Great Primer";
   font-size: 14px;
   font-weight:600;
-  padding-right: 25%;
+  padding-right: 35%;
   text-align: right;
 }
 
@@ -82,7 +82,7 @@ h1 {
 
 .border-5 {
   background-color: #24305E;
-  margin-bottom: 5%
+  margin-bottom: 3%
 }
 
 .login-card {
@@ -169,8 +169,90 @@ h1 {
   color: #F76C6C
 }
 
+/* Register Component */
 
+.outer-col {
+  border:  1px solid black;
+  border-radius: 10px;
+  background-image:url("./assets/content-imgs/badu.jpg");
+  min-height: 600px;
+  box-shadow:
+    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 4.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12)
+}
 
+.inner-row {
+  height:80%;
+}
+.inner-col {
+  height:100%;
+  margin-left:7%;
+  opacity:0.8
+}
+
+.inner-col:hover{
+  opacity:1;
+  transition: opacity 1s ease-in-out;
+}
+
+.signup-title-text {
+  color:#ececec;
+  font-weight:800;
+  font-size:80px;
+  font-family: "Raleway";
+  width:100%;
+  margin-top:10%;
+  box-shadow:
+    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 4.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12)
+
+}
+
+.register-card {
+  height: 80%;
+  margin-top:10%;
+  margin-bottom:10%;
+  background-color:#ececec;
+  border: 1px solid black;
+  border-radius:10px;
+  box-shadow:
+    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 4.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12)
+}
+
+.register-card:hover{
+  opacity: 1;
+  transition: opacity 1s ease;
+
+}
+
+.signup-input {
+  background-color: #ececec;
+  width: 90%;
+  margin: 5%;
+  border-bottom: 1px solid #24305E!important;
+  border:none;
+  font-size: 25px;
+  font-weight: 800;
+  margin-top:2%;
+  margin-bottom:2%;
+}
+
+.signup-input:active{
+  border:none!important
+}
 
 
 /* Album List Component */
