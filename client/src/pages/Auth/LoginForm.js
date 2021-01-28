@@ -100,7 +100,7 @@ function LoginForm({login}) {
             </div>
             </div>
           </div>
-        <Row>
+        <div className="row quote-row">
           <Col size="md-4"></Col>
             <Col size="md-8">
               <RandomQuote 
@@ -109,7 +109,7 @@ function LoginForm({login}) {
                 year={quoteArr[0].year}
                   />
             </Col>
-        </Row>
+        </div>
       </Container>
     )
   }

@@ -117,7 +117,7 @@ h1 {
 .img-card-login {
   background-image:url("./assets/content-imgs/gybe.jpg");
   background-size:100%;
-  margin-bottom:3%
+  margin-bottom:1%
 }
 
 .img-card-content {
@@ -167,6 +167,10 @@ h1 {
   font-size:30px;
   font-weight:800;
   color: #F76C6C
+}
+
+.quote-row {
+  margin-top:0%;
 }
 
 /* Register Component */

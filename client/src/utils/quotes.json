@@ -100,6 +100,55 @@
         "title": "I Will Be There When You Die",
         "quote": "There will be bigotry and there will be open minds. There will be days of peace you'll never have the time.  As long as you keep a straight face, I will be there when you die",
         "year": "2002"
+    },
+    {
+        "artist":  "Of Montreal",
+        "title": "The Party's Crashing Us",
+        "quote": "And all those oguly days that made us so sick, they are just fossils now",
+        "year": "2005"
+    },
+    {
+        "artist":  "Neutral Milk Hotel",
+        "title": "In the Aeroplane Over the Sea",
+        "quote": "And one day we will die and our ashes will fly in the aeroplane over the sea.  But for now we are young, let us lay in the sun and count every beautiful thing we can see.",
+        "year": "1998"
+    },
+    {
+        "artist":  "The Arcade Fire",
+        "title": "Sprawl II",
+        "quote": "They heard me singing and they told me to stop, quit these pretentious things and just punch the clock.",
+        "year": "2010"
+    },
+    {
+        "artist":  "Drive-By Truckers",
+        "title": "Sounds Better In the Song",
+        "quote": "And 'Lord Knows I Can't Change,' sounds better in the song than it does with Hell to pay.",
+        "year": "2003"
+    },
+    {
+        "artist":  "Kendrick Lamar",
+        "title": "Poetic Justice",
+        "quote": "If I told you that a flower bloomed in a dark room, would you trust it?",
+        "year": "2012"
+    },
+    {
+        "artist":  "Common",
+        "title": "Be",
+        "quote": "Never looking back or too far in front of me.  The present is a gift, and I just want to be.",
+        "year": "2005"
+    },
+    {
+        "artist":  "Frank Ocean",
+        "title": "Skyline To",
+        "quote": "Summer's not as long as it used to be, every day counts like crazy.",
+        "year": "2016"
+    },
+    {
+        "artist":  "Broken Social Scene",
+        "title": "Anthems For a Seventeen Year Old Girl",
+        "quote": "Used to be one of the rotten ones and I liked you for that.",
+        "year": "2002"
     }
+
     
 ]
