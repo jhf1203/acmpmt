@@ -13,21 +13,43 @@ h1 {
   padding-left: 15%;
 }
 
+h3 {
+  width:100%;
+  font-weight:700;
+  font-family:"Raleway";
+  padding-left:4%;
+  padding-bottom:4%;
+  font-size:25px;
+  border-bottom:solid 2px #374785;
+  margin-bottom:0
+}
+
 /* ========    COMPONENTS    ======== */
 
 /* RandomQuote */
+
+.quote-div{
+  color:#ececec
+}
+
+.quote-div:hover{
+  color:black;
+  transition: color 1s ease-in-out
+}
 
 .quote-body {
   font-family: "IM Fell Great Primer";
   font-size:18px;
   margin-bottom:1%;
-  font-style: italic
+  font-style: italic;
+  color:inherit;
 }
 
 .quote-attr {
   font-family: "IM Fell Great Primer";
   font-size:12px;
   margin-top:1%;
+  color:inherit;
 }
 
 /* ========    PAGES    ======== */
@@ -257,6 +279,97 @@ h1 {
 .signup-input:active{
   border:none!important
 }
+
+/* Profile Page */
+
+.profile-row-top {
+  border:  2px solid #F8E9A1;
+  outline: 2px solid #374785;
+  margin-top:5%;
+  margin-bottom:1%;
+  background-image:url("./assets/content-imgs/blackflag.jpg");
+  background-size: cover;
+}
+
+.profile-col {
+  height:inherit
+}
+
+.profile-card-top{
+  background-color:#ececec;
+  opacity:.8;
+  border: 2px solid #F8E9A1
+}
+
+.profile-card-top:hover,
+.profile-card-bottom:hover{
+  opacity:1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.profile-card-body-top,
+.profile-card-body-bottom{
+  border: 2px solid #374785;
+}
+
+.profile-username-text{
+  font-family: "Raleway";
+  font-weight: 800;
+  font-size: 30px;
+  padding-left:5%;
+};
+
+.profile-img{
+  padding-left:4%;
+  border: 1px solid transparent;
+  border-radius:10px
+}
+
+.profile-realname-text{
+  padding-left:4%;
+  padding-top:5%;
+  font-size:20px;
+  font-weight:600
+}
+
+.profile-membersince-text{
+  padding-left:4%;
+}
+
+.follow-btn{
+  color:#F76C6C;
+  padding-left:4%;
+  padding-top:0%;
+  font-size:16px
+}
+
+.profile-quote-row{
+  padding-top:1%;
+  padding-bottom:1%;
+}
+
+.profile-row-bottom{
+  border:  2px solid #F8E9A1;
+  outline: 2px solid #374785;
+  margin-top:0%;
+  background-image:url("./assets/content-imgs/alanis.jpg");
+  background-size: cover;
+  min-height: 543px;
+}
+
+.profile-card-bottom{
+  height: 440px;
+  background-color:#ececec;
+  opacity:.8;
+  border: 2px solid #F8E9A1
+}
+
+.list-row{
+  border-top:2px solid #F76C6C
+}
+
+
+
 
 
 /* Album List Component */
