@@ -25,19 +25,19 @@ const Nav = (props) => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-success">
       <Col size="md-6 sm-6">
-        <Link to="/" className="navbar-brand">ACMPMT</Link>
+        <Link to="/" className="navbar-brand"><span id="a">a</span>c<span id="c">c</span>om<span id="p">p</span>animen<span id="t">t</span></Link>
       </Col>
       <Col size="md-6 sm-6">
         <ul className="navbar-nav float-right">
         {greeting} - 
           <li className="nav-item">
-            <Link to="#" className="logout" onClick={props.logout}>Logout</Link>
+            <Link to="#" className="logout link-logout" onClick={props.logout}>Logout</Link>
           </li>
           <li className="nav-item">
-            <Link to="/Search" className="logout">Discover</Link>
+            <Link to="/Search" className="logout link-discover">Discover</Link>
           </li>
           <li className="nav-item">
-            <Link to="/Profile" className="logout">Profile</Link>
+            <Link to="/Profile" className="logout link-profile">Profile</Link>
           </li>
         </ul>
         

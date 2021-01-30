@@ -195,7 +195,7 @@ h3 {
   margin-top:0%;
 }
 
-/* Register Component */
+/* Register Page */
 
 .outer-col {
   border:  1px solid black;
@@ -217,7 +217,7 @@ h3 {
 .inner-col {
   height:100%;
   margin-left:7%;
-  opacity:0.8
+  opacity:0.9
 }
 
 .inner-col:hover{
@@ -297,8 +297,9 @@ h3 {
 
 .profile-card-top{
   background-color:#ececec;
-  opacity:.8;
-  border: 2px solid #F8E9A1
+  opacity:.9;
+  border: 2px solid #F8E9A1;
+  min-height:438px;
 }
 
 .profile-card-top:hover,
@@ -360,7 +361,7 @@ h3 {
 .profile-card-bottom{
   height: 440px;
   background-color:#ececec;
-  opacity:.8;
+  opacity:.9;
   border: 2px solid #F8E9A1
 }
 
@@ -368,12 +369,75 @@ h3 {
   border-top:2px solid #F76C6C
 }
 
+/* Album List Page */
+
+
+/* ========    COMPONENTS    ======== */
+
+/* Nav */
+
+.navbar {
+  background-color: #2a2a2a!important;
+  border:  2px solid #F8E9A1;
+  outline: 2px solid #374785
+}
+
+.navbar-brand {
+  font-family: "Raleway";
+  text-transform: lowercase;
+  font-size: 40px;
+  font-weight:800;
+  padding: 0% 0% 0% 4%;
+  color: #ececec
+}
+
+.logout {
+  font-family: "Raleway"!important;
+  text-transform: lowercase!important;
+}
+
+.logout:hover{
+  font-weight:900!important;
+  text-decoration:none
+}
+
+.link-logout,
+.link-logout:hover {
+  color:#F76C6C;
+}
+
+.link-discover,
+.link-discover:hover {
+  color:#A8D0E6
+}
+
+.link-profile,
+.link-profile:hover {
+  color:#F8E9A1
+}
+
+#a{
+  color: #F76C6C;
+  font-weight:900
+}
+
+#c{
+  color:#4659a8;
+  font-weight:900
+}
+
+#p{
+  color:#F8E9A1;
+  font-weight:900
+}
+
+#t{
+  color:#A8D0E6;
+  font-weight:900
+}
 
 
 
 
-/* Album List Component */
 
-/* .album-list-col {
-  margin-right: 0
-} */
+
