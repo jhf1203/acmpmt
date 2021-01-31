@@ -50,18 +50,40 @@ function moreInfo () {
 
     return (
         <div>
-            <Card className= "album-detail-card" id={props.mbid}>
-                <Card.Body>
+            <div className= "album-detail-card" id={props.mbid}>
+                <div className="card-body">
                     <Row>
-                        <Col size="md-3">
-                            <h3><a href={props.url} target="blank">{props.album}</a></h3>
-                            <h4>{props.artist}</h4>
+                        <Col size="md-12">
+                            <div className="row detail-title-row">
+                                <h4 className="search-detail-album-text">
+                                    <a className="search-detail-album-text" href={props.url} target="blank">{props.album}</a>
+                                </h4>
+                            </div>
+                            <div className="row">
+                                <h4 className="search-detail-artist-text">
+                                    {props.artist}
+                                </h4>
+                            </div>
                         </Col>
-                        <Col size="md-3">
-                            <img src={props.image[2]["#text"]} alt={props.album}  />
-                        </Col>
-                        <Col size="md-3">
-                            <h5>Track List</h5>
+                    </Row>
+
+                    <div className="row">
+                        <div className="col-md-6">
+                            <img src={props.image[3]["#text"]} alt={props.album} height="100%" width="100%"></img>
+                        </div>
+                        <div className="col-md-3">
+                            <div className="row">
+                               <button className="btn btn-link search-detail-btn-queue" onClick={addToQueue}>add to queue</button>
+                            </div>
+                            <div className="row">
+                                <button className="btn btn-link search-detail-btn-rec" onClick={addToRecs}>add to favorites</button>
+                            </div>
+                            <div className="row">
+                                <button className="btn btn-link search-detail-link-ext" onClick={moreInfo}>more info</button>
+                            </div>
+                        </div>
+                        <div className="col-md-3 overflow-auto col-tracklist">
+                            <h5 className="search-detail-tracklist-header">tracks</h5>
                                 {props.tracks.track.map(track => {
                                     return (
                                     <TrackList
@@ -70,15 +92,12 @@ function moreInfo () {
                                         />
                                     )
                                 })} 
-                        </Col>
-                        <Col size="md-3">
-                            <button className="btn btn-link" onClick={addToQueue}>Add To Queue</button>
-                            <button className="btn btn-link" onClick={addToRecs}>Add To Favorites</button>
-                            <button className="btn btn-link" onClick={moreInfo}>More Info</button>
-                        </Col>
-                    </Row>
-                </Card.Body>
-            </Card>
+                        </div>
+                    </div>
+                        
+                    
+                </div>
+            </div>
         </div>
   );
 };

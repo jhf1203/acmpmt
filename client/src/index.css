@@ -24,34 +24,6 @@ h3 {
   margin-bottom:0
 }
 
-/* ========    COMPONENTS    ======== */
-
-/* RandomQuote */
-
-.quote-div{
-  color:#ececec
-}
-
-.quote-div:hover{
-  color:black;
-  transition: color 1s ease-in-out
-}
-
-.quote-body {
-  font-family: "IM Fell Great Primer";
-  font-size:18px;
-  margin-bottom:1%;
-  font-style: italic;
-  color:inherit;
-}
-
-.quote-attr {
-  font-family: "IM Fell Great Primer";
-  font-size:12px;
-  margin-top:1%;
-  color:inherit;
-}
-
 /* ========    PAGES    ======== */
 
 /* Login Page */
@@ -371,7 +343,93 @@ h3 {
   border-top:2px solid #F76C6C
 }
 
-/* Album List Page */
+/* Search Page */
+
+.search-row-top {
+  border:  2px solid #F8E9A1;
+  outline: 2px solid #374785;
+  margin-top:5%;
+  margin-bottom:1%;
+  background-image:url("./assets/content-imgs/pearljam.jpg");
+  background-size: cover;
+}
+
+.input-row-search {
+  width:100%;
+  font-size:30px;
+  font-family:"Raleway";
+  font-weight:500;
+  border: none;
+  border-bottom: 1px solid black;
+  background-color:#ececec
+}
+
+.input-row-search:focus{
+  outline: none!important;
+  background-color:#ececec!important
+}
+
+.input-row-search:enabled{
+  background-color:#ececec!important;
+}
+
+.search-submit-btn {
+  width:100%;
+  text-align: left;
+  font-size:30px;
+  font-weight:800;
+  padding-left:0;
+}
+
+.search-submit-btn:hover{
+  color:#F76C6C;
+  text-decoration: none;
+  font-weight:900;
+}
+
+.search-card-top{
+  background-color:#ececec;
+  opacity:.9;
+  border: 2px solid #F8E9A1;
+  min-height:338px;
+}
+
+.search-card-top:hover,
+.search-results-card:hover,
+.search-card-bottom:hover{
+  opacity:1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.search-card-body-top,
+.search-results-card-body,
+.search-detail-card-body{
+  border: 2px solid #374785;
+}
+
+.search-row-middle {
+  margin-bottom:3%;
+  border:  2px solid #F8E9A1;
+  outline: 2px solid #374785;
+  background-image:url("./assets/content-imgs/mitski.jpg");
+  background-size: cover;
+}
+
+.search-row-bottom {
+  margin-bottom:3%;
+  border:  2px solid #F8E9A1;
+  outline: 2px solid #374785;
+  background-image:url("./assets/content-imgs/wutang.jpg");
+  background-size: cover;
+}
+
+.search-results-card,
+.search-detail-card{
+  background-color:#ececec;
+  opacity:.9;
+  border: 2px solid #F8E9A1;
+}
+
 
 
 /* ========    COMPONENTS    ======== */
@@ -438,6 +496,32 @@ h3 {
   font-weight:900
 }
 
+/* RandomQuote */
+
+.quote-div{
+  color:#ececec
+}
+
+.quote-div:hover{
+  color:black;
+  transition: color 1s ease-in-out
+}
+
+.quote-body {
+  font-family: "IM Fell Great Primer";
+  font-size:18px;
+  margin-bottom:1%;
+  font-style: italic;
+  color:inherit;
+}
+
+.quote-attr {
+  font-family: "IM Fell Great Primer";
+  font-size:12px;
+  margin-top:1%;
+  color:inherit;
+}
+
 /* Accordion */
 
 .accordion-header-text{
@@ -452,8 +536,94 @@ h3 {
   padding: 1% 1% 1% 1%
 }
 
+/* AlbumDetail */
 
+.col-tracklist {
+  min-height: 335px;
+}
 
+.search-detail-album-text{
+  font-family:"Raleway";
+  font-size: 40px;
+  font-weight:800;
+  color:black;
+  text-transform: lowercase;
+  padding-left:1%;
+  width:100%;
+}
 
+.search-detail-artist-text{
+  font-family:"Raleway";
+  font-size:30px;
+  font-weight:600;
+  color:rgb(90, 90, 90);
+  text-transform: lowercase;
+  padding-left:2.5%;
+  width:100%;
+}
+
+.detail-title-row{
+  margin-top:0%
+}
+
+.search-detail-btn-queue,
+.search-detail-btn-rec,
+.search-detail-link-ext{
+  color:#F76C6C;
+  font-family:"Raleway";
+  font-size: 20px;
+  font-weight:600
+}
+
+.search-detail-btn-queue:hover,
+.search-detail-btn-rec:hover,
+.search-detail-link-ext:hover{
+  font-weight:800;
+  text-decoration:none;
+  transition:font-weight 0.15s ease-in-out
+}
+
+.search-detail-btn-queue:hover{
+  color:#4659a8;
+  transition:color 0.15s ease-in-out
+}
+
+.search-detail-btn-rec:hover{
+  color:#F8E9A1;
+  transition:color 0.15s ease-in-out
+}
+
+.search-detail-link-ext:hover {
+  color: #A8D0E6;
+  transition:color 0.15s ease-in-out
+}
+
+.search-detail-tracklist-header {
+  font-size:25px;
+  font-weight:800;
+  font-family:"Raleway";
+}
+
+/* TrackList */
+
+.track-list-text{
+  font-family:"Raleway";
+  margin-bottom:10%;
+  font-size:15px;
+  color:rgb(90, 90, 90);
+  font-style:italic;
+  text-transform: lowercase;
+}
+
+.track-list-text:hover{
+  text-decoration:none!important;
+  color:black;
+  font-weight:600;
+  transition:font-weight 0.15s ease-in-out
+}
+
+.track-list-div{
+  margin-bottom:3%;
+}
 
 

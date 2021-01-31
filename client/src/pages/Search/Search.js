@@ -187,48 +187,50 @@ const Search = (props) => {
 
     return (
       <Container fluid>
-        <Row>
-          <Col size="md-4">
-              <Card>
+        <div className="row search-row-top">
+          <div className="col-md-4 pl-5 pr-4 pt-5 pb-5">
+              <div className="card search-card-top">
+                <div className="card-body search-card-body-top">
                   <p>This will be a quick description of what this search page does and how to use it.</p>
-              </Card>
-          </Col>
-          <Col size="md-8">
-              <Card>
+                </div>
+              </div>
+          </div>
+          <div className="col-md-8 pr-5 pl-4 pt-5 pb-5">
+              <div className="card search-card-top">
+                <div className="card-body search-card-body-top">
                 {/* Took handleformsubmit out of here...wtf was it doing here?? */}
-                  <p>Show me artists that sound like</p>
-                  <form 
-                  style={{marginTop: 10}}
-                  >
-                <Input
-                  type="text"
-                  name="artist1"
-                  placeholder="Artist"
-                  onChange={handleArtistEntry}
-                />
-                <p>but also a little like</p>
-                <Input
-                  type="text"
-                  name="artist2"
-                  placeholder="Artist"
-                  onChange={handleArtistEntry}
+                    <form 
+                    >
+                  <input
+                    className="input-row-search input-top mb-2 pt-2"
+                    type="text"
+                    name="artist1"
+                    placeholder="i want artists that sound like..."
+                    onChange={handleArtistEntry}
+                  />
+                  <input
+                    className="input-row-search mt-2 mb-2 pt-2"
+                    type="text"
+                    name="artist2"
+                    placeholder="but also a little like..."
+                    onChange={handleArtistEntry}
 
-                />
-                <p>Finally, throw in a little</p>
-                <Input
-                  type="text"
-                  name="artist3"
-                  placeholder="Artist"
-                  onChange={handleArtistEntry}
+                  />
+                  <input
+                    className="input-row-search input-bottom mt-2 mb-4 pt-2"
+                    type="text"
+                    name="artist3"
+                    placeholder="finally, throw in a little..."
+                    onChange={handleArtistEntry}
 
-                />
-                <button onClick={handleSlider}>slider will go here</button>
-                <FormBtn onClick={handleFormSubmit}>Show me!</FormBtn>
-              </form>
-              </Card>
-          </Col>
-        </Row>
-        <Row>
+                  />
+                  <button className="btn btn-link search-submit-btn" onClick={handleFormSubmit}>show me!</button>
+                  </form>
+                </div>
+              </div>
+          </div>
+        </div>
+        <div className="row profile-quote-row">
             <Col size="md-12">
             <RandomQuote 
               artist={quoteArr[0].artist}
@@ -236,37 +238,40 @@ const Search = (props) => {
               year={quoteArr[0].year}
                 />
             </Col>
-        </Row>
-        <Row>
-            <Col size="md-9">
-                <Card>
-                  <Row>
-                    {
-                    displayAlbums.map((album, index) => (
-                      <AlbumList
-                        id={index}
-                        key={index}
-                        album={album.name}
-                        artist={album.artist}
-                        image={album.image}
-                        url={album.url}
-                        tags={album.tags}
-                        tracks={album.tracks}
-                        mbid={album.mbid}
-                        onClick={changeDetailAlbum}
-                      />  
-                    ))}
-                  </Row>
-                </Card>
-            </Col>
+        </div>
+        <div className="row search-row-middle">
+            <div className="col-md-9 pl-5 pt-5 pb-5">
+                <div className="card search-results-card mt-3 mb-3">
+                  <div className="card-body search-results-card-body">
+                    <Row>
+                      {
+                      displayAlbums.map((album, index) => (
+                        <AlbumList
+                          id={index}
+                          key={index}
+                          album={album.name}
+                          artist={album.artist}
+                          image={album.image}
+                          url={album.url}
+                          tags={album.tags}
+                          tracks={album.tracks}
+                          mbid={album.mbid}
+                          onClick={changeDetailAlbum}
+                        />  
+                      ))}
+                    </Row>
+                  </div>
+                </div>
+            </div>
             <Col size="md-3">
             </Col>
-          </Row>
-          <Row>
+          </div>
+          <div className="row search-row-bottom">
             <Col size="md-3">
             </Col>
-            <Col size="md-9">
-              <Card>
+            <div className="col-md-9 pr-5 pt-5 pb-5">
+              <div className="card search-detail-card">
+                <div className="card-body search-detail-card-body">
                   <AlbumDetail 
                     album={detailAlbum.name}
                     artist={detailAlbum.artist}
@@ -277,9 +282,10 @@ const Search = (props) => {
                     mbid={detailAlbum.mbid}
                     user={loggedIn}
                   />
-              </Card>
-            </Col>
-        </Row>
+                </div>  
+              </div>
+            </div>
+          </div>
       </Container>
     );
   }
