@@ -271,8 +271,8 @@ const Search = (props) => {
             </Col>
           </div>
           <div className="row search-row-bottom" id={visibleDetail}>
-            <Col size="md-3">
-            </Col>
+            <div className="col-md-3">
+            </div>
             <div className="col-md-9 pr-5 pt-5 pb-5">
               <div className="card search-detail-card">
                 <div className="card-body search-detail-card-body">

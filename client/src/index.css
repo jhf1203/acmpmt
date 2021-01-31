@@ -449,7 +449,7 @@ h3 {
 #visible-list,
 #visible-detail,
 #visible-card{
-  display:block;
+  display:flex;
   transition: display 2s ease-in-out
 }
 

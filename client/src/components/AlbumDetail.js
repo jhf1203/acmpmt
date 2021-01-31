@@ -50,7 +50,7 @@ function moreInfo () {
 
     return (
         <div>
-            <div className= "album-detail-card" id={props.mbid}>
+            <div id={props.mbid}>
                 <div className="card-body">
                     <Row>
                         <Col size="md-12">
