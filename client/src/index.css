@@ -189,7 +189,8 @@ h3 {
 .inner-col {
   height:100%;
   margin-left:7%;
-  opacity:0.9
+  opacity:0.9;
+  transition: opacity 0.5s ease-in-out;
 }
 
 .inner-col:hover{
@@ -272,6 +273,7 @@ h3 {
   opacity:.9;
   border: 2px solid #F8E9A1;
   min-height:438px;
+  transition: opacity 0.5s ease-in-out;
 }
 
 .profile-card-top:hover,
@@ -336,7 +338,8 @@ h3 {
   height: 440px;
   background-color:#ececec;
   opacity:.9;
-  border: 2px solid #F8E9A1
+  border: 2px solid #F8E9A1;
+  transition: opacity 0.5s ease-in-out;
 }
 
 .list-row{
@@ -392,11 +395,12 @@ h3 {
   opacity:.9;
   border: 2px solid #F8E9A1;
   min-height:338px;
+  transition: opacity 0.5s ease-in-out;
 }
 
 .search-card-top:hover,
 .search-results-card:hover,
-.search-card-bottom:hover{
+.search-detail-card:hover{
   opacity:1;
   transition: opacity 0.5s ease-in-out;
 }
@@ -428,6 +432,22 @@ h3 {
   background-color:#ececec;
   opacity:.9;
   border: 2px solid #F8E9A1;
+  transition: opacity 0.5s ease-in-out;
+
+}
+
+#invisible-list,
+#invisible-detail,
+#invisible-card{
+  display:none;
+  transition: display 2s ease-in-out
+}
+
+#visible-list,
+#visible-detail,
+#visible-card{
+  display:block;
+  transition: display 2s ease-in-out
 }
 
 

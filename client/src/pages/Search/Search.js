@@ -33,8 +33,9 @@ const Search = (props) => {
   const [detailAlbum, setDetailAlbum] = useState(
     PlaceholderObj
   )
-
-  console.log("placeholder: ", detailAlbum.image[2]["#text"])
+  const [visibleList, setVisibleList] = useState("invisible-list")
+  const [visibleDetail, setVisibleDetail] = useState("invisible-detail")
+  const [visibleCard, setVisibleCard] = useState("invisible-card")
 
   const formEl = useRef(null);
 
@@ -151,6 +152,7 @@ const Search = (props) => {
     // setObscurity("Changed!")
   };
 
+  // We need to add a method in here that changes the id of the results page.  On a timeout first make the row visible to fade in the background image, then display the actual results (~5sec)
   async function handleFormSubmit (event) {
     event.preventDefault()
     console.log("we clicked it")
@@ -178,11 +180,14 @@ const Search = (props) => {
     })
     addBandObj(match3);
     console.log("match arrays: ", match1, match2, match3)
+    setVisibleList("visible-list");
+    setVisibleCard("visible-card")
   }
 
   function changeDetailAlbum (event) {
     event.preventDefault()
     setDetailAlbum(displayAlbums[event.target.id])
+    setVisibleDetail("visible-detail")
   }
 
     return (
@@ -198,7 +203,6 @@ const Search = (props) => {
           <div className="col-md-8 pr-5 pl-4 pt-5 pb-5">
               <div className="card search-card-top">
                 <div className="card-body search-card-body-top">
-                {/* Took handleformsubmit out of here...wtf was it doing here?? */}
                     <form 
                     >
                   <input
@@ -239,9 +243,9 @@ const Search = (props) => {
                 />
             </Col>
         </div>
-        <div className="row search-row-middle">
+        <div className="row search-row-middle" id={visibleList}>
             <div className="col-md-9 pl-5 pt-5 pb-5">
-                <div className="card search-results-card mt-3 mb-3">
+                <div className="card search-results-card mt-3 mb-3" id={visibleCard}>
                   <div className="card-body search-results-card-body">
                     <Row>
                       {
@@ -266,7 +270,7 @@ const Search = (props) => {
             <Col size="md-3">
             </Col>
           </div>
-          <div className="row search-row-bottom">
+          <div className="row search-row-bottom" id={visibleDetail}>
             <Col size="md-3">
             </Col>
             <div className="col-md-9 pr-5 pt-5 pb-5">
