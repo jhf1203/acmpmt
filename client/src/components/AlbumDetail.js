@@ -8,6 +8,11 @@ import TrackList from "./TrackList"
 
 const AlbumDetail = (props) => {
 
+const [visibleMain, setVisibleMain] = useState("show")
+const [visibleQueue, setVisibleQueue] = useState("hide")
+const [visibleRecs, setVisibleRecs] = useState("hide")
+
+
 const trackArr = []
 props.tracks.track.map(track => {
     trackArr.push(track.name)
@@ -41,6 +46,26 @@ function addToRecs () {
     .catch(err => console.log(err))
 }
 
+function closeQueue () {
+    setVisibleQueue("hide");
+    setVisibleMain("show")
+}
+
+function closeRecs () {
+    setVisibleRecs("hide");
+    setVisibleMain("show")
+}
+
+function openQueue () {
+    setVisibleMain("hide");
+    setVisibleQueue("show")
+}
+
+function openRecs () {
+    setVisibleMain("hide");
+    setVisibleRecs("show")
+}
+
 function moreInfo () {
     window.open(props.url, "_blank")
 }
@@ -68,7 +93,7 @@ function moreInfo () {
                         <div className="col-md-6">
                             <img src={props.image[3]["#text"]} alt={props.album} height="100%" width="100%"></img>
                         </div>
-                        <div className="col-md-3">
+                        <div className="col-md-3" id={visibleMain}>
                             <div className="row">
                                <button className="btn btn-link search-detail-btn-queue" onClick={addToQueue}>add to queue</button>
                             </div>
@@ -78,12 +103,12 @@ function moreInfo () {
                             <div className="row">
                                 <button className="btn btn-link search-detail-link-ext" onClick={moreInfo}>more info</button>
                             </div>
-                            <div className="row">
-                                <p>recommended by {props.rec.length} </p>
-                                <p>queued by {props.queue.length}</p>
+                            <div className="row rec-queue-stats-row">
+                                <p className="rec-queue-stats-text">recommended by <button className="btn btn-link rec-queue-stats-btn" onClick={openRecs}>{props.rec.length}</button></p>
+                                <p className="rec-queue-stats-text">queued by <button className="btn btn-link rec-queue-stats-btn" onClick={openQueue}>{props.queue.length}</button></p>
                             </div>
                         </div>
-                        <div className="col-md-3 overflow-auto col-tracklist">
+                        <div className="col-md-3 overflow-auto col-tracklist" id={visibleMain}>
                             <h5 className="search-detail-tracklist-header">tracks</h5>
                                 {props.tracks.track.map(track => {
                                     return (
@@ -93,6 +118,56 @@ function moreInfo () {
                                         />
                                     )
                                 })} 
+                        </div>
+                        <div className="col-md-6" id={visibleQueue}>
+                            <div className="card detail-card">
+                                <div className="card-body detail-card-body">
+                                    <div className="row queue-row-header">
+                                        <div className="col-md-12">
+                                            <div className="row">
+                                                <div className="col-md-11">
+                                                    <h6>users with album in queue</h6>
+                                                </div>
+                                                <div className="col-md-1">
+                                                    <i className="fa fa-times close-list"  onClick={closeQueue} aria-hidden="true"></i>
+                                                </div>
+                                            </div>
+                                            {props.queue.map(person => {
+                                                return(
+                                                    <div className="row">
+                                                        <p>{person.firstName} {person.lastName}</p>
+                                                    </div>
+                                                    )
+                                            })}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="col-md-6" id={visibleRecs}>
+                            <div className="card detail-card">
+                                <div className="card-body detail-card-body">
+                                    <div className="row queue-row-header">
+                                        <div className="col-md-12">
+                                            <div className="row">
+                                                <div className="col-md-11">
+                                                    <h6>users with album in recs</h6>
+                                                </div>
+                                                <div className="col-md-1">
+                                                    <i className="fa fa-times close-list" onClick={closeRecs} aria-hidden="true"></i>
+                                                </div>
+                                            </div>
+                                            {props.rec.map(person => {
+                                                return(
+                                                    <div className="row">
+                                                        <p>{person.firstName} {person.lastName}</p>
+                                                    </div>
+                                                    )
+                                            })}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>                        
                         </div>
                     </div>
                         
