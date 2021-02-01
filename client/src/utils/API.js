@@ -9,6 +9,9 @@ export default {
   getProfile: function(id) {
     return axios.get("/api/profile/" + id);
   },
+  getAllProfiles: function() {
+    return axios.get("/api/profile/")
+  },
   // Deletes the book with the given id
   deleteBook: function(id) {
     return axios.delete("/api/profile/" + id);

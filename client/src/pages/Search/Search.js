@@ -36,6 +36,9 @@ const Search = (props) => {
   const [visibleList, setVisibleList] = useState("invisible-list")
   const [visibleDetail, setVisibleDetail] = useState("invisible-detail")
   const [visibleCard, setVisibleCard] = useState("invisible-card")
+  const [allUsers, setAllUsers] = useState([])
+  const [queueUsers, setQueueUsers] = useState([]);
+  const [recUsers, setRecUsers] = useState([]);
 
   const formEl = useRef(null);
 
@@ -44,6 +47,10 @@ const Search = (props) => {
   useEffect(() => {
     loadProfile();
   }, []);
+
+  useEffect(() => {
+    findUsers();
+  }, [])
 
   // Loads all profile and sets them to profile
   function loadProfile() {
@@ -84,14 +91,14 @@ const Search = (props) => {
   }
 
   async function getAlbumInfo () {
+
+    console.log("all user state: ", allUsers)
     
     for (let i = 0; i < albumsToShow.length; i++) {
       let res = await LASTFM.getAlbumInfo(albumsToShow[i].artist, albumsToShow[i].album)
       albumDisplayInfo.push(res.data.album)
     }
     await setDisplayAlbums(albumDisplayInfo)
-    console.log("display arr: ", albumDisplayInfo)
-    console.log("display state", displayAlbums)
   }
 
 
@@ -105,6 +112,12 @@ const Search = (props) => {
       }) 
     }
     getAlbumInfo()
+  }
+
+  async function findUsers () {
+    let userList = await API.getAllProfiles()
+    console.log("userlist: ", userList.data.users)
+    setAllUsers(userList.data.users)
   }
 
   async function addBandObj (arrMatch) {
@@ -138,24 +151,11 @@ const Search = (props) => {
     }
 
     matchStrengthAvg.sort(function(a, b){return b.total-a.total})
-    console.log("matchstrengthavg is giving us trouble: ", matchStrengthAvg)
     findTopAlbums()
   }
 
-  async function handleSlider (event) {
-    event.preventDefault();
-
-    await getSimilarArtists(artists.artist1);
-    await getSimilarArtists(artists.artist2);
-    await getSimilarArtists(artists.artist3);
-
-    // setObscurity("Changed!")
-  };
-
-  // We need to add a method in here that changes the id of the results page.  On a timeout first make the row visible to fade in the background image, then display the actual results (~5sec)
   async function handleFormSubmit (event) {
     event.preventDefault()
-    console.log("we clicked it")
     await getSimilarArtists(artists.artist1);
     await getSimilarArtists(artists.artist2);
     await getSimilarArtists(artists.artist3);
@@ -179,13 +179,30 @@ const Search = (props) => {
       }
     })
     addBandObj(match3);
-    console.log("match arrays: ", match1, match2, match3)
     setVisibleList("visible-list");
     setVisibleCard("visible-card")
   }
 
-  function changeDetailAlbum (event) {
+  async function changeDetailAlbum (event) {
     event.preventDefault()
+    let queuePeople = [];
+    let recPeople = [];
+    console.log("DetailAlbum: ", displayAlbums[event.target.id].mbid)
+    console.log("users: ", allUsers)
+    allUsers.map(person => {
+      person.queue.map(queue => {
+        if (queue.mbid === displayAlbums[event.target.id].mbid) {
+          queuePeople.push(person)
+        }
+      })
+      person.recommended.map(rec => {
+        if (rec.mbid === displayAlbums[event.target.id].mbid) {
+          recPeople.push(person)
+        }
+      })
+    })
+    setQueueUsers(queuePeople);
+    setRecUsers(recPeople)
     setDetailAlbum(displayAlbums[event.target.id])
     setVisibleDetail("visible-detail")
   }
@@ -285,6 +302,9 @@ const Search = (props) => {
                     tracks={detailAlbum.tracks}
                     mbid={detailAlbum.mbid}
                     user={loggedIn}
+                    queue={queueUsers}
+                    rec={recUsers}
+
                   />
                 </div>  
               </div>

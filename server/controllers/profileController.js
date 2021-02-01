@@ -7,14 +7,16 @@ module.exports = {
   findAll: function(req, res) {
     console.log("user.findall")
     if (req.user) {
+      console.log("req.user true: ", req.user)
       db.User
-        .find({ _id: req.user._id })
-        .populate({ path: "profile", options: { sort: { 'date': -1 } } })
+        .find({})
+        // .populate({ path: "profile", options: { sort: { 'date': -1 } } })
         .then(users => {
-          res.json({ profile: users[0].profile });
+          res.json({ users });
         })
         .catch(err => res.status(422).json(err));
     } else {
+      console.log("req.user false: ", req)
       return res.json({ profile: null });
     }
   },

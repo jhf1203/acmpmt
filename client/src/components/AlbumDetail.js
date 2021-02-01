@@ -1,5 +1,5 @@
 import { PromiseProvider } from 'mongoose';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Accordion, Card, Button } from "react-bootstrap"
 import API from '../utils/API';
 import {Col, Row} from "./Grid"
@@ -9,12 +9,9 @@ import TrackList from "./TrackList"
 const AlbumDetail = (props) => {
 
 const trackArr = []
-
 props.tracks.track.map(track => {
     trackArr.push(track.name)
 })
-
-console.log("tracks!", trackArr)
 
 function addToQueue () {
     const albumData = {
@@ -81,6 +78,10 @@ function moreInfo () {
                             <div className="row">
                                 <button className="btn btn-link search-detail-link-ext" onClick={moreInfo}>more info</button>
                             </div>
+                            <div className="row">
+                                <p>recommended by {props.rec.length} </p>
+                                <p>queued by {props.queue.length}</p>
+                            </div>
                         </div>
                         <div className="col-md-3 overflow-auto col-tracklist">
                             <h5 className="search-detail-tracklist-header">tracks</h5>
@@ -100,6 +101,7 @@ function moreInfo () {
             </div>
         </div>
   );
+
 };
         
 export default AlbumDetail
