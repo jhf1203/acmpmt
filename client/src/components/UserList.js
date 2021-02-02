@@ -1,3 +1,4 @@
+import { PromiseProvider } from 'mongoose';
 import React, { useState } from 'react';
 import { Accordion, Card, Button } from "react-bootstrap"
 import { Row, Col} from "./Grid"
@@ -7,19 +8,19 @@ const AlbumCover = (props) => {
 
     return (
         <div className= "col-md-4">
-            <Card className= "album-list-card">
-                <Card.Body>
+            <div style={{backgroundImage: `url(${props.image})`}} className= "card user-list-card">
+                <div className="card-body list-card-body">
                     <Row>
-                        <img src={props.image} alt="album cover" height="100%" width="100%" />
+                        <p className="userlist-card-hover-text userlist-album-album">{props.album}</p>
                     </Row>
                     <Row>
-                        <p className="list-album-text">{props.album}</p>
+                        <p className="userlist-card-hover-text userlist-album-artist">{props.artist}</p>
                     </Row>
                     <Row>
-                        <p className="list-artist-text">{props.artist}</p>
+                        <button className=" btn btn-link userlist-card-hover-text userlist-album-button" id={props.id} onClick={props.function}>more info</button>
                     </Row>
-                </Card.Body>
-            </Card>
+                </div>
+            </div>
         </div>
   );
 };

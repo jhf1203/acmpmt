@@ -6,7 +6,7 @@ import {Col, Row} from "./Grid"
 import TrackList from "./TrackList"
 
 
-const AlbumDetail = (props) => {
+const ProfileAlbumView = (props) => {
 
     console.log("props in albumdetail: ", props)
 
@@ -17,16 +17,20 @@ const [visibleRecs, setVisibleRecs] = useState("hide")
 
 const trackArr = []
 
-props.tracks.track.map(track => {
-    trackArr.push(track.name)
-});
+// props.tracks.map(track => {
+//     trackArr.push(track.name)
+// });
+
+for (let i=0; i<props.tracks.length; i++) {
+    trackArr.push(props.tracks[i])
+}
 
 
 function addToQueue () {
     const albumData = {
         album: props.album,
         artist: props.artist,
-        image: props.image[3]["#text"],
+        image: props.image,
         mbid: props.mbid,
         tags: props.tags.tag,
         tracks: trackArr,
@@ -40,7 +44,7 @@ function addToRecs () {
     const albumData = {
         album: props.album,
         artist: props.artist,
-        image: props.image[3]["#text"],
+        image: props.image,
         mbid: props.mbid,
         tags: props.tags.tag,
         tracks: trackArr,
@@ -95,7 +99,7 @@ function moreInfo () {
 
                     <div className="row">
                         <div className="col-md-6">
-                            <img src={props.image[2]["#text"]} alt={props.album} width="372px" height="372px"></img>
+                            <img src={props.image} alt={props.album} height="100%" width="100%"></img>
                         </div>
                         <div className="col-md-3" id={visibleMain}>
                             <div className="row">
@@ -114,11 +118,10 @@ function moreInfo () {
                         </div>
                         <div className="col-md-3 overflow-auto col-tracklist" id={visibleMain}>
                             <h5 className="search-detail-tracklist-header">tracks</h5>
-                                {props.tracks.track.map(track => {
+                                {trackArr.map(track => {
                                     return (
                                     <TrackList
-                                        track={track.name}
-                                        url={track.url}
+                                        track={track}
                                         />
                                     )
                                 })} 
@@ -183,4 +186,4 @@ function moreInfo () {
 
 };
         
-export default AlbumDetail
+export default ProfileAlbumView

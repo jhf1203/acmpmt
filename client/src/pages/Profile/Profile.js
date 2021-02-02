@@ -11,25 +11,33 @@ import API from "../../utils/API";
 import AUTH from "../../utils/AUTH"
 import Accordion from "../../components/AccordionComp"
 import UserList from "../../components/UserList";
-import PlaceholderObj from "../../utils/placeholderProfile.json"
+import PlaceholderProfile from "../../utils/placeholderProfile.json"
 import Randomizer from "../../utils/randomizer"
 import Quotes from "../../utils/quotes.json"
 import Pics from "../../utils/pics.json"
 import thisPic from "../../assets/content-imgs/alanis.jpg"
 import RandomQuote from "../../components/RandomQuote"
+import ProfileAlbumView from "../../components/ProfileAlbumView"
+import PlaceholderAlbum from "../../utils/placeholder.json"
 
 
 const Profile = (props) => {
 
 
-
+// console.log("props? ", props)
 
   // Setting our component's initial state
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState(props.user);
   const [profile, setProfile] = useState(
-    PlaceholderObj
+    PlaceholderProfile
   )
-  
+  const [detailAlbum, setDetailAlbum] = useState(
+    PlaceholderAlbum
+  )
+  const [visibleDetail, setVisibleDetail] = useState("hide")
+  const [allUsers, setAllUsers] = useState([])
+  const [queueUsers, setQueueUsers] = useState([]);
+  const [recUsers, setRecUsers] = useState([]);
   const [formObject, setFormObject] = useState({});
  
   const formEl = useRef(null);
@@ -39,12 +47,17 @@ const Profile = (props) => {
     loadProfile();
   }, []);
 
+  useEffect(() => {
+    findUsers();
+  }, []);
+
 let quoteArr = []
 let formattedDate = moment(profile.joinDate).format("l")
 
-quoteArr.push(Randomizer.randomVal(Quotes))
+const queue = profile.queue;
+const rec = profile.recommended;
 
-console.log(quoteArr)
+quoteArr.push(Randomizer.randomVal(Quotes))
 
   // Loads all profile and sets them to profile
   // function loadProfile() {
@@ -56,54 +69,61 @@ console.log(quoteArr)
   //     .catch(err => console.log(err));
   // };
 
+  // Maybe I break this into a split function, where we get the user, but pass a different
+  // userID in as props.  If the props.userId doesn't equal the user in getuser we loadprofile with props,
+  // otherwise we load it with getUser?
+
   async function loadProfile () {
+    // console.log("userset", user)
     let thisUser = await AUTH.getUser()
     let userSet = setUser(thisUser.data.user);
-    console.log("userset", user)
-    let thisProfile = await API.getProfile(thisUser.data.user._id)
-    console.log("thisprofile: ", thisProfile.data.user)
+    // console.log("user conditional: ", user === null)
+    // if (props.user === null) {
+    //   console.log("not yet")
+    // } else {
+    let thisProfile = await API.getProfile(user)
+    // console.log("thisprofile: ", thisProfile.data.user)
     setProfile(thisProfile.data.user)
+    // }
   }
 
-  console.log("user: ", user)
-  console.log("and profile: ", profile)
+  async function findUsers () {
+    let userList = await API.getAllProfiles()
+    console.log("userlist: ", userList.data.users)
+    setAllUsers(userList.data.users)
+  }
+
+  async function changeDetailFromQueue (event, list) {
+
+    console.log("event:  ", event.target.id)
+    let queuePeople = [];
+    let recPeople = [];
+    // console.log("DetailAlbum: ", displayAlbums[event.target.id].mbid)
+    // console.log("DetailAlbum: ", profile.queue[event.target.id].artist)
+    // console.log("users: ", allUsers)
+    allUsers.map(person => {
+      person.queue.map(queue => {
+        if (queue.mbid === profile.queue[event.target.id].mbid) {
+          queuePeople.push(person)
+        }
+      })
+      person.recommended.map(rec => {
+        if (rec.mbid === profile.queue[event.target.id].mbid) {
+          recPeople.push(person)
+        }
+      })
+    })
+    setQueueUsers(queuePeople);
+    setRecUsers(recPeople)
+    setDetailAlbum(profile.queue[event.target.id])
+    setVisibleDetail("visible-detail")
+  }
+
+  function loadDetails (event) {
+    console.log("event: ", event)
+  }
 
  
-
-
-  
-
-  // Deletes a book from the database with a given id, then reloads profile from the db
-  // function deleteBook(id) {
-  //   API.deleteBook(id)
-  //     .then(res => loadProfile())
-  //     .catch(err => console.log(err));
-  // }
-
-  // Handles updating component state when the user types into the input field
-  // function handleInputChange(event) {
-  //   const { name, value } = event.target;
-  //   setFormObject({...formObject, [name]: value})
-  // };
-
-  // When the form is submitted, use the API.saveBook method to save the book data
-  // Then reload profile from the database
-  // function handleFormSubmit(event) {
-  //   event.preventDefault();
-  //   if (formObject.title && formObject.author) {
-  //     API.saveBook({
-  //       title: formObject.title,
-  //       author: formObject.author,
-  //       synopsis: formObject.synopsis
-  //     })
-  //       .then(res => {
-  //         formEl.current.reset();
-  //         loadProfile();
-  //       })
-  //       .catch(err => console.log(err));
-  //   }
-  // };
-
 
     return (
       <Container fluid>
@@ -178,6 +198,7 @@ console.log(quoteArr)
                           tags={album.tags}
                           tracks={album.tracks}
                           mbid={album.mbid}
+                          function={changeDetailFromQueue}
                           />  
                         ))}
                   </div> 
@@ -206,6 +227,7 @@ console.log(quoteArr)
                           tags={album.tags}
                           tracks={album.tracks}
                           mbid={album.mbid}
+                          // function={changeDetailAlbum}
                           />  
                         ))}
                   </div> 
@@ -213,6 +235,28 @@ console.log(quoteArr)
             </div>
           </div>
         </div>
+        <div className="row search-row-bottom profile-detail-display-row" id={visibleDetail}>
+            <div className="col-md-3">
+            </div>
+            <div className="col-md-9 pr-5 pt-5 pb-5">
+              <div className="card search-detail-card">
+                <div className="card-body search-detail-card-body">
+                  <ProfileAlbumView 
+                    album={detailAlbum.album}
+                    artist={detailAlbum.artist}
+                    image={detailAlbum.image}
+                    url={detailAlbum.url}
+                    tags={detailAlbum.tags}
+                    tracks={detailAlbum.tracks}
+                    mbid={detailAlbum.mbid}
+                    queue={queueUsers}
+                    rec={recUsers}
+
+                  />
+                </div>  
+              </div>
+            </div>
+          </div>
       </Container>
     );
   }
