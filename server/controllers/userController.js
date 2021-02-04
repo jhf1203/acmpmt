@@ -4,7 +4,7 @@ const db = require("../models");
 module.exports = {
   getUser: (req, res, next) => {
     console.log("we are in getuser")
-    console.log(req.user);
+    console.log("here's the req there: ",req.user);
     if (req.user) {
       return res.json({ user: req.user });
     } else {

@@ -1,25 +1,25 @@
 import { PromiseProvider } from 'mongoose';
 import React, { useState, useEffect } from 'react';
 import { Accordion, Card, Button } from "react-bootstrap"
+import { BrowserRouter as Router, Route, Link, useRouteMatch, useParams } from 'react-router-dom';
+
 import API from '../utils/API';
 import {Col, Row} from "./Grid"
 import TrackList from "./TrackList"
 
 
-const ProfileAlbumView = (props) => {
+// ====THIS COMPONENT HAS THE SAME PROPERTIES AS ALBUMDETAIL, BUT RECEIVES DIFFERENT PROPS SO IT'S IT'S OWN COMPONENT.
 
-    console.log("props in albumdetail: ", props)
+const ProfileAlbumView = (props) => {
 
 const [visibleMain, setVisibleMain] = useState("show")
 const [visibleQueue, setVisibleQueue] = useState("hide")
 const [visibleRecs, setVisibleRecs] = useState("hide")
 
 
-const trackArr = []
 
-// props.tracks.map(track => {
-//     trackArr.push(track.name)
-// });
+
+const trackArr = []
 
 for (let i=0; i<props.tracks.length; i++) {
     trackArr.push(props.tracks[i])
@@ -76,7 +76,7 @@ function openRecs () {
 
 function moreInfo () {
     window.open(props.url, "_blank")
-}
+} 
 
     return (
         <div>
@@ -139,11 +139,21 @@ function moreInfo () {
                                                     <i className="fa fa-times close-list"  onClick={closeQueue} aria-hidden="true"></i>
                                                 </div>
                                             </div>
+
+{/* Below is where the users populate.  I am unable to get the below state (I just used "string" as a dummy
+value) to translate back into the profile page when it re-renders.  But upon clicking the link it doesn't
+seem to re-render, because all of the values from the input fields above are still present. */}
+
                                             {props.queue.map(person => {
                                                 return(
-                                                    <div className="row">
-                                                        <p>{person.firstName} {person.lastName}</p>
-                                                    </div>
+                                                    <div className="row"
+                                                    onClick={props.loadProfile}>
+                                                        <Link to={{
+                                                            pathname: "/profile/" + person._id,
+                                                            state: "string"
+                                                        }}>
+                                                            {person.firstName} {person.lastName} 
+                                                        </Link>                                                    </div>
                                                     )
                                             })}
                                         </div>

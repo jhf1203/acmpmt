@@ -573,20 +573,6 @@ h3 {
 
 /* AlbumList */
 
-/* .album-list-card {
-  width:inherit;
-  height:inherit
-} */
-
-.list-img {
-  
-  /* object-fit:contain; */
-}
-
-
-
-/* AlbumDetail */
-
 .col-tracklist {
   min-height: 335px;
 }

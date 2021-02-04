@@ -7,6 +7,7 @@ export default {
   // },
   // Gets the book with the given id
   getProfile: function(id) {
+    console.log("getting the profile with the id: ", id)
     return axios.get("/api/profile/" + id);
   },
   getAllProfiles: function() {

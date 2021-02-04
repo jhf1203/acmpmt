@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, useParams } from 'react-router-dom';
 import LoginForm from './pages/Auth/LoginForm';
 import SignupForm from './pages/Auth/SignupForm';
 import Nav from "./components/Nav";
@@ -65,9 +65,12 @@ function App() {
             <Switch> 
               <Route exact path="/" render={() => <Profile user={user} />} />
               <Route exact path="/profile" render={() => <Profile user={user} />} />
-              <Route exact path="/profile/:id" render={() => <Detail user={user} />} />
+              <Route exact path="/other" render={() => <Detail />} />
+              <Route exact path="/profile/:id" render={() => <Profile user={user} other=":id"/>} />
+              {/* <Route exact path="/profile/:id" render={() => <Detail user={user} />} /> */}
               <Route exact path="/search" render={() => <Search user={user} />} />
               <Route exact path="/album" render={() => <Album user={user} />} />
+              <Route exact path="/user" render={() => <Profile/>} />
               <Route component={NoMatch} />
               {/* <Route exact path="/" component={Profile} user={user} />
               <Route exact path="/profile" component={Profile} user={user} />

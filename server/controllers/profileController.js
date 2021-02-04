@@ -5,9 +5,9 @@ const db = require("../models");
 // Defining methods for the profileController
 module.exports = {
   findAll: function(req, res) {
-    console.log("user.findall")
+    // console.log("user.findall")
     if (req.user) {
-      console.log("req.user true: ", req.user)
+      // console.log("req.user true: ", req.user)
       db.User
         .find({})
         // .populate({ path: "profile", options: { sort: { 'date': -1 } } })
@@ -16,20 +16,20 @@ module.exports = {
         })
         .catch(err => res.status(422).json(err));
     } else {
-      console.log("req.user false: ", req)
+      // console.log("req.user false: ", req)
       return res.json({ profile: null });
     }
   },
   findById: function(req, res) {
-    console.log("user findbyid")
+    console.log("user findbyid: ", req.user)
     if (req.user) {
       db.User
         .findOne({ _id: req.user._id })
         // .populate("profile")
-        .then(user => {
-          console.log("user: ", user) 
+        .then(result => {
+          console.log("user: ", result) 
           // book = users[0].profile.filter(b => b._id.toString() === req.params.id);
-          res.json({ user });
+          res.json({ result });
         })
         .catch(err => res.status(422).json(err));
     } else {

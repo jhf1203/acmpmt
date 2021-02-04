@@ -1,27 +1,27 @@
 import { PromiseProvider } from 'mongoose';
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Route, Link, useRouteMatch, useParams } from 'react-router-dom';
 import { Accordion, Card, Button } from "react-bootstrap"
 import API from '../utils/API';
 import {Col, Row} from "./Grid"
 import TrackList from "./TrackList"
 
 
-const AlbumDetail = (props) => {
 
-    console.log("props in albumdetail: ", props)
+const AlbumDetail = (props) => {
 
 const [visibleMain, setVisibleMain] = useState("show")
 const [visibleQueue, setVisibleQueue] = useState("hide")
 const [visibleRecs, setVisibleRecs] = useState("hide")
 
-
+// Mapping an array of the album's tracklist to reduce data present in the 3rd party call vs what we want
+// to keep in the user's profile
 const trackArr = []
-
 props.tracks.track.map(track => {
     trackArr.push(track.name)
 });
 
-
+// Adds the album to my queue
 function addToQueue () {
     const albumData = {
         album: props.album,
@@ -36,6 +36,7 @@ function addToQueue () {
     .catch(err => console.log(err))
 };
 
+// Adds the album to my list of recommendations
 function addToRecs () {
     const albumData = {
         album: props.album,
@@ -49,6 +50,10 @@ function addToRecs () {
     API.addToRecs(props.user, albumData)
     .catch(err => console.log(err))
 }
+
+
+// Functions to toggle what's visible:  Either the option to add the album to your queue/recommendations, 
+// or a list of current users who have the album either queued or recommended.
 
 function closeQueue () {
     setVisibleQueue("hide");
@@ -123,6 +128,9 @@ function moreInfo () {
                                     )
                                 })} 
                         </div>
+
+                        {/* The below div is hidden initially, visibility is toggled with the state change */}
+
                         <div className="col-md-6" id={visibleQueue}>
                             <div className="card detail-card">
                                 <div className="card-body detail-card-body">
@@ -136,10 +144,23 @@ function moreInfo () {
                                                     <i className="fa fa-times close-list"  onClick={closeQueue} aria-hidden="true"></i>
                                                 </div>
                                             </div>
+
+{/* Same issue here.  Below is where the users populate.  I am unable to get the below state (I just used 
+"string" as a dummy value) to translate back into the profile page when it re-renders.  But upon clicking the 
+link it doesn't seem to re-render *DESPITE routing me correctly back to Profile, with the person.id in 
+the url. */}
+
                                             {props.queue.map(person => {
                                                 return(
                                                     <div className="row">
-                                                        <p>{person.firstName} {person.lastName}</p>
+                                                        <Link to={{
+                                                            pathname: "/profile/" + person.id,
+                                                            state: {
+                                                                otherUser: person
+                                                            }
+                                                        }}>
+                                                            {person.firstName} {person.lastName} 
+                                                        </Link>
                                                     </div>
                                                     )
                                             })}
@@ -148,6 +169,9 @@ function moreInfo () {
                                 </div>
                             </div>
                         </div>
+
+                        {/* The below div is hidden initially, visibility is toggled with the state change */}
+
                         <div className="col-md-6" id={visibleRecs}>
                             <div className="card detail-card">
                                 <div className="card-body detail-card-body">
@@ -174,8 +198,6 @@ function moreInfo () {
                             </div>                        
                         </div>
                     </div>
-                        
-                    
                 </div>
             </div>
         </div>

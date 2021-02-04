@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import moment from "moment"
-
+import { BrowserRouter as Router, Route, Link, useRouteMatch, useParams } from 'react-router-dom';
 import { Col, Row, Container } from "../../components/Grid";
 import { List, ListItem } from "../../components/List";
 import { Card } from "../../components/Card";
@@ -14,7 +14,6 @@ import UserList from "../../components/UserList";
 import PlaceholderProfile from "../../utils/placeholderProfile.json"
 import Randomizer from "../../utils/randomizer"
 import Quotes from "../../utils/quotes.json"
-import Pics from "../../utils/pics.json"
 import thisPic from "../../assets/content-imgs/alanis.jpg"
 import RandomQuote from "../../components/RandomQuote"
 import ProfileAlbumView from "../../components/ProfileAlbumView"
@@ -27,7 +26,7 @@ const Profile = (props) => {
 // console.log("props? ", props)
 
   // Setting our component's initial state
-  const [user, setUser] = useState(props.user);
+  const [user, setUser] = useState();
   const [profile, setProfile] = useState(
     PlaceholderProfile
   )
@@ -38,9 +37,10 @@ const Profile = (props) => {
   const [allUsers, setAllUsers] = useState([])
   const [queueUsers, setQueueUsers] = useState([]);
   const [recUsers, setRecUsers] = useState([]);
+  const [otherUser, setOtherUser] = useState("dummy")
   const [formObject, setFormObject] = useState({});
  
-  const formEl = useRef(null);
+  const formEl = useRef("rvfr");
 
   // Load all profile and store them with setUser
   useEffect(() => {
@@ -51,6 +51,21 @@ const Profile = (props) => {
     findUsers();
   }, []);
 
+  // useEffect(() => {
+  //   setOtherUser(useParams().id)
+  // }, [])
+
+  // console.log("params?: ", useParams().id)
+
+  let params = useParams().id
+
+  // if (params) {
+  //   console.log("there are params and they are: ", params)
+  // } else {
+  //   console.log("aint no params up in hurr")
+  // }
+  // console.log(!params, "params")
+
 let quoteArr = []
 let formattedDate = moment(profile.joinDate).format("l")
 
@@ -59,48 +74,66 @@ const rec = profile.recommended;
 
 quoteArr.push(Randomizer.randomVal(Quotes))
 
+
+
+// ===============BELOW WAS THE ORIGINAL FUNCTION, WHICH I CONVERTED TO ASYNC
+
   // Loads all profile and sets them to profile
   // function loadProfile() {
   //   AUTH.getUser()
   //     .then(res => {
+  //       console.log("first res: ", res)
   //       setUser(res.data.user);
-  //     }).then(res => {API.getProfile(),
-  //     console.log("profile: ", )})
+  //       return res.data.user
+  //     }).then(res => {
+  //       console.log("middle res: ", res)
+  //       API.getProfile(res._id)
+  //       return res
+  //     }).then(res => {
+  //       console.log("new second res: ", res)
+  //       setProfile(res)
+  //     }) 
   //     .catch(err => console.log(err));
   // };
 
-  // Maybe I break this into a split function, where we get the user, but pass a different
-  // userID in as props.  If the props.userId doesn't equal the user in getuser we loadprofile with props,
-  // otherwise we load it with getUser?
+
+// ===HERE'S OUR PROBLEM CHILD!!!===
+
+// If I click on a user from either the albumDetail or ProfileAlbumView components, that person's userid
+// will successfully populate under params in the below console.log
+
+console.log("params: ", params)
 
   async function loadProfile () {
-    // console.log("userset", user)
-    let thisUser = await AUTH.getUser()
-    let userSet = setUser(thisUser.data.user);
-    // console.log("user conditional: ", user === null)
-    // if (props.user === null) {
-    //   console.log("not yet")
-    // } else {
-    let thisProfile = await API.getProfile(user)
-    // console.log("thisprofile: ", thisProfile.data.user)
-    setProfile(thisProfile.data.user)
-    // }
+    let foundUser = await AUTH.getUser();
+    setUser(foundUser.data.user)
+
+// Even if params are found and validated in the log above, the profile is always set/displayed as
+// the foundUser.id, i.e. the logged in user from AUTH.getUser.  
+
+// - I thought about getting the page to reload, or creating a dummy function to place in the dependency
+// for the useEffect to ensure it re-runs, but either way the params update from undefined to the correct
+// value but the console.log for profile still reads just the logged in user.
+
+    if (params) {
+      let foundProfile = await API.getProfile(params);
+      setProfile(foundProfile.data.result)
+    } else {
+    let foundProfile = await API.getProfile(foundUser._id)
+    setProfile(foundProfile.data.result)
+    }
   }
 
   async function findUsers () {
     let userList = await API.getAllProfiles()
-    console.log("userlist: ", userList.data.users)
     setAllUsers(userList.data.users)
   }
 
   async function changeDetailFromQueue (event, list) {
 
-    console.log("event:  ", event.target.id)
     let queuePeople = [];
     let recPeople = [];
-    // console.log("DetailAlbum: ", displayAlbums[event.target.id].mbid)
-    // console.log("DetailAlbum: ", profile.queue[event.target.id].artist)
-    // console.log("users: ", allUsers)
+
     allUsers.map(person => {
       person.queue.map(queue => {
         if (queue.mbid === profile.queue[event.target.id].mbid) {
@@ -118,12 +151,6 @@ quoteArr.push(Randomizer.randomVal(Quotes))
     setDetailAlbum(profile.queue[event.target.id])
     setVisibleDetail("visible-detail")
   }
-
-  function loadDetails (event) {
-    console.log("event: ", event)
-  }
-
- 
 
     return (
       <Container fluid>
@@ -227,7 +254,6 @@ quoteArr.push(Randomizer.randomVal(Quotes))
                           tags={album.tags}
                           tracks={album.tracks}
                           mbid={album.mbid}
-                          // function={changeDetailAlbum}
                           />  
                         ))}
                   </div> 
@@ -251,6 +277,7 @@ quoteArr.push(Randomizer.randomVal(Quotes))
                     mbid={detailAlbum.mbid}
                     queue={queueUsers}
                     rec={recUsers}
+                    loadProfile={loadProfile}
 
                   />
                 </div>  
