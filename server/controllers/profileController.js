@@ -21,8 +21,18 @@ module.exports = {
     }
   },
   findById: function(req, res) {
-    console.log("user findbyid: ", req.user)
+    console.log("user findbyid: ", req.params.id)
+    console.log("conditional: ", req.params.id.length)
     if (req.user) {
+      if (req.params.id.length != 9) {
+        db.User
+          .findOne({ _id: req.params.id })
+          .then(result => {
+            console.log("user: ", result)
+            res.json({ result });
+          })
+          .catch(err => res.status(422).json(err));
+      } else {
       db.User
         .findOne({ _id: req.user._id })
         // .populate("profile")
@@ -32,6 +42,7 @@ module.exports = {
           res.json({ result });
         })
         .catch(err => res.status(422).json(err));
+      }
     } else {
       return res.json({ book: null });
     }

@@ -64,9 +64,9 @@ function App() {
           <div className="main-view">
             <Switch> 
               <Route exact path="/" render={() => <Profile user={user} />} />
-              <Route exact path="/profile" render={() => <Profile user={user} />} />
+              <Route exact path="/profile/:id" render={() => <Profile />} />
+              <Route exact path="/profile" render={() => <Profile user={user}/>} />
               <Route exact path="/other" render={() => <Detail />} />
-              <Route exact path="/profile/:id" render={() => <Profile user={user} other=":id"/>} />
               {/* <Route exact path="/profile/:id" render={() => <Detail user={user} />} /> */}
               <Route exact path="/search" render={() => <Search user={user} />} />
               <Route exact path="/album" render={() => <Album user={user} />} />

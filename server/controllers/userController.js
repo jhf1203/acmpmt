@@ -3,8 +3,6 @@ const db = require("../models");
 // Defining methods for the userController
 module.exports = {
   getUser: (req, res, next) => {
-    console.log("we are in getuser")
-    console.log("here's the req there: ",req.user);
     if (req.user) {
       return res.json({ user: req.user });
     } else {
@@ -13,7 +11,6 @@ module.exports = {
   },
   register: (req, res) => {
     const { firstName, lastName, username, password } = req.body;
-    console.log("we are in register")
     db.User.findOne({ 'username': username }, (err, userMatch) => {
       if (userMatch) {
         return res.json({
@@ -51,7 +48,6 @@ module.exports = {
 		next();
   },
   authenticate: (req, res) => {
-    console.log("we are in authenticate")
 
 		const user = JSON.parse(JSON.stringify(req.user)); // hack
 		const cleanUser = Object.assign({}, user);

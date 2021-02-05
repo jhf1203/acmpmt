@@ -275,7 +275,7 @@ h3 {
   background-color:#ececec;
   opacity:.9;
   border: 2px solid #F8E9A1;
-  min-height:438px;
+  min-height:545px;
   transition: opacity 0.5s ease-in-out;
 }
 
@@ -677,6 +677,10 @@ h3 {
   text-decoration: none;
   color:#4659a8;
   transition: color 0.15s ease-in-out;
+}
+
+.profile-link{
+  color:blue
 }
 
 /* TrackList */

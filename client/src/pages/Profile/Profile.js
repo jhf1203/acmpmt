@@ -18,12 +18,14 @@ import thisPic from "../../assets/content-imgs/alanis.jpg"
 import RandomQuote from "../../components/RandomQuote"
 import ProfileAlbumView from "../../components/ProfileAlbumView"
 import PlaceholderAlbum from "../../utils/placeholder.json"
+import ProfileCard from "../../components/ProfileCard"
 
 
 const Profile = (props) => {
 
 
-// console.log("props? ", props)
+console.log("props? ", props)
+console.log("")
 
   // Setting our component's initial state
   const [user, setUser] = useState();
@@ -107,6 +109,7 @@ console.log("params: ", params)
   async function loadProfile () {
     let foundUser = await AUTH.getUser();
     setUser(foundUser.data.user)
+    console.log("founduser data: ", foundUser.data.user)
 
 // Even if params are found and validated in the log above, the profile is always set/displayed as
 // the foundUser.id, i.e. the logged in user from AUTH.getUser.  
@@ -114,12 +117,14 @@ console.log("params: ", params)
 // - I thought about getting the page to reload, or creating a dummy function to place in the dependency
 // for the useEffect to ensure it re-runs, but either way the params update from undefined to the correct
 // value but the console.log for profile still reads just the logged in user.
-
+    console.log("params in fn: ", params)
     if (params) {
       let foundProfile = await API.getProfile(params);
+      console.log("foundprofile with the conditional true: ", foundProfile)
       setProfile(foundProfile.data.result)
     } else {
     let foundProfile = await API.getProfile(foundUser._id)
+    console.log("foundprofile with the conditional false: ", foundProfile)
     setProfile(foundProfile.data.result)
     }
   }
@@ -156,7 +161,15 @@ console.log("params: ", params)
       <Container fluid>
         <div className=" row profile-row-top">
           <div className="col-md-4 pl-5 pr-3 pt-5 pb-5 profile-col">
-            <div className="card profile-card-top">
+            {console.log("profile log in jsx: ", profile)}
+            <ProfileCard 
+              firstName={profile.firstName}
+              lastName={profile.lastName}
+              userName={profile.username}
+              joinDate={formattedDate}
+
+              />
+            {/* <div className="card profile-card-top">
               <div className="card-body profile-card-body-top">
                 <Row>
                   <p className="profile-username-text">{profile.username}</p>
@@ -176,7 +189,7 @@ console.log("params: ", params)
                   <button className="btn btn-link follow-btn">Follow {profile.firstName}</button>
                 </Row>
               </div>
-            </div>  
+            </div>   */}
           </div>
           <div className="col-md-4 pr-5 pl-5 pt-5 pb-5 profile-col">
             <div className="card profile-card-top">

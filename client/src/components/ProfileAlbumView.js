@@ -16,15 +16,11 @@ const [visibleMain, setVisibleMain] = useState("show")
 const [visibleQueue, setVisibleQueue] = useState("hide")
 const [visibleRecs, setVisibleRecs] = useState("hide")
 
-
-
-
 const trackArr = []
 
 for (let i=0; i<props.tracks.length; i++) {
     trackArr.push(props.tracks[i])
 }
-
 
 function addToQueue () {
     const albumData = {
@@ -77,6 +73,12 @@ function openRecs () {
 function moreInfo () {
     window.open(props.url, "_blank")
 } 
+
+function loadNewProfile (event) {
+    console.log("loadprofilefn: ", event.target)
+    API.getProfile(event.target.id)
+    window.location.reload()
+}
 
     return (
         <div>
@@ -146,9 +148,9 @@ seem to re-render, because all of the values from the input fields above are sti
 
                                             {props.queue.map(person => {
                                                 return(
-                                                    <div className="row"
-                                                    onClick={props.loadProfile}>
-                                                        <Link to={{
+                                                    <div className="row" 
+                                                    onClick={loadNewProfile}>
+                                                        <Link className="profile-link" id={person._id} to={{
                                                             pathname: "/profile/" + person._id,
                                                             state: "string"
                                                         }}>
@@ -176,9 +178,14 @@ seem to re-render, because all of the values from the input fields above are sti
                                             </div>
                                             {props.rec.map(person => {
                                                 return(
-                                                    <div className="row">
-                                                        <p>{person.firstName} {person.lastName}</p>
-                                                    </div>
+                                                    <div className="row" 
+                                                    onClick={loadNewProfile}>
+                                                        <Link className="profile-link" id={person._id} to={{
+                                                            pathname: "/profile/" + person._id,
+                                                            state: "string"
+                                                        }}>
+                                                            {person.firstName} {person.lastName} 
+                                                        </Link>                                                    </div>
                                                     )
                                             })}
                                         </div>
