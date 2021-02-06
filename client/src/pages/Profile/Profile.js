@@ -19,6 +19,7 @@ import RandomQuote from "../../components/RandomQuote"
 import ProfileAlbumView from "../../components/ProfileAlbumView"
 import PlaceholderAlbum from "../../utils/placeholder.json"
 import ProfileCard from "../../components/ProfileCard"
+import TagCloud from "../../components/TagCloud"
 
 
 const Profile = (props) => {
@@ -168,7 +169,10 @@ console.log("profile: ", profile)
           <div className="col-md-4 pr-5 pl-3 pt-5 pb-5 profile-col">
             <div className="card profile-card-top">
               <div className="card-body profile-card-body-top">
-                Another placeholder card for a component that's going to show my most popular tags by size.
+                <TagCloud 
+                  queue={profile.queue}
+                  recommended={profile.recommended}
+                  />
               </div>
             </div>
           </div>
