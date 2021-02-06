@@ -11,7 +11,7 @@ function ProfileCard (props) {
                 </Row>
                 <Row>
                   <div className="col-md-12">
-                    <img className="profile-img contain" src="https://via.placeholder.com/300"   />
+                    <img className="profile-img contain" src={props.image}   />
                   </div>
                 </Row>
                 <Row>
@@ -21,7 +21,7 @@ function ProfileCard (props) {
                   <p className="profile-membersince-text">Member Since {props.joinDate}</p>
                 </Row>
                 <Row>
-                  <button className="btn btn-link follow-btn">Follow {props.firstName}</button>
+                  <button className="btn btn-link follow-btn" id={props.id} onClick={props.followUser}>Follow {props.firstName}</button>
                 </Row>
               </div>
             </div>  

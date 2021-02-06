@@ -27,6 +27,8 @@ module.exports = {
       if (req.params.id.length != 9) {
         db.User
           .findOne({ _id: req.params.id })
+          .populate("followers")
+          .populate("following")
           .then(result => {
             console.log("user: ", result)
             res.json({ result });
@@ -35,6 +37,8 @@ module.exports = {
       } else {
       db.User
         .findOne({ _id: req.user._id })
+        .populate("followers")
+        .populate("following")
         // .populate("profile")
         .then(result => {
           console.log("user: ", result) 

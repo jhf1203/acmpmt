@@ -104,12 +104,13 @@ quoteArr.push(Randomizer.randomVal(Quotes))
 // If I click on a user from either the albumDetail or ProfileAlbumView components, that person's userid
 // will successfully populate under params in the below console.log
 
-console.log("params: ", params)
+console.log("user: ", user)
+console.log("profile: ", profile)
 
   async function loadProfile () {
     let foundUser = await AUTH.getUser();
     setUser(foundUser.data.user)
-    console.log("founduser data: ", foundUser.data.user)
+    // console.log("founduser data: ", foundUser.data.user)
 
 // Even if params are found and validated in the log above, the profile is always set/displayed as
 // the foundUser.id, i.e. the logged in user from AUTH.getUser.  
@@ -117,14 +118,14 @@ console.log("params: ", params)
 // - I thought about getting the page to reload, or creating a dummy function to place in the dependency
 // for the useEffect to ensure it re-runs, but either way the params update from undefined to the correct
 // value but the console.log for profile still reads just the logged in user.
-    console.log("params in fn: ", params)
+    // console.log("params in fn: ", params)
     if (params) {
       let foundProfile = await API.getProfile(params);
-      console.log("foundprofile with the conditional true: ", foundProfile)
+      // console.log("foundprofile with the conditional true: ", foundProfile)
       setProfile(foundProfile.data.result)
     } else {
     let foundProfile = await API.getProfile(foundUser._id)
-    console.log("foundprofile with the conditional false: ", foundProfile)
+    // console.log("foundprofile with the conditional false: ", foundProfile)
     setProfile(foundProfile.data.result)
     }
   }
@@ -157,6 +158,15 @@ console.log("params: ", params)
     setVisibleDetail("visible-detail")
   }
 
+  async function followUser (event) {
+    let me = user._id;
+    let userToFollow = await API.getProfile(event.target.id)
+    console.log("usertofollow: ", userToFollow.data.result);
+    let userToFollowId = userToFollow.data.result._id
+    API.followUser(me, userToFollowId)
+    API.followerAdd(userToFollowId, me)
+  }
+
     return (
       <Container fluid>
         <div className=" row profile-row-top">
@@ -167,6 +177,9 @@ console.log("params: ", params)
               lastName={profile.lastName}
               userName={profile.username}
               joinDate={formattedDate}
+              id={profile._id}
+              image={profile.image}
+              followUser={followUser}
 
               />
             {/* <div className="card profile-card-top">

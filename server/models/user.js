@@ -30,8 +30,7 @@ const userSchema = new Schema({
 
 	image: {
 		type: String,
-		unique: false,
-		required: false
+		default: "https://via.placeholder.com/300"
 	},
 
 	joinDate: {

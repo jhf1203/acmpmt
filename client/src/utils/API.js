@@ -34,5 +34,19 @@ export default {
       url: "/api/profile/" + id,
       data: album
     });
+  },
+  followUser: function (id, user) {
+    return axios ({
+      method: "put",
+      url: "/api/connection/" + id,
+      data: user
+    })
+  },
+  followerAdd: function (id, user) {
+    return axios ({
+      method: "patch",
+      url: "/api/connection/" + id,
+      data: user
+    })
   }
 };
