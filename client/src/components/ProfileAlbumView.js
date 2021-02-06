@@ -75,7 +75,6 @@ function moreInfo () {
 } 
 
 function loadNewProfile (event) {
-    console.log("loadprofilefn: ", event.target)
     API.getProfile(event.target.id)
     window.location.reload()
 }

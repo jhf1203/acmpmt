@@ -24,9 +24,6 @@ import ProfileCard from "../../components/ProfileCard"
 const Profile = (props) => {
 
 
-console.log("props? ", props)
-console.log("")
-
   // Setting our component's initial state
   const [user, setUser] = useState();
   const [profile, setProfile] = useState(
@@ -53,20 +50,7 @@ console.log("")
     findUsers();
   }, []);
 
-  // useEffect(() => {
-  //   setOtherUser(useParams().id)
-  // }, [])
-
-  // console.log("params?: ", useParams().id)
-
-  let params = useParams().id
-
-  // if (params) {
-  //   console.log("there are params and they are: ", params)
-  // } else {
-  //   console.log("aint no params up in hurr")
-  // }
-  // console.log(!params, "params")
+let params = useParams().id
 
 let quoteArr = []
 let formattedDate = moment(profile.joinDate).format("l")
@@ -110,22 +94,11 @@ console.log("profile: ", profile)
   async function loadProfile () {
     let foundUser = await AUTH.getUser();
     setUser(foundUser.data.user)
-    // console.log("founduser data: ", foundUser.data.user)
-
-// Even if params are found and validated in the log above, the profile is always set/displayed as
-// the foundUser.id, i.e. the logged in user from AUTH.getUser.  
-
-// - I thought about getting the page to reload, or creating a dummy function to place in the dependency
-// for the useEffect to ensure it re-runs, but either way the params update from undefined to the correct
-// value but the console.log for profile still reads just the logged in user.
-    // console.log("params in fn: ", params)
     if (params) {
       let foundProfile = await API.getProfile(params);
-      // console.log("foundprofile with the conditional true: ", foundProfile)
       setProfile(foundProfile.data.result)
     } else {
     let foundProfile = await API.getProfile(foundUser._id)
-    // console.log("foundprofile with the conditional false: ", foundProfile)
     setProfile(foundProfile.data.result)
     }
   }
@@ -161,7 +134,6 @@ console.log("profile: ", profile)
   async function followUser (event) {
     let me = user._id;
     let userToFollow = await API.getProfile(event.target.id)
-    console.log("usertofollow: ", userToFollow.data.result);
     let userToFollowId = userToFollow.data.result._id
     API.followUser(me, userToFollowId)
     API.followerAdd(userToFollowId, me)
@@ -182,32 +154,14 @@ console.log("profile: ", profile)
               followUser={followUser}
 
               />
-            {/* <div className="card profile-card-top">
-              <div className="card-body profile-card-body-top">
-                <Row>
-                  <p className="profile-username-text">{profile.username}</p>
-                </Row>
-                <Row>
-                  <div className="col-md-12">
-                    <img className="profile-img contain" src={thisPic} height="100%" width="100%"  />
-                  </div>
-                </Row>
-                <Row>
-                  <p className="profile-realname-text">{profile.firstName} {profile.lastName}</p>
-                </Row>
-                <Row>
-                  <p className="profile-membersince-text">Member Since {formattedDate}</p>
-                </Row>
-                <Row>
-                  <button className="btn btn-link follow-btn">Follow {profile.firstName}</button>
-                </Row>
-              </div>
-            </div>   */}
           </div>
           <div className="col-md-4 pr-5 pl-5 pt-5 pb-5 profile-col">
             <div className="card profile-card-top">
               <div className="card-body profile-card-body-top">
-                <Accordion />
+                <Accordion 
+                  followers={profile.followers}
+                  following={profile.following}
+                  userName={profile.username}/>
               </div>
             </div>
           </div>

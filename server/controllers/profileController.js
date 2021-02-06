@@ -4,25 +4,21 @@ const db = require("../models");
 
 // Defining methods for the profileController
 module.exports = {
+  
   findAll: function(req, res) {
-    // console.log("user.findall")
     if (req.user) {
-      // console.log("req.user true: ", req.user)
       db.User
         .find({})
-        // .populate({ path: "profile", options: { sort: { 'date': -1 } } })
         .then(users => {
           res.json({ users });
         })
         .catch(err => res.status(422).json(err));
     } else {
-      // console.log("req.user false: ", req)
       return res.json({ profile: null });
     }
   },
+
   findById: function(req, res) {
-    console.log("user findbyid: ", req.params.id)
-    console.log("conditional: ", req.params.id.length)
     if (req.user) {
       if (req.params.id.length != 9) {
         db.User
@@ -39,10 +35,7 @@ module.exports = {
         .findOne({ _id: req.user._id })
         .populate("followers")
         .populate("following")
-        // .populate("profile")
         .then(result => {
-          console.log("user: ", result) 
-          // book = users[0].profile.filter(b => b._id.toString() === req.params.id);
           res.json({ result });
         })
         .catch(err => res.status(422).json(err));
@@ -51,6 +44,7 @@ module.exports = {
       return res.json({ book: null });
     }
   },
+
   create: function(req, res) {
     db.Album
       .create(req.body)
@@ -63,6 +57,7 @@ module.exports = {
       })
       .catch(err => res.status(422).json(err));
   },
+
   update: function(req, res) {
     db.Album
       .findOneAndUpdate({ _id: req.params.id }, req.body)
@@ -72,6 +67,7 @@ module.exports = {
       })
       .catch(err => res.status(422).json(err));
   },
+
   remove: function(req, res) {
     db.User.findOneAndUpdate({ _id: req.user._id }, { $pull: { profile: new ObjectId(req.params.id) } }, { new: true })
       .then(() => {

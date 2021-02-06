@@ -571,6 +571,25 @@ h3 {
   padding: 1% 1% 1% 1%
 }
 
+.connection-card-body {
+  background-color:#2a2a2a;
+  opacity:0;
+  transition: opacity 0.5s ease-in-out;
+
+}
+
+.connection-card-body:hover{
+  opacity:0.9;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.connection-hover-text{
+  font-family: "Raleway";
+  font-size: 14px;
+  font-weight:600;
+  color: #ececec
+}
+
 /* AlbumList */
 
 .col-tracklist {

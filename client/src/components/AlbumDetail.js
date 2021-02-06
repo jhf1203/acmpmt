@@ -80,7 +80,6 @@ function moreInfo () {
 }
 
 function loadNewProfile (event) {
-    console.log("loadprofilefn: ", event.target)
     API.getProfile(event.target.id)
     window.location.reload()
 }
@@ -150,12 +149,6 @@ function loadNewProfile (event) {
                                                     <i className="fa fa-times close-list"  onClick={closeQueue} aria-hidden="true"></i>
                                                 </div>
                                             </div>
-
-{/* Same issue here.  Below is where the users populate.  I am unable to get the below state (I just used 
-"string" as a dummy value) to translate back into the profile page when it re-renders.  But upon clicking the 
-link it doesn't seem to re-render *DESPITE routing me correctly back to Profile, with the person.id in 
-the url. */}
-
                                             {props.queue.map(person => {
                                                 return(
                                                     <div className="row" 
@@ -165,7 +158,8 @@ the url. */}
                                                             state: "string"
                                                         }}>
                                                             {person.firstName} {person.lastName} 
-                                                        </Link>                                                    </div>
+                                                        </Link>                                                    
+                                                        </div>
                                                     )
                                             })}
                                         </div>
