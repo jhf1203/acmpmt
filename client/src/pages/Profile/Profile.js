@@ -42,6 +42,7 @@ const Profile = (props) => {
   const formEl = useRef("rvfr");
 
   // Load all profile and store them with setUser
+  console.log("user: ", user)
   useEffect(() => {
     loadProfile();
   }, []);
@@ -89,7 +90,6 @@ quoteArr.push(Randomizer.randomVal(Quotes))
 // will successfully populate under params in the below console.log
 
 console.log("user: ", user)
-console.log("profile: ", profile)
 
   async function loadProfile () {
     let foundUser = await AUTH.getUser();
@@ -141,31 +141,41 @@ console.log("profile: ", profile)
 
   let widget =  window.cloudinary.createUploadWidget({
     cloud_name: "duf4y1dco",
-    // upload_preset: "gtdegmoh",
+    upload_preset: "lni6nbrv",
     cropping: true,
     croppingCoordinatesMode: "custom",
     croppingAspectRatio: 1,
     showSkipCropButton: false
+  },
+  function (error, result) {
+    console.log("result: ", result)
+    imageUpload(result);
   });
 
-  function imageUpload(resultEvent) {
-    const userID = user._id;
-    if(resultEvent.event === "success") {
-        const imageURL = {
-            image: resultEvent.info.secure_url
-        };
 
-        console.log("here's where we'll put the api route")
-        // API.updateImage(userID, imageURL)
-        // .then((res) => {
-        //     console.log(res.data);
-        //     setUser(res.data);
-        // })
-    }
-}
 
 function showWidget() {
     widget.open();
+};
+
+function imageUpload(resultEvent) {
+  console.log("user in imageupload: ", user)
+  console.log("resultevent: ", resultEvent)
+  if (user) {
+  const userID = user._id;
+  
+  if(resultEvent.event === "success") {
+      const imageURL = {
+          image: resultEvent.info.secure_url
+      };
+
+      API.updateImage(userID, imageURL)
+      .then((res) => {
+          console.log(res.data);
+          setUser(res.data);
+      })
+    }
+  }
 }
 
     return (

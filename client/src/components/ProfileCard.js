@@ -3,6 +3,12 @@ import { Col, Row, Container } from "../components/Grid";
 
 function ProfileCard (props) {
 
+let imgStyle = {
+  backgroundImage: `url(${props.image})`,
+  backgroundSize: "100%"
+}
+
+
     return (
         <div className="card profile-card-top">
               <div className="card-body profile-card-body-top">
@@ -10,7 +16,7 @@ function ProfileCard (props) {
                   <p className="profile-username-text">{props.userName}</p>
                 </Row>
                 <Row>
-                <div className="card profile-pic-card" style={{backgroundImage: `url(${props.image})`}}>
+                <div className="card profile-pic-card" style={imgStyle}>
                   <div className="card profile-pic-card-body">
                     <button className="btn btn-link profile-pic-card-body-text" onClick={props.showWidget}>Change Picture</button>
                   </div>

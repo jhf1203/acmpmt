@@ -31,7 +31,6 @@ for (let i =0; i < tagArrMaster.length; i++) {
 const countStats = Lodash.countBy(tagArrFiltered)
 const dataArr = []
 Object.getOwnPropertyNames(countStats).forEach((val, idx, array) => {
-    console.log(val, ": ", countStats[val])
     dataArr.push({
         value: val,
         count: parseInt(countStats[val]),
@@ -39,15 +38,6 @@ Object.getOwnPropertyNames(countStats).forEach((val, idx, array) => {
         fontWeight: weightArr[Math.floor(Math.random() * weightArr.length)]
     })
 })
-
-const fontSizeMapper = word => Math.log2(word.value) * 8;
-const rotate = word => word.value % 360
-
-console.log("countstats: ", countStats)
-console.log("tagarr: ", tagArrFiltered)
-console.log("dataarr: ", dataArr)
-
-
 
     return (
         <TagCloud

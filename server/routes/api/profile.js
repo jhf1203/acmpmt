@@ -15,5 +15,9 @@ router
   .delete(profileController.remove)
   .patch(profileController.updateQueue)
 
+router
+  .route("/images/:id")
+  .put(profileController.updateImage)
+
 
 module.exports = router;

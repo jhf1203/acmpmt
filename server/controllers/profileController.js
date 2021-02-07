@@ -26,7 +26,6 @@ module.exports = {
           .populate("followers")
           .populate("following")
           .then(result => {
-            console.log("user: ", result)
             res.json({ result });
           })
           .catch(err => res.status(422).json(err));
@@ -97,7 +96,7 @@ module.exports = {
       }
     })
     .then(dbUser => res.json(dbUser))
-    .then(dbUser => console.log("user!: ", dbUser))
+    .then(dbUser => console.log("user!"))
     .catch(err => res.status(422).json(err))
     
   },
@@ -123,5 +122,14 @@ module.exports = {
     .then(dbUser => console.log("user!: ", dbUser))
     .catch(err => res.status(422).json(err))
     
+  },
+  updateImage: (req, res) => {
+    const { image } = req.body;
+    // console.log(req.body);
+    db.User.findOneAndUpdate({
+      _id: req.params.id
+    }, req.body, { new: true }
+    ).then(dbModel => res.json(dbModel)
+    ).catch(err => res.status(422).json(err));
   }
 };

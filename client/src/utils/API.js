@@ -48,5 +48,8 @@ export default {
       url: "/api/connection/" + id,
       data: user
     })
-  }
+  },
+  updateImage: function(id, image) {
+    return axios.put("/api/profile/images/" + id, image);
+}
 };

@@ -8,10 +8,12 @@ require('dotenv').config();
 const express = require('express');
 const morgan = require('morgan');
 const session = require('express-session');
+const cloudinary = require("cloudinary")
 const MongoStore = require('connect-mongo')(session);
 const dbConnection = require('./db'); // loads our connection to the mongo database
 const routes = require("./routes");
 const passport = require('./passport');
+const upload = require("./controllers/upload");
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -41,6 +43,20 @@ app.use(passport.session()); // will call the deserializeUser
 // 		res.sendFile(path.join(__dirname, '../client/build/'))
 // 	});
 // }
+
+// cloudinary
+app.post("/api/imageUpload", upload.single("image"), async (req, res) => {
+	const result = await cloudinary.v2.uploader.upload(req.file.path);
+	res.send(result);
+  });
+  
+  app.get("/api/imageGet", async (req, res) => {
+	const images = await cloudinary.v2.api.resources({
+	  type: "upload",
+	  prefix: "image"
+	});
+	return res.json(images);
+  });
 
 // Add routes, both API and view
 app.use(routes);
