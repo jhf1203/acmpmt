@@ -12,7 +12,7 @@ function ProfileCard (props) {
                 <Row>
                 <div className="card profile-pic-card" style={{backgroundImage: `url(${props.image})`}}>
                   <div className="card profile-pic-card-body">
-                    <p className="profile-pic-card-body-text">Change Picture</p>
+                    <button className="btn btn-link profile-pic-card-body-text" onClick={props.showWidget}>Change Picture</button>
                   </div>
                 </div>
                 </Row>

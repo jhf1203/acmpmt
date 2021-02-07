@@ -139,6 +139,35 @@ console.log("profile: ", profile)
     API.followerAdd(userToFollowId, me)
   }
 
+  let widget =  window.cloudinary.createUploadWidget({
+    cloud_name: "duf4y1dco",
+    // upload_preset: "gtdegmoh",
+    cropping: true,
+    croppingCoordinatesMode: "custom",
+    croppingAspectRatio: 1,
+    showSkipCropButton: false
+  });
+
+  function imageUpload(resultEvent) {
+    const userID = user._id;
+    if(resultEvent.event === "success") {
+        const imageURL = {
+            image: resultEvent.info.secure_url
+        };
+
+        console.log("here's where we'll put the api route")
+        // API.updateImage(userID, imageURL)
+        // .then((res) => {
+        //     console.log(res.data);
+        //     setUser(res.data);
+        // })
+    }
+}
+
+function showWidget() {
+    widget.open();
+}
+
     return (
       <Container fluid>
         <div className=" row profile-row-top">
@@ -152,6 +181,7 @@ console.log("profile: ", profile)
               id={profile._id}
               image={profile.image}
               followUser={followUser}
+              showWidget={showWidget}
 
               />
           </div>
