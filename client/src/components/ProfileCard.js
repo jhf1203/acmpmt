@@ -10,9 +10,11 @@ function ProfileCard (props) {
                   <p className="profile-username-text">{props.userName}</p>
                 </Row>
                 <Row>
-                  <div className="col-md-12">
-                    <img className="profile-img contain" src={props.image}   />
+                <div className="card profile-pic-card" style={{backgroundImage: `url(${props.image})`}}>
+                  <div className="card profile-pic-card-body">
+                    <p className="profile-pic-card-body-text">Change Picture</p>
                   </div>
+                </div>
                 </Row>
                 <Row>
                   <p className="profile-realname-text">{props.firstName} {props.lastName}</p>

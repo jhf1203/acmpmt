@@ -111,7 +111,8 @@ h3 {
 .img-card-login {
   background-image:url("./assets/content-imgs/gybe.jpg");
   background-size:100%;
-  margin-bottom:1%
+  margin-bottom:1%;
+  
 }
 
 .img-card-content {
@@ -362,6 +363,37 @@ h3 {
   text-transform: lowercase;
   text-align: center;
   width:100%
+}
+
+.profile-pic-card {
+  width: 300px;
+  height: 300px;
+  margin-left:4%;
+  border-radius:10px
+}
+
+.profile-pic-card-body {
+  width: 100%;
+  height: 100%;
+  background-color:#2a2a2a;
+  color: #ececec;
+  opacity:0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.profile-pic-card-body:hover{
+  opacity:0.9;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.profile-pic-card-body-text {
+  width:100%;
+  text-align: center;
+  font-size: 20px;
+  text-transform: lowercase;
+  font-weight: 600;
+  margin-top:40%;
+
 }
 
 /* Search Page */
