@@ -14,12 +14,11 @@ import UserList from "../../components/UserList";
 import PlaceholderProfile from "../../utils/placeholderProfile.json"
 import Randomizer from "../../utils/randomizer"
 import Quotes from "../../utils/quotes.json"
-import thisPic from "../../assets/content-imgs/alanis.jpg"
 import RandomQuote from "../../components/RandomQuote"
 import ProfileAlbumView from "../../components/ProfileAlbumView"
 import PlaceholderAlbum from "../../utils/placeholder.json"
 import ProfileCard from "../../components/ProfileCard"
-import TagCloud from "../../components/TagCloud"
+import WordCloud from "../../components/WordCloud"
 
 
 const Profile = (props) => {
@@ -169,7 +168,10 @@ console.log("profile: ", profile)
           <div className="col-md-4 pr-5 pl-3 pt-5 pb-5 profile-col">
             <div className="card profile-card-top">
               <div className="card-body profile-card-body-top">
-                <TagCloud 
+                <div className="row">
+                  <p className="cloud-header-text">{profile.firstName}'s collection</p>
+                </div>
+                <WordCloud 
                   queue={profile.queue}
                   recommended={profile.recommended}
                   />

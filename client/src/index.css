@@ -356,6 +356,14 @@ h3 {
   background-image: url("./assets/content-imgs/kennedys.jpg")!important
 }
 
+.cloud-header-text {
+  font-size:30px;
+  font-weight: 600;
+  text-transform: lowercase;
+  text-align: center;
+  width:100%
+}
+
 /* Search Page */
 
 .search-row-top {
@@ -770,5 +778,18 @@ h3 {
   color: #A8D0E6
 }
 
+/* WordCloud */
+
+.tag-cloud {
+  border: 1px solid black;
+  border-radius: 10px;
+  height: 100%;
+  width: 100%;
+  padding:3%;
+  background-color: #2a2a2a;
+  font-weight:600;
+  text-transform: lowercase
+
+}
 
 
