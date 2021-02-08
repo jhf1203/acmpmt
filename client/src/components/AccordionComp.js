@@ -7,6 +7,7 @@ import API from "../utils/API"
 const AccordionComp = (props) => {
 
     function loadNewProfile (event) {
+        console.log("event id: ", event.target.id)
         API.getProfile(event.target.id)
         window.location.reload()
     }
@@ -26,11 +27,12 @@ const AccordionComp = (props) => {
                             return (
                                 <div className="col-md-4 connection-col">
                                     <div className="row connection-row">
+                                        {console.log("follower: ", follower)}
                                         <div style={{backgroundImage: `url(${follower.image})`}}  className="card connection-card-bkgd">
                                             <div className="card-body connection-card-body">
                                                 <div className="connection-hover-text"
                                                     onClick={loadNewProfile}>
-                                                        <Link className="connection-hover-text" id={follower._id} to={{
+                                                        <Link id={follower._id} className="connection-hover-text"  to={{
                                                             pathname: "/profile/" + follower._id,
                                                             state: "string"
                                                         }}>

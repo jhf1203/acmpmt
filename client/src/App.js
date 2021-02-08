@@ -64,6 +64,7 @@ function App() {
           <div className="main-view">
             <Switch> 
               <Route exact path="/" render={() => <Profile user={user} />} />
+              <Route exact path="/login" render={() => <LoginForm />} />
               <Route exact path="/profile/:id" render={() => <Profile />} />
               <Route exact path="/profile" render={() => <Profile user={user}/>} />
               <Route exact path="/other" render={() => <Detail />} />

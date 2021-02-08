@@ -45,6 +45,7 @@ const Search = (props) => {
   const [visibleList, setVisibleList] = useState("invisible-list")
   const [visibleDetail, setVisibleDetail] = useState("invisible-detail")
   const [visibleCard, setVisibleCard] = useState("invisible-card")
+  const [visibleError, setVisibleError] = useState("invisible-error")
 
   // All users, from which we need queue and recommended list data 
   const [allUsers, setAllUsers] = useState([])
@@ -117,6 +118,7 @@ const Search = (props) => {
   // for each artist the user submitted (most is 3, least is 1)
   async function handleFormSubmit (event) {
     event.preventDefault()
+    setVisibleError("invisible-error");
     await getSimilarArtists(artists.artist1);
     await getSimilarArtists(artists.artist2);
     await getSimilarArtists(artists.artist3);
@@ -139,12 +141,17 @@ const Search = (props) => {
     }
   })
 
-  // Loading all artists who matched as similar for all three entries into their own object
-  addBandObj(match3);
+  if (match3.length < 3) {
+    setVisibleError("visible-error")
+  } else {
+    // Loading all artists who matched as similar for all three entries into their own object
 
-  // Making rows beyond the artist entry visible upon form submission
-  setVisibleList("visible-list");
-  setVisibleCard("visible-card")
+    addBandObj(match3);
+
+    // Making rows beyond the artist entry visible upon form submission
+    setVisibleList("visible-list");
+    setVisibleCard("visible-card")
+  }
 }
 
 // STEP 3: Creating a custom object with aggregated match data from each user entry (match can be as low as "0"
@@ -267,7 +274,14 @@ const Search = (props) => {
                     onChange={handleArtistEntry}
 
                   />
-                  <button className="btn btn-link search-submit-btn" onClick={handleFormSubmit}>show me!</button>
+                  <div className="row">
+                    <div className="col-md-3">
+                      <button className="btn btn-link search-submit-btn" onClick={handleFormSubmit}>show me!</button>
+                    </div>
+                    <div className="col-md-9">
+                      <div className="error-msg" id={visibleError}>uh oh, you stumped us!  no great matches, please try again.</div>
+                    </div>
+                  </div>
                   </form>
                 </div>
               </div>

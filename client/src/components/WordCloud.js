@@ -44,8 +44,7 @@ Object.getOwnPropertyNames(countStats).forEach((val, idx, array) => {
             tags={dataArr}
             minSize={20}
             maxSize={50}
-            // fontSizeMapper={fontSizeMapper}
-            // rotate={rotate}
+           
         />
     )
 }

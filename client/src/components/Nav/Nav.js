@@ -1,10 +1,12 @@
 import React, { Fragment } from "react";
 import { Link } from 'react-router-dom';
+import API from "../../utils/API";
 import { Col } from '../Grid';
 import './Nav.css';
 
 const Nav = (props) => {
   let greeting;
+  console.log("nav props: ", props)
 
   if (props.user === null) {
 		greeting = <p>Hello guest</p>
@@ -21,6 +23,12 @@ const Nav = (props) => {
 			</Fragment>
 		)
   }
+
+  function loadMyProfile () {
+    console.log("we should be loading user: ", props.user.firstName)
+    API.getProfile(props.user._id)
+    window.location.reload()
+  }
   
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-success">
@@ -31,13 +39,13 @@ const Nav = (props) => {
         <ul className="navbar-nav float-right">
         {greeting} - 
           <li className="nav-item">
-            <Link to="#" className="logout link-logout" onClick={props.logout}>Logout</Link>
+            <Link to="/login" className="logout link-logout" onClick={props.logout}>Logout</Link>
           </li>
           <li className="nav-item">
             <Link to="/Search" className="logout link-discover">Discover</Link>
           </li>
           <li className="nav-item">
-            <Link to="/Profile" className="logout link-profile">Profile</Link>
+            <Link to="/Profile" className="logout link-profile" onClick={loadMyProfile}>Profile</Link>
           </li>
         </ul>
         

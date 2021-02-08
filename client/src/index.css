@@ -488,14 +488,16 @@ h3 {
 
 #invisible-list,
 #invisible-detail,
-#invisible-card{
+#invisible-card,
+#invisible-error{
   display:none;
   transition: display 2s ease-in-out
 }
 
 #visible-list,
 #visible-detail,
-#visible-card{
+#visible-card,
+#visible-error{
   display:flex;
   transition: display 2s ease-in-out
 }
@@ -503,6 +505,21 @@ h3 {
 .detail-card{
   width:100%
 }
+
+.error-msg {
+  background-color: #F76C6C;
+  color: #2a2a2a;
+  font-size: 17px;
+  font-weight: 700;
+  height:100%;
+  border: 1px solid black;
+  border-radius:10px;
+  padding-top:3%;
+  padding-left:4%;
+  width:100%;
+}
+
+
 
 
 
