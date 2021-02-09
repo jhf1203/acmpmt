@@ -69,6 +69,14 @@ app.post("/api/imageUpload", upload.single("image"), async (req, res) => {
 	return res.json(images);
   });
 
+  app.get('/*', function(req, res) {
+	res.sendFile(path.join(__dirname, '../client/public/index.html'), function(err) {
+	  if (err) {
+		res.status(500).send(err)
+	  }
+	})
+  })
+
 // Add routes, both API and view
 app.use(routes);
 
