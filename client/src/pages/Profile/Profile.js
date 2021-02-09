@@ -51,6 +51,10 @@ const Profile = (props) => {
     findUsers();
   }, []);
 
+  // useEffect(() => {
+  //   checkForMatch()
+  // }, [])
+
 let params = useParams().id
 
 let quoteArr = []
@@ -61,7 +65,15 @@ const rec = profile.recommended;
 
 quoteArr.push(Randomizer.randomVal(Quotes))
 
+function checkForMatch () {
+  if(user) {
+  console.log("profile id: ", profile._id)
+  console.log("user id: ", user._id)
+  console.log("conditional: ", profile._id === user._id)
+  }
+}
 
+checkForMatch()
 
 // ===============BELOW WAS THE ORIGINAL FUNCTION, WHICH I CONVERTED TO ASYNC
 
@@ -84,12 +96,7 @@ quoteArr.push(Randomizer.randomVal(Quotes))
   // };
 
 
-// ===HERE'S OUR PROBLEM CHILD!!!===
 
-// If I click on a user from either the albumDetail or ProfileAlbumView components, that person's userid
-// will successfully populate under params in the below console.log
-
-console.log("user: ", user)
 
   async function loadProfile () {
     let foundUser = await AUTH.getUser();

@@ -64,14 +64,14 @@ function App() {
           <Nav user={user} logout={logout}/>
           <div className="main-view">
             <Switch> 
-              <Route exact path="/login" render={() => <LoginForm />} />
-              <Route exact path="/profile/:id" render={() => <Profile />} />
-              <Route exact path="/profile" render={() => <Profile user={user}/>} />
-              <Route exact path="/other" render={() => <Detail />} />
-              <Route exact path="/search" render={() => <Search user={user} />} />
-              <Route exact path="/album" render={() => <Album user={user} />} />
-              <Route exact path="/user" render={() => <Profile/>} />
-              <Route exact path="/" render={() => <Profile user={user} />} />
+              <Route exact path="/login" component={() => <LoginForm />} />
+              <Route exact path="/profile/:id" component={() => <Profile />} />
+              <Route exact path="/profile" component={() => <Profile user={user}/>} />
+              <Route exact path="/other" component={() => <Detail />} />
+              <Route exact path="/search" component={() => <Search user={user} />} />
+              <Route exact path="/album" component={() => <Album user={user} />} />
+              <Route exact path="/user" component={() => <Profile/>} />
+              <Route exact path="/" component={() => <Profile user={user} />} />
               <Route component={NoMatch} />
               {/* <Route exact path="/" component={Profile} user={user} />
               <Route exact path="/profile" component={Profile} user={user} />
