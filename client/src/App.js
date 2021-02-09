@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { HashRouter as Route, Switch, useParams } from 'react-router-dom';
+import { Route, Switch, useParams } from 'react-router-dom';
 import LoginForm from './pages/Auth/LoginForm';
 import SignupForm from './pages/Auth/SignupForm';
 import Nav from "./components/Nav";
@@ -69,7 +69,6 @@ function App() {
               <Route exact path="/profile/:id" render={() => <Profile />} />
               <Route exact path="/profile" render={() => <Profile user={user}/>} />
               <Route exact path="/other" render={() => <Detail />} />
-              {/* <Route exact path="/profile/:id" render={() => <Detail user={user} />} /> */}
               <Route exact path="/search" render={() => <Search user={user} />} />
               <Route exact path="/album" render={() => <Album user={user} />} />
               <Route exact path="/user" render={() => <Profile/>} />
