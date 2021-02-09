@@ -123,7 +123,7 @@ h3 {
 }
 
 .img-card-content:hover {
-  opacity: 95%;
+  opacity: 0.95;
   transition: opacity 1s ease;
 }
 
