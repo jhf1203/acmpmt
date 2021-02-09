@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Router, Route, Switch, useParams } from 'react-router-dom';
+import { BrowserRouter as Route, Switch, useParams } from 'react-router-dom';
 import LoginForm from './pages/Auth/LoginForm';
 import SignupForm from './pages/Auth/SignupForm';
 import Nav from "./components/Nav";
