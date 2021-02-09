@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 // import { Link } from "react-router-dom";
 import moment from "moment"
-import { BrowserRouter as Router, Route, Link, useRouteMatch, useParams } from 'react-router-dom';
+import { HashRouter as Router, Route, Link, useRouteMatch, useParams } from 'react-router-dom';
 import { Col, Row, Container } from "../../components/Grid";
 import { List, ListItem } from "../../components/List";
 import { Card } from "../../components/Card";

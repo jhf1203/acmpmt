@@ -1,6 +1,6 @@
 import { PromiseProvider } from 'mongoose';
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Link, useRouteMatch, useParams } from 'react-router-dom';
+import { HashRouter as Router, Route, Link, useRouteMatch, useParams } from 'react-router-dom';
 import { Accordion, Card, Button } from "react-bootstrap"
 import API from '../utils/API';
 import {Col, Row} from "./Grid"

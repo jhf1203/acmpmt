@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Accordion, Card, Button } from "react-bootstrap"
-import { BrowserRouter as Router, Route, Link, useRouteMatch, useParams } from 'react-router-dom';
+import { HashRouter as Router, Route, Link, useRouteMatch, useParams } from 'react-router-dom';
 
 import API from "../utils/API"
 
