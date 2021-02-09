@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { HashRouter as Router, Route, Switch, useParams } from 'react-router-dom';
+import { Router, Route, Switch, useParams } from 'react-router-dom';
 import LoginForm from './pages/Auth/LoginForm';
 import SignupForm from './pages/Auth/SignupForm';
 import Nav from "./components/Nav";
@@ -62,10 +62,8 @@ function App() {
       { loggedIn && (
         <div>
           <Nav user={user} logout={logout}/>
-          <Router>
           <div className="main-view">
             <Switch> 
-              <Route exact path="/" render={() => <Profile user={user} />} />
               <Route exact path="/login" render={() => <LoginForm />} />
               <Route exact path="/profile/:id" render={() => <Profile />} />
               <Route exact path="/profile" render={() => <Profile user={user}/>} />
@@ -73,6 +71,7 @@ function App() {
               <Route exact path="/search" render={() => <Search user={user} />} />
               <Route exact path="/album" render={() => <Album user={user} />} />
               <Route exact path="/user" render={() => <Profile/>} />
+              <Route exact path="/" render={() => <Profile user={user} />} />
               <Route component={NoMatch} />
               {/* <Route exact path="/" component={Profile} user={user} />
               <Route exact path="/profile" component={Profile} user={user} />
@@ -83,7 +82,6 @@ function App() {
             </Switch>
             
           </div>
-          </Router>
         </div>
       )}
       { !loggedIn && (

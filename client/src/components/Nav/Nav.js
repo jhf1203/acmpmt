@@ -27,7 +27,7 @@ const Nav = (props) => {
   function loadMyProfile () {
     console.log("we should be loading user: ", props.user.firstName)
     API.getProfile(props.user._id)
-    window.location.reload()
+    
   }
   
   return (
