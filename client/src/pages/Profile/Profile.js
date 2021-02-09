@@ -146,16 +146,16 @@ console.log("user: ", user)
       palette: {
         window: "#ececec",
         windowBorder: "#374785",
-        tabIcon: "#2a2a2a",
+        tabIcon: "#374785",
         menuIcons: "#2a2a2a",
         textDark: "#2a2a2a",
         textLight: "#ececec",
         link:  "#374785",
         action:  "#374785",
-        inactiveTabIcon: "#2a2a2a",
+        inactiveTabIcon: "#9a9a9a",
         error: "#F76C6C",
-        inProgress: "#374785",
-        complete: "#F8E9A1",
+        inProgress: "#F8E9A1",
+        complete: "#374785",
         sourceBg: "#ececec"
       },
       fonts: {

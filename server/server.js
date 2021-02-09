@@ -9,6 +9,7 @@ const express = require('express');
 const morgan = require('morgan');
 const session = require('express-session');
 const cloudinary = require("cloudinary")
+const mongoose = require("mongoose")
 const MongoStore = require('connect-mongo')(session);
 const dbConnection = require('./db'); // loads our connection to the mongo database
 const routes = require("./routes");
@@ -27,6 +28,16 @@ app.use(session({
   resave: false,
   saveUninitialized: false
 }));
+
+// mongoose.connect(
+// 	process.env.MONGODB_URI || 'mongodb://localhost/deep-thoughts',
+// 	{
+// 	  useNewUrlParser: true,
+// 	  useUnifiedTopology: true,
+// 	  useCreateIndex: true,
+// 	  useFindAndModify: false
+// 	}
+//   );
 
 // Passport
 app.use(passport.initialize());
