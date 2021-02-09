@@ -42,10 +42,10 @@ const Nav = (props) => {
             <Link to="/login" className="logout link-logout" onClick={props.logout}>Logout</Link>
           </li>
           <li className="nav-item">
-            <Link to="/Search" className="logout link-discover">Discover</Link>
+            <Link to="/search" className="logout link-discover">Discover</Link>
           </li>
           <li className="nav-item">
-            <Link to="/Profile" className="logout link-profile" onClick={loadMyProfile}>Profile</Link>
+            <Link to="/profile" className="logout link-profile" onClick={loadMyProfile}>Profile</Link>
           </li>
         </ul>
         
