@@ -12,8 +12,10 @@ const AccordionComp = (props) => {
             window.location.reload()
     }
 
+    
+
     return (
-        <Accordion defaultActiveKey="0">
+        <Accordion style={{height: "497px"}} defaultActiveKey="0">
             <Card>
                 <div className="card-header toggle-header">
                 <Accordion.Toggle as={Button} variant="link" eventKey="0">
