@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { HashRouter as Router, Route, Switch, useParams } from 'react-router-dom';
+import { Route, Switch, useParams } from 'react-router-dom';
 import LoginForm from './pages/Auth/LoginForm';
 import SignupForm from './pages/Auth/SignupForm';
 import Nav from "./components/Nav";
@@ -62,7 +62,6 @@ function App() {
       { loggedIn && (
         <div>
           <Nav user={user} logout={logout}/>
-          <Router>
           <div className="main-view">
             <Switch> 
               <Route exact path="/" render={() => <Profile user={user} />} />
@@ -83,7 +82,6 @@ function App() {
             </Switch>
             
           </div>
-          </Router>
         </div>
       )}
       { !loggedIn && (
