@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import { Accordion, Card, Button } from "react-bootstrap"
-import { BrowserRouter as Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, useRouteMatch, useParams } from 'react-router-dom';
 
 import API from "../utils/API"
 
 const AccordionComp = (props) => {
 
     function loadNewProfile (event) {
-        console.log("event id: ", event.target.id)
+        console.log("event id: ", event.target)
         API.getProfile(event.target.id)
-        window.location.reload()
+            window.location.reload()
     }
 
     return (
@@ -29,10 +29,12 @@ const AccordionComp = (props) => {
                                     <div className="row connection-row">
                                         {console.log("follower: ", follower)}
                                         <div style={{backgroundImage: `url(${follower.image})`}}  className="card connection-card-bkgd">
-                                            <div className="card-body connection-card-body">
-                                                <div className="connection-hover-text"
-                                                    onClick={loadNewProfile}>
-                                                        <Link id={follower._id} className="connection-hover-text"  to={{
+                                            <div className="card-body connection-card-body"> 
+                                                <div className="connection-hover-text" 
+                                                    id={follower._id} 
+                                                    onClick={loadNewProfile} >
+                                                    
+                                                        <Link to={{
                                                             pathname: "/profile/" + follower._id,
                                                             state: "string"
                                                         }}>
@@ -71,7 +73,7 @@ const AccordionComp = (props) => {
                                             <div className="card-body connection-card-body">
                                                 <div className="connection-hover-text"
                                                     onClick={loadNewProfile}>
-                                                        <Link className="connection-hover-text" id={following._id} to={{
+                                                        <Link className="connection-hover-text" onClick={loadNewProfile} id={following._id} to={{
                                                             pathname: "/profile/" + following._id,
                                                             state: "string"
                                                         }}>

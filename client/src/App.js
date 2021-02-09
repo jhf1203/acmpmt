@@ -41,6 +41,7 @@ function App() {
 			if (response.status === 200) {
 				setLoggedIn(false);
         setUser(null);
+        window.location.replace("/")
 			}
 		});
 	};

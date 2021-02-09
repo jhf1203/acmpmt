@@ -142,13 +142,32 @@ console.log("user: ", user)
   let widget =  window.cloudinary.createUploadWidget({
     cloud_name: "duf4y1dco",
     upload_preset: "lni6nbrv",
+    styles: {
+      palette: {
+        window: "#ececec",
+        windowBorder: "#374785",
+        tabIcon: "#2a2a2a",
+        menuIcons: "#2a2a2a",
+        textDark: "#2a2a2a",
+        textLight: "#ececec",
+        link:  "#374785",
+        action:  "#374785",
+        inactiveTabIcon: "#2a2a2a",
+        error: "#F76C6C",
+        inProgress: "#374785",
+        complete: "#F8E9A1",
+        sourceBg: "#ececec"
+      },
+      fonts: {
+        "'Raleway', sans serif" : "https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap"
+      },
+    },
     cropping: true,
     croppingCoordinatesMode: "custom",
     croppingAspectRatio: 1,
     showSkipCropButton: false
   },
   function (error, result) {
-    console.log("result: ", result)
     imageUpload(result);
   });
 
@@ -159,8 +178,6 @@ function showWidget() {
 };
 
 function imageUpload(resultEvent) {
-  console.log("user in imageupload: ", user)
-  console.log("resultevent: ", resultEvent)
   if (user) {
   const userID = user._id;
   
