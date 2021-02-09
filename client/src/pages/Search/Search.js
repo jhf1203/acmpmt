@@ -112,6 +112,7 @@ const Search = (props) => {
   async function getSimilarArtists (artistState) {
     console.log("artist state: ", artistState)
   const res = await LASTFM.getSimilar(artistState) 
+  console.log("res from lastfm: ", res)
   similarArr.push(res.data.similarartists.artist)
   }
 
@@ -120,7 +121,6 @@ const Search = (props) => {
   async function handleFormSubmit (event) {
     event.preventDefault()
     setVisibleError("invisible-error");
-    console.log("artist state prior to getsimilar: ", artists)
     await getSimilarArtists(artists.artist1);
     await getSimilarArtists(artists.artist2);
     await getSimilarArtists(artists.artist3);
