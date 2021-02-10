@@ -38,6 +38,8 @@ const Profile = (props) => {
   const [recUsers, setRecUsers] = useState([]);
   const [otherUser, setOtherUser] = useState("dummy")
   const [formObject, setFormObject] = useState({});
+  const [visibleEdits, setVisibleEdits] = useState("hide")
+
  
   const formEl = useRef("rvfr");
 
@@ -51,6 +53,9 @@ const Profile = (props) => {
     findUsers();
   }, []);
 
+  useEffect(() => {
+    checkForMatch()
+  })
   // useEffect(() => {
   //   checkForMatch()
   // }, [])
@@ -65,15 +70,23 @@ const rec = profile.recommended;
 
 quoteArr.push(Randomizer.randomVal(Quotes))
 
+
 function checkForMatch () {
-  if(user) {
-  console.log("profile id: ", profile._id)
-  console.log("user id: ", user._id)
-  console.log("conditional: ", profile._id === user._id)
-  }
+  setTimeout(function () {
+    if(user) {
+      console.log("profile id: ", profile._id)
+      console.log("user id: ", user._id)
+      console.log("conditional: ", profile._id === user._id);
+      if (profile._id === user._id) {
+        setVisibleEdits("show")
+      }
+    }
+  }, 1000);
 }
 
-checkForMatch()
+
+// checkForMatch()
+
 
 // ===============BELOW WAS THE ORIGINAL FUNCTION, WHICH I CONVERTED TO ASYNC
 
@@ -144,6 +157,7 @@ checkForMatch()
     let userToFollowId = userToFollow.data.result._id
     API.followUser(me, userToFollowId)
     API.followerAdd(userToFollowId, me)
+    toggleSuccess()
   }
 
   let widget =  window.cloudinary.createUploadWidget({
@@ -202,6 +216,10 @@ function imageUpload(resultEvent) {
   }
 }
 
+function toggleSuccess () {
+  window.location.reload()
+}
+
     return (
       <Container fluid>
         <div className=" row profile-row-top">
@@ -214,6 +232,7 @@ function imageUpload(resultEvent) {
               joinDate={formattedDate}
               id={profile._id}
               image={profile.image}
+              visibleEdits={visibleEdits}
               followUser={followUser}
               showWidget={showWidget}
 

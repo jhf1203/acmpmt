@@ -17,8 +17,8 @@ let imgStyle = {
                 </Row>
                 <Row>
                 <div className="card profile-pic-card" style={imgStyle}>
-                  <div className="card profile-pic-card-body">
-                    <button className="btn btn-link profile-pic-card-body-text" onClick={props.showWidget}>Change Picture</button>
+                  <div className="card profile-pic-card-body" id= {props.visibleEdits}>
+                    <button className="btn btn-link profile-pic-card-body-text"  onClick={props.showWidget}>Change Picture</button>
                   </div>
                 </div>
                 </Row>

@@ -15,6 +15,8 @@ const ProfileAlbumView = (props) => {
 const [visibleMain, setVisibleMain] = useState("show")
 const [visibleQueue, setVisibleQueue] = useState("hide")
 const [visibleRecs, setVisibleRecs] = useState("hide")
+const [visibleSuccess, setVisibleSuccess] = useState("hide")
+
 
 const trackArr = []
 
@@ -33,6 +35,8 @@ function addToQueue () {
         url: props.url
     }
     API.addToQueue(props.user, albumData)
+    toggleSuccess()
+
     .catch(err => console.log(err))
 };
 
@@ -47,6 +51,8 @@ function addToRecs () {
         url: props.url
     }
     API.addToRecs(props.user, albumData)
+    toggleSuccess()
+
     .catch(err => console.log(err))
 }
 
@@ -76,6 +82,11 @@ function moreInfo () {
 
 function loadNewProfile (event) {
     API.getProfile(event.target.id)
+    window.location.reload()
+}
+
+function toggleSuccess () {
+    setVisibleSuccess("show")
     window.location.reload()
 }
 
@@ -111,6 +122,9 @@ function loadNewProfile (event) {
                             </div>
                             <div className="row">
                                 <button className="btn btn-link search-detail-link-ext" onClick={moreInfo}>more info</button>
+                            </div>
+                            <div className="row">
+                                <button className="btn btn-link btn-confirm-list" id={visibleSuccess} onClick={moreInfo}>success!</button>
                             </div>
                             <div className="row rec-queue-stats-row">
                                 <p className="rec-queue-stats-text">recommended by <button className="btn btn-link rec-queue-stats-btn" onClick={openRecs}>{props.rec.length}</button></p>

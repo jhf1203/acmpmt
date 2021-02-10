@@ -13,6 +13,7 @@ const AlbumDetail = (props) => {
 const [visibleMain, setVisibleMain] = useState("show")
 const [visibleQueue, setVisibleQueue] = useState("hide")
 const [visibleRecs, setVisibleRecs] = useState("hide")
+const [visibleSuccess, setVisibleSuccess] = useState("hide")
 
 // Mapping an array of the album's tracklist to reduce data present in the 3rd party call vs what we want
 // to keep in the user's profile
@@ -33,6 +34,7 @@ function addToQueue () {
         url: props.url
     }
     API.addToQueue(props.user, albumData)
+    toggleSuccess()
     .catch(err => console.log(err))
 };
 
@@ -48,6 +50,7 @@ function addToRecs () {
         url: props.url
     }
     API.addToRecs(props.user, albumData)
+    toggleSuccess()
     .catch(err => console.log(err))
 }
 
@@ -77,6 +80,11 @@ function openRecs () {
 
 function moreInfo () {
     window.open(props.url, "_blank")
+}
+
+function toggleSuccess () {
+    setVisibleSuccess("show")
+    window.location.reload()
 }
 
 function loadNewProfile (event) {
@@ -116,6 +124,9 @@ function loadNewProfile (event) {
                             </div>
                             <div className="row">
                                 <button className="btn btn-link search-detail-link-ext" onClick={moreInfo}>more info</button>
+                            </div>
+                            <div className="row">
+                                <button className="btn btn-link btn-confirm-list" id={visibleSuccess} onClick={moreInfo}>success!</button>
                             </div>
                             <div className="row rec-queue-stats-row">
                                 <p className="rec-queue-stats-text">recommended by <button className="btn btn-link rec-queue-stats-btn" onClick={openRecs}>{props.rec.length}</button></p>
