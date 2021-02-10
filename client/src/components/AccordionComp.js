@@ -12,7 +12,12 @@ const AccordionComp = (props) => {
             window.location.reload()
     }
 
-    
+    // let follower = props.followers
+
+    // let followerStyle = {
+    //     backgroundImage: `url(${follower.image})`,
+    //     backgroundSize: "100%"
+    // }
 
     return (
         <Accordion style={{height: "497px"}} defaultActiveKey="0">

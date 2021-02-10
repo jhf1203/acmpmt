@@ -650,6 +650,10 @@ h3 {
   transition: opacity 0.5s ease-in-out;
 }
 
+.connection-card-bkgd{
+  background-size: 100%;
+}
+
 .connection-hover-text{
   font-family: "Raleway";
   font-size: 10px;
@@ -842,12 +846,13 @@ h3 {
 .tag-cloud {
   border: 1px solid black;
   border-radius: 10px;
-  height: 100%;
+  max-height: 437px;
   width: 100%;
   padding:3%;
   background-color: #2a2a2a;
   font-weight:600;
-  text-transform: lowercase
+  text-transform: lowercase;
+  overflow-y: scroll;
 
 }
 

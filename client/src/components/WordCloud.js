@@ -22,11 +22,14 @@ props.recommended.map(album => {
 
 for (let i =0; i < tagArrMaster.length; i++) {
     if (tagArrMaster[i] != "albums I own" &&
-        tagArrMaster[i] != "4ad") {
+        tagArrMaster[i] != "4ad" &&
+        Number.isInteger(parseInt(tagArrMaster[i])) === false) {
         tagArrFiltered.push(tagArrMaster[i])
     }
     
 }
+
+console.log("parseint test: ", Number.isInteger(parseInt("5")))
 
 const countStats = Lodash.countBy(tagArrFiltered)
 const dataArr = []

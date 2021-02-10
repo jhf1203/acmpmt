@@ -100,7 +100,7 @@ function loadNewProfile (event) {
 
                     <div className="row">
                         <div className="col-md-6">
-                            <img src={props.image} alt={props.album} height="100%" width="100%"></img>
+                            <img src={props.image} alt={props.album} height="372px" width="372px"></img>
                         </div>
                         <div className="col-md-3" id={visibleMain}>
                             <div className="row">

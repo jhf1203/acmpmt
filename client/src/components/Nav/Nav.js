@@ -8,21 +8,6 @@ const Nav = (props) => {
   let greeting;
   console.log("nav props: ", props)
 
-  if (props.user === null) {
-		greeting = <p>Hello guest</p>
-	} else if (props.user.firstName) {
-		greeting = (
-			<Fragment>
-				Welcome back, <strong>{props.user.firstName}</strong>
-			</Fragment>
-		)
-	} else if (props.user.username) {
-		greeting = (
-			<Fragment>
-				Welcome back, <strong>{props.user.username} </strong>
-			</Fragment>
-		)
-  }
 
   function loadMyProfile () {
     console.log("we should be loading user: ", props.user.firstName)
@@ -36,8 +21,7 @@ const Nav = (props) => {
         <Link to="/" className="navbar-brand"><span id="a">a</span>c<span id="c">c</span>om<span id="p">p</span>animen<span id="t">t</span></Link>
       </Col>
       <Col size="md-6 sm-6">
-        <ul className="navbar-nav float-right">
-        {greeting} - 
+        <ul className="navbar-nav float-right"> 
           <li className="nav-item">
             <Link to="/login" className="logout link-logout" onClick={props.logout}>Logout</Link>
           </li>

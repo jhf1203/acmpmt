@@ -259,7 +259,7 @@ function imageUpload(resultEvent) {
               <div className="card-body profile-card-body-bottom">
                 <div className="row">
                   <h3>
-                    {profile.username}'s queue:
+                    {profile.firstName}'s queue:
                   </h3>
                 </div>  
                   <div className="row list-row">
@@ -288,7 +288,7 @@ function imageUpload(resultEvent) {
                 <div className="card-body profile-card-body-bottom">
                   <div className="row">
                     <h3>
-                      {profile.username}'s recommendations:
+                      {profile.firstName}'s recommendations:
                     </h3>
                   </div>  
                   <div className="row list-row">
@@ -304,6 +304,7 @@ function imageUpload(resultEvent) {
                           tags={album.tags}
                           tracks={album.tracks}
                           mbid={album.mbid}
+                          function={changeDetailFromQueue}
                           />  
                         ))}
                   </div> 

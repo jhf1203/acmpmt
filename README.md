@@ -1,2 +1,3 @@
-# reactreadinglist-auth
-React Reading List App with simple Auth
+# accompaniment
+
+Discovering sounds together.
