@@ -162,16 +162,18 @@ function loadNewProfile (event) {
                                             </div>
                                             {props.queue.map(person => {
                                                 return(
-                                                    <div className="row" 
+                                                    <div className="row connection-li-row" 
                                                     onClick={loadNewProfile}>
                                                         <Link className="profile-link" id={person._id} to={{
                                                             pathname: "/profile/" + person._id,
                                                             state: "string"
                                                         }}>
-                                                            {person.firstName} {person.lastName} 
+                                                            <p className="connection-link">
+                                                                {person.firstName} {person.lastName} 
+                                                            </p>
                                                         </Link>                                                    
-                                                        </div>
-                                                    )
+                                                    </div>
+                                                )
                                             })}
                                         </div>
                                     </div>

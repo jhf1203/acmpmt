@@ -17,7 +17,7 @@ const AlbumCover = (props) => {
                         <p className="userlist-card-hover-text userlist-album-artist">{props.artist}</p>
                     </Row>
                     <Row>
-                        <button className=" btn btn-link userlist-card-hover-text userlist-album-button" id={props.id} onClick={props.function}>more info</button>
+                        <button className=" btn btn-link userlist-card-hover-text userlist-album-button" title={props.title} onClick={props.function}>more info</button>
                     </Row>
                     <Row>
                         <button className=" btn btn-link userlist-card-hover-text userlist-album-delete" id={props.id} onClick={props.remove}>remove</button>

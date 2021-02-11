@@ -100,19 +100,20 @@ function checkForMatch () {
 
     allUsers.map(person => {
       person.queue.map(queue => {
-        if (queue.mbid === profile.queue[event.target.id].mbid) {
+        console.log("queue loop error testing: ", event.target.title)
+        if (queue.mbid === profile.queue[event.target.title].mbid) {
           queuePeople.push(person)
         }
       })
       person.recommended.map(rec => {
-        if (rec.mbid === profile.queue[event.target.id].mbid) {
+        if (rec.mbid === profile.queue[event.target.title].mbid) {
           recPeople.push(person)
         }
       })
     })
     setQueueUsers(queuePeople);
     setRecUsers(recPeople)
-    setDetailAlbum(profile.queue[event.target.id])
+    setDetailAlbum(profile.queue[event.target.title])
     setVisibleDetail("visible-detail")
   }
 
@@ -261,6 +262,7 @@ async function removeFromRecs (event) {
                         <UserList
                           id={album._id}
                           key={index}
+                          title={index}
                           album={album.album}
                           artist={album.artist}
                           image={album.image}
@@ -291,6 +293,7 @@ async function removeFromRecs (event) {
                         <UserList
                           id={album._id}
                           key={index}
+                          title={index}
                           album={album.album}
                           artist={album.artist}
                           image={album.image}

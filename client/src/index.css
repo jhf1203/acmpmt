@@ -11,6 +11,7 @@ h1 {
   font-weight:900;
   font-size: 80px;
   padding-left: 15%;
+  color:#ececec;
 }
 
 h3 {
@@ -22,6 +23,13 @@ h3 {
   font-size:25px;
   border-bottom:solid 2px #374785;
   margin-bottom:0
+}
+
+h6 {
+  color: #ececec;
+  font-family: "Raleway";
+  font-size: 24px;
+  font-weight:700
 }
 
 /* ========    PAGES    ======== */
@@ -80,7 +88,7 @@ h3 {
 }
 
 .login-card {
-  background-color: #ececec;
+  background-color: #111;
   border:none
 }
 
@@ -93,10 +101,10 @@ h3 {
 }
 
 .login-input {
-  background-color: #ececec;
+  background-color: #111;
   width: 90%;
   margin: 5%;
-  border-bottom: 1px solid #24305E!important;
+  border-bottom: 1px solid #4659a8!important;
   border:none;
   font-size: 50px;
   font-weight: 800;
@@ -112,14 +120,31 @@ h3 {
   background-image:url("./assets/content-imgs/gybe.jpg");
   background-size:100%;
   margin-bottom:1%;
+  margin-top:5%;
+  box-shadow: 0px 10px 25px 25px inset  #111,
+  0px -10px 25px 25px inset #111,
+  10px 0px 25px 25px inset  #111,
+  10px 0px 25px 25px inset #111,
+  0px 10px 25px 25px   #111,
+  0px -10px 25px 25px  #111,
+  10px 0px 25px 25px   #111,
+  10px 0px 25px 25px  #111
   
 }
 
 .img-card-content {
   opacity: 0%;
-  background-color:#ececec;
-  margin:0%;
+  background-color:#111;
+  margin:1%;
   transition: opacity 1s ease;
+  box-shadow: 0px 10px 25px 25px inset  #111,
+  0px -10px 25px 25px inset #111,
+  10px 0px 25px 25px inset  #111,
+  10px 0px 25px 25px inset #111,
+  0px 10px 25px 25px   #111,
+  0px -10px 25px 25px  #111,
+  10px 0px 25px 25px   #111,
+  10px 0px 25px 25px  #111
 }
 
 .img-card-content:hover {
@@ -133,7 +158,7 @@ h3 {
 }
 
 .signup-btn {
-  color: #24305E;
+  color: #4659a8;
   font-weight:600
 }
 
@@ -147,14 +172,15 @@ h3 {
 .desc-body {
   font-size:20px;
   margin-top:0%;
-  margin-bottom:0%
+  margin-bottom:0%;
+  color:#ececec
   
 }
 
 .simple1{
   font-size: 20px;
   font-weight: 600;
-  color: #374785;
+  color: #4659a8;
   margin-bottom: 0;
   margin-top:10%
 }
@@ -598,7 +624,10 @@ h3 {
 }
 
 .detail-card{
-  width:100%
+  width:100%;
+  height:375px;
+  background-color: #2a2a2a;
+  overflow-y: scroll;
 }
 
 .error-msg {
@@ -622,7 +651,19 @@ h3 {
   font-size:24px;
 }
 
+.close-list {
+  color:#F76C6C;
+  font-size:24px;
+  border-radius:10px;
+  padding: 2px;
+  transition: font-weight 0.15s ease-in-out;
 
+}
+
+.close-list:hover{
+  font-weight:900;
+  transition: font-weight 0.15s ease-in-out;
+}
 
 
 
@@ -1036,6 +1077,13 @@ color:#ececec
   font-weight:600;
   text-transform: lowercase;
   overflow-y: scroll;
+  box-shadow:
+    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 4.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
 
 }
 

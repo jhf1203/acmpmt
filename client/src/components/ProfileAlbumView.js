@@ -154,22 +154,25 @@ function toggleSuccess () {
                                                     <i className="fa fa-times close-list"  onClick={closeQueue} aria-hidden="true"></i>
                                                 </div>
                                             </div>
-
-{/* Below is where the users populate.  I am unable to get the below state (I just used "string" as a dummy
-value) to translate back into the profile page when it re-renders.  But upon clicking the link it doesn't
-seem to re-render, because all of the values from the input fields above are still present. */}
-
                                             {props.queue.map(person => {
                                                 return(
-                                                    <div className="row" 
+                                                    <div className="row connection-li-row" 
                                                     onClick={loadNewProfile}>
-                                                        <Link className="profile-link" id={person._id} to={{
-                                                            pathname: "/profile/" + person._id,
-                                                            state: "string"
-                                                        }}>
-                                                            {person.firstName} {person.lastName} 
-                                                        </Link>                                                    </div>
-                                                    )
+                                                        <div className="col-md-3">
+                                                            <img src={person.image} alt={person.username} height="50px" width="50px" />
+                                                        </div>
+                                                        <div className="col-md-9">
+                                                            <Link className="profile-link" id={person._id} to={{
+                                                                pathname: "/profile/" + person._id,
+                                                                state: "string"
+                                                            }}>
+                                                                <p className="connection-link">
+                                                                    {person.firstName} {person.lastName} 
+                                                                </p>
+                                                            </Link> 
+                                                        </div>                                                   
+                                                    </div>
+                                                )
                                             })}
                                         </div>
                                     </div>
@@ -191,15 +194,23 @@ seem to re-render, because all of the values from the input fields above are sti
                                             </div>
                                             {props.rec.map(person => {
                                                 return(
-                                                    <div className="row" 
+                                                    <div className="row connection-li-row" 
                                                     onClick={loadNewProfile}>
-                                                        <Link className="profile-link" id={person._id} to={{
-                                                            pathname: "/profile/" + person._id,
-                                                            state: "string"
-                                                        }}>
-                                                            {person.firstName} {person.lastName} 
-                                                        </Link>                                                    </div>
-                                                    )
+                                                        <div className="col-md-3">
+                                                            <img src={person.image} alt={person.username} height="50px" width="50px" />
+                                                        </div>
+                                                        <div className="col-md-9">
+                                                            <Link className="profile-link" id={person._id} to={{
+                                                                pathname: "/profile/" + person._id,
+                                                                state: "string"
+                                                            }}>
+                                                                <p className="connection-link">
+                                                                    {person.firstName} {person.lastName} 
+                                                                </p>
+                                                            </Link>          
+                                                        </div>                                          
+                                                    </div>
+                                                )
                                             })}
                                         </div>
                                     </div>
