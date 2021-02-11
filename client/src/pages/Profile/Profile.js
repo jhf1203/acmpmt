@@ -3,13 +3,8 @@ import React, { useState, useEffect, useRef } from "react";
 import moment from "moment"
 import { HashRouter as Router, Route, Link, useRouteMatch, useParams } from 'react-router-dom';
 import { Col, Row, Container } from "../../components/Grid";
-import { List, ListItem } from "../../components/List";
-import { Card } from "../../components/Card";
-import { Input, TextArea, FormBtn } from "../../components/Form";
-import DeleteBtn from "../../components/DeleteBtn";
 import API from "../../utils/API";
 import AUTH from "../../utils/AUTH"
-import Accordion from "../../components/AccordionComp"
 import UserList from "../../components/UserList";
 import PlaceholderProfile from "../../utils/placeholderProfile.json"
 import Randomizer from "../../utils/randomizer"
@@ -19,6 +14,7 @@ import ProfileAlbumView from "../../components/ProfileAlbumView"
 import PlaceholderAlbum from "../../utils/placeholder.json"
 import ProfileCard from "../../components/ProfileCard"
 import WordCloud from "../../components/WordCloud"
+import ConnectionList from "../../components/ConnectionList"
 
 
 const Profile = (props) => {
@@ -219,7 +215,7 @@ async function removeFromRecs (event) {
           <div className="col-md-4 pr-5 pl-5 pt-5 pb-5 profile-col">
             <div className="card profile-card-top">
               <div className="card-body profile-card-body-top">
-                <Accordion 
+                <ConnectionList 
                   followers={profile.followers}
                   following={profile.following}
                   userName={profile.username}/>

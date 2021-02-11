@@ -632,41 +632,116 @@ h3 {
   color:inherit;
 }
 
-/* Accordion */
+/* ConnectionList */
 
-.accordion-header-text{
-  font-family: "Raleway";
-  font-size: 20px;
-  width:100%;
-  text-align: center;
-  margin: 1% 1% 1% 0%
-}
-
-.toggle-header{
-  padding: 1% 1% 1% 1%
-}
-
-.connection-card-body {
+.connection-container{
+  height:497px;
+  border: 2px solid #2a2a2a;
+  border-radius:10px;
+  overflow-y:scroll;
   background-color:#2a2a2a;
-  opacity:0;
-  transition: opacity 0.5s ease-in-out;
-
+  box-shadow:
+    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 4.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12)
 }
 
-.connection-card-body:hover{
-  opacity:0.9;
-  transition: opacity 0.5s ease-in-out;
+.follower-list,
+.following-list{
+  overflow: scroll;
 }
 
-.connection-card-bkgd{
-  background-size: 100%;
+.connection-col-header-left{
+  border-right:2px solid #2a2a2a
 }
 
-.connection-hover-text{
-  font-family: "Raleway";
-  font-size: 10px;
+.connection-col-header,
+.connection-col-header-left {
+  border-bottom: 2px solid #2a2a2a;
+}
+
+.connection-li-row{
+  width:119%;
+  margin:0;
+  padding-top:5%;
+}
+
+.connection-link{
+  padding-top:1%;
+  padding-left:10%;
   font-weight:600;
-  color: #ececec
+  color:#ececec;
+}
+
+.connection-link:hover{
+  font-weight:800;
+  text-decoration:none!important;
+  font-style: none!important;
+  transition: font-weight 0.15s ease-in-out;
+}
+
+.follower-btn {
+  color:#ececec;
+  font-weight:800;
+  font-size:20px
+}
+
+.col-md-1{
+  padding:0
+}
+
+.fa-trash-o{
+font-size:20px;
+margin-top:55%;
+color:#ececec
+}
+
+.fa-trash-o:hover{
+  color:#F76C6C;
+  transition: color 0.15s ease-in-out;
+}
+
+#show-followers {
+  display:"block";
+}
+
+#show-following {
+  display:"block";
+}
+
+#hide-followers {
+  display:none
+}
+
+#hide-following {
+  display:none
+}
+
+#invisible-border {
+  border-bottom:none
+}
+
+#visible-border {
+  background-color:#ececec;
+  color:#2a2a2a;
+  box-shadow:
+    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 4.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12)
+}
+
+#light {
+  color:#ececec
+}
+
+#dark{
+  color:#2a2a2a
 }
 
 /* AlbumList */
