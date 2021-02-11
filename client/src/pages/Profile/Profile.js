@@ -44,7 +44,6 @@ const Profile = (props) => {
   const formEl = useRef("rvfr");
 
   // Load all profile and store them with setUser
-  console.log("user: ", user)
   useEffect(() => {
     loadProfile();
   }, []);
@@ -74,42 +73,12 @@ quoteArr.push(Randomizer.randomVal(Quotes))
 function checkForMatch () {
   setTimeout(function () {
     if(user) {
-      console.log("profile id: ", profile._id)
-      console.log("user id: ", user._id)
-      console.log("conditional: ", profile._id === user._id);
       if (profile._id === user._id) {
         setVisibleEdits("show")
       }
     }
   }, 1000);
 }
-
-
-// checkForMatch()
-
-
-// ===============BELOW WAS THE ORIGINAL FUNCTION, WHICH I CONVERTED TO ASYNC
-
-  // Loads all profile and sets them to profile
-  // function loadProfile() {
-  //   AUTH.getUser()
-  //     .then(res => {
-  //       console.log("first res: ", res)
-  //       setUser(res.data.user);
-  //       return res.data.user
-  //     }).then(res => {
-  //       console.log("middle res: ", res)
-  //       API.getProfile(res._id)
-  //       return res
-  //     }).then(res => {
-  //       console.log("new second res: ", res)
-  //       setProfile(res)
-  //     }) 
-  //     .catch(err => console.log(err));
-  // };
-
-
-
 
   async function loadProfile () {
     let foundUser = await AUTH.getUser();
@@ -209,7 +178,6 @@ function imageUpload(resultEvent) {
 
       API.updateImage(userID, imageURL)
       .then((res) => {
-          console.log(res.data);
           setUser(res.data);
       })
     }
@@ -220,11 +188,22 @@ function toggleSuccess () {
   window.location.reload()
 }
 
+async function removeFromQueue (event) {
+  event.preventDefault();
+  API.removeFromQueue(event.target.id)
+  window.location.reload()
+};
+
+async function removeFromRecs (event) {
+  event.preventDefault();
+  API.removeFromRecs(event.target.id)
+  window.location.reload()
+}
+
     return (
       <Container fluid>
         <div className=" row profile-row-top">
           <div className="col-md-4 pl-5 pr-3 pt-5 pb-5 profile-col">
-            {console.log("profile log in jsx: ", profile)}
             <ProfileCard 
               firstName={profile.firstName}
               lastName={profile.lastName}
@@ -235,7 +214,6 @@ function toggleSuccess () {
               visibleEdits={visibleEdits}
               followUser={followUser}
               showWidget={showWidget}
-
               />
           </div>
           <div className="col-md-4 pr-5 pl-5 pt-5 pb-5 profile-col">
@@ -285,7 +263,7 @@ function toggleSuccess () {
                   {
                       profile.queue.map((album, index) => (
                         <UserList
-                          id={index}
+                          id={album._id}
                           key={index}
                           album={album.album}
                           artist={album.artist}
@@ -295,6 +273,7 @@ function toggleSuccess () {
                           tracks={album.tracks}
                           mbid={album.mbid}
                           function={changeDetailFromQueue}
+                          remove={removeFromQueue}
                           />  
                         ))}
                   </div> 
@@ -314,7 +293,7 @@ function toggleSuccess () {
                   {
                       profile.recommended.map((album, index) => (
                         <UserList
-                          id={index}
+                          id={album._id}
                           key={index}
                           album={album.album}
                           artist={album.artist}
@@ -324,6 +303,7 @@ function toggleSuccess () {
                           tracks={album.tracks}
                           mbid={album.mbid}
                           function={changeDetailFromQueue}
+                          remove={removeFromRecs}
                           />  
                         ))}
                   </div> 

@@ -19,6 +19,9 @@ const AlbumCover = (props) => {
                     <Row>
                         <button className=" btn btn-link userlist-card-hover-text userlist-album-button" id={props.id} onClick={props.function}>more info</button>
                     </Row>
+                    <Row>
+                        <button className=" btn btn-link userlist-card-hover-text userlist-album-delete" id={props.id} onClick={props.remove}>remove</button>
+                    </Row>
                 </div>
             </div>
         </div>

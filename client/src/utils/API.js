@@ -51,5 +51,13 @@ export default {
   },
   updateImage: function(id, image) {
     return axios.put("/api/profile/images/" + id, image);
-}
+  },
+  removeFromQueue: function(id) {
+    return axios.put("api/profile/queue/" + id)
+  },
+  removeFromRecs: function(id) {
+    return axios.put("api/profile/recommended/" + id)
+  }
 };
+
+

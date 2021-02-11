@@ -12,12 +12,18 @@ router
   .get(profileController.findById)
   // .put(profileController.update)
   .put(profileController.updateRecs)
-  .delete(profileController.remove)
   .patch(profileController.updateQueue)
 
 router
   .route("/images/:id")
   .put(profileController.updateImage)
 
+router
+  .route("/queue/:id")
+  .put(profileController.removeFromQueue)
 
+router
+  .route("/recommended/:id")
+  .put(profileController.removeFromRecs)
+  
 module.exports = router;

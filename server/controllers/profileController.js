@@ -67,16 +67,6 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
 
-  remove: function(req, res) {
-    db.User.findOneAndUpdate({ _id: req.user._id }, { $pull: { profile: new ObjectId(req.params.id) } }, { new: true })
-      .then(() => {
-        db.Book
-          .findOneAndDelete({ _id: req.params.id })
-          .then(dbBook => res.json(dbBook))
-          .catch(err => res.status(422).json(err));
-      });
-  },
-
   updateQueue: async function(req, res) {
     const currentUser = await db.User.findById({ _id: req.params.id })
     const updateReq = await db.User.findByIdAndUpdate({ _id: req.params.id }, {
@@ -119,10 +109,30 @@ module.exports = {
       }
     })
     .then(dbUser => res.json(dbUser))
-    .then(dbUser => console.log("user!: ", dbUser))
     .catch(err => res.status(422).json(err))
     
   },
+
+  removeFromQueue: function(req, res) {
+    console.log("req.user: ", req.user),
+    console.log("req.params: ", req.params)
+    db.User.findOneAndUpdate({ _id: req.user._id }, 
+      { $pull: { queue: { _id: req.params.id } } })
+      .then((dbList) => 
+        res.json(dbList))
+      .catch(err => res.status(422).json(err));
+  },
+
+  removeFromRecs: function(req, res) {
+    console.log("req.user: ", req.user),
+    console.log("req.params: ", req.params)
+    db.User.findOneAndUpdate({ _id: req.user._id }, 
+      { $pull: { recommended: { _id: req.params.id } } })
+      .then((dbList) => 
+        res.json(dbList))
+      .catch(err => res.status(422).json(err));
+  },
+
   updateImage: (req, res) => {
     const { image } = req.body;
     // console.log(req.body);
