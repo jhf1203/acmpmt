@@ -3,7 +3,7 @@ body {
   padding-left: 5%;
   padding-right: 5%;
   font-family: "Raleway";
-  background-color:#ececec
+  background-color:#111111
 }
 
 h1 {
@@ -260,12 +260,22 @@ h3 {
 /* Profile Page */
 
 .profile-row-top {
-  border:  2px solid #F8E9A1;
-  outline: 2px solid #374785;
-  margin-top:5%;
+  /* border:  2px solid #F8E9A1;
+  outline: 2px solid #374785; */
+  margin-right:-6%;
+  margin-left:-6%;
+  margin-top:1%;
   margin-bottom:1%;
   background-image:url("./assets/content-imgs/blackflag.jpg");
   background-size: cover;
+  box-shadow: 0px 10px 25px 25px inset  #111,
+              0px -10px 25px 25px inset #111,
+              10px 0px 25px 25px inset  #111,
+              10px 0px 25px 25px inset #111,
+              0px 10px 25px 25px   #111,
+              0px -10px 25px 25px  #111,
+              10px 0px 25px 25px   #111,
+              10px 0px 25px 25px  #111
 }
 
 .profile-col {
@@ -275,9 +285,16 @@ h3 {
 .profile-card-top{
   background-color:#ececec;
   opacity:.9;
-  border: 2px solid #F8E9A1;
+  /* border: 2px solid #F8E9A1; */
   min-height:545px;
   transition: opacity 0.5s ease-in-out;
+  box-shadow:
+    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 4.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12)
 }
 
 .profile-card-top:hover,
@@ -288,7 +305,7 @@ h3 {
 
 .profile-card-body-top,
 .profile-card-body-bottom{
-  border: 2px solid #374785;
+  /* border: 2px solid #374785; */
 }
 
 .profile-username-text{
@@ -330,21 +347,38 @@ h3 {
 }
 
 .profile-row-bottom{
-  border:  2px solid #F8E9A1;
-  outline: 2px solid #374785;
+  /* border:  2px solid #F8E9A1;
+  outline: 2px solid #374785; */
   margin-top:0%;
+  margin-left:-6%;
+  margin-right: -6%;
   background-image:url("./assets/content-imgs/alanis.jpg");
   background-size: cover;
   min-height: 543px;
+  box-shadow: 0px 10px 25px 25px inset  #111,
+  0px -10px 25px 25px inset #111,
+  10px 0px 25px 25px inset  #111,
+  10px 0px 25px 25px inset #111,
+  0px 10px 25px 25px   #111,
+  0px -10px 25px 25px  #111,
+  10px 0px 25px 25px   #111,
+  10px 0px 25px 25px  #111
 }
 
 .profile-card-bottom{
   height: 440px;
   background-color:#ececec;
   opacity:.9;
-  border: 2px solid #F8E9A1;
+  /* border: 2px solid #F8E9A1; */
   transition: opacity 0.5s ease-in-out;
   overflow: scroll;
+  box-shadow:
+    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 4.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12)
 }
 
 .list-row{
@@ -369,7 +403,14 @@ h3 {
   width: 300px;
   height: 300px;
   margin-left:4%;
-  border-radius:10px
+  border-radius:10px;
+  box-shadow:
+    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 4.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12)
 }
 
 .profile-pic-card-body {
@@ -399,12 +440,22 @@ h3 {
 /* Search Page */
 
 .search-row-top {
-  border:  2px solid #F8E9A1;
-  outline: 2px solid #374785;
-  margin-top:5%;
+  /* border:  2px solid #F8E9A1;
+  outline: 2px solid #374785; */
+  margin-left:-6%;
+  margin-right:-6%;
+  margin-top:1%;
   margin-bottom:1%;
   background-image:url("./assets/content-imgs/pearljam.jpg");
   background-size: cover;
+  box-shadow: 0px 10px 15px 15px inset  #111,
+  0px -10px 15px 15px inset #111,
+  10px 0px 15px 15px inset  #111,
+  10px 0px 15px 15px inset #111,
+  0px 10px 15px 15px   #111,
+  0px -10px 15px 15px  #111,
+  10px 0px 15px 15px   #111,
+  10px 0px 15px 15px  #111;
 }
 
 .input-row-search {
@@ -443,9 +494,16 @@ h3 {
 .search-card-top{
   background-color:#ececec;
   opacity:.9;
-  border: 2px solid #F8E9A1;
+  /* border: 2px solid #F8E9A1; */
   min-height:338px;
   transition: opacity 0.5s ease-in-out;
+  box-shadow:
+    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 4.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12)
 }
 
 .search-card-top:hover,
@@ -458,7 +516,7 @@ h3 {
 .search-card-body-top,
 .search-results-card-body,
 .search-detail-card-body{
-  border: 2px solid #374785;
+  /* border: 2px solid #374785; */
 }
 
 .about-header-text{
@@ -473,26 +531,53 @@ h3 {
 
 .search-row-middle {
   margin-bottom:3%;
-  border:  2px solid #F8E9A1;
-  outline: 2px solid #374785;
+  margin-right: -6%;
+  margin-left:-6%;
+  /* border:  2px solid #F8E9A1;
+  outline: 2px solid #374785; */
   background-image:url("./assets/content-imgs/mitski.jpg");
   background-size: cover;
+  box-shadow: 0px 10px 15px 15px inset  #111,
+  0px -10px 15px 15px inset #111,
+  10px 0px 15px 15px inset  #111,
+  10px 0px 15px 15px inset #111,
+  0px 10px 15px 15px   #111,
+  0px -10px 15px 15px  #111,
+  10px 0px 15px 15px   #111,
+  10px 0px 15px 15px  #111
 }
 
 .search-row-bottom {
   margin-bottom:3%;
-  border:  2px solid #F8E9A1;
-  outline: 2px solid #374785;
+  margin-left:-6%;
+  margin-right:-6%;
+  /* border:  2px solid #F8E9A1;
+  outline: 2px solid #374785; */
   background-image:url("./assets/content-imgs/wutang.jpg");
   background-size: cover;
+  box-shadow: 0px 10px 15px 15px inset  #111,
+  0px -10px 15px 15px inset #111,
+  10px 0px 15px 15px inset  #111,
+  10px 0px 15px 15px inset #111,
+  0px 10px 15px 15px   #111,
+  0px -10px 15px 15px  #111,
+  10px 0px 15px 15px   #111,
+  10px 0px 15px 15px  #111
 }
 
 .search-results-card,
 .search-detail-card{
   background-color:#ececec;
   opacity:.9;
-  border: 2px solid #F8E9A1;
+  /* border: 2px solid #F8E9A1; */
   transition: opacity 0.5s ease-in-out;
+  box-shadow:
+    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 4.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12)
 
 }
 
@@ -546,9 +631,10 @@ h3 {
 /* Nav */
 
 .navbar {
-  background-color: #2a2a2a!important;
-  border:  2px solid #F8E9A1;
-  outline: 2px solid #374785
+  background-color: #111!important;
+  margin-right:-6%;
+  margin-left:-6%;
+  border-bottom:3px solid #F8E9A1;
 }
 
 .navbar-brand {
@@ -556,8 +642,16 @@ h3 {
   text-transform: lowercase;
   font-size: 40px;
   font-weight:800;
-  padding: 0% 0% 0% 4%;
-  color: #ececec
+  padding: 0% 0% 0% 6.5%;
+  color: #ececec!important;
+}
+
+.navbar-nav{
+  padding-right:12%
+}
+
+.nav-item{
+  margin-right:10%;
 }
 
 .logout {
@@ -572,12 +666,12 @@ h3 {
 
 .link-logout,
 .link-logout:hover {
-  color:#F76C6C;
+  color:#A8D0E6;
 }
 
 .link-discover,
 .link-discover:hover {
-  color:#A8D0E6
+  color:#F76C6C
 }
 
 .link-profile,
@@ -608,12 +702,12 @@ h3 {
 /* RandomQuote */
 
 .quote-div{
-  color:#ececec;
+  color:#111;
   transition: color 1s ease-in-out;
 }
 
 .quote-div:hover{
-  color:black;
+  color:#ececec;
   transition: color 1s ease-in-out
 }
 
@@ -683,6 +777,10 @@ h3 {
   transition: font-weight 0.15s ease-in-out;
 }
 
+.btn-link:hover{
+  text-decoration:none!important;
+}
+
 .follower-btn {
   color:#ececec;
   font-weight:800;
@@ -702,10 +800,12 @@ color:#ececec
 .fa-trash-o:hover{
   color:#F76C6C;
   transition: color 0.15s ease-in-out;
+  cursor: pointer;
 }
 
 #show-followers {
   display:"block";
+  transition:display 0.15ms ease-in-out;
 }
 
 #show-following {

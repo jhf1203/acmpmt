@@ -5,7 +5,6 @@ const db = require("../models");
 module.exports = {
 
     followUser: function (req, res) {
-         console.log("req: ", req)
         if(req) {
         db.User
             .findOneAndUpdate({ _id: req.user.id }, 
@@ -26,7 +25,17 @@ module.exports = {
                     res.json(cnxn)
                 })
                 .catch(err => {res.status(422).json(err)})
-    }
+    },
+
+    unFollow: function(req, res) {
+        console.log("req.user: ", req.user),
+        console.log("req.params: ", req.params)
+        db.User.findOneAndUpdate({ _id: req.user._id }, 
+          { $pull: { following: { id: ObjectId(req.params.id) } } })
+          .then((dbList) => 
+            res.json(dbList))
+          .catch(err => res.status(422).json(err));
+      },
 }
 
     

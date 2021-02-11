@@ -31,8 +31,12 @@ function ConnectionList (props) {
     }
 
     function loadNewProfile (event) {
-        console.log("event id: ", event.target)
         API.getProfile(event.target.id)
+        window.location.reload()
+    }
+
+    function unFollow (event) {
+        API.unFollow(event.target.id)
         window.location.reload()
     }
 
@@ -54,7 +58,7 @@ function ConnectionList (props) {
                                 <div className="col-md-3">
                                     <img src={follower.image} alt={follower.username} height="50px" width="50px" />
                                 </div>
-                                <div className="col-md-6" 
+                                <div className="col-md-7" 
                                     id={follower.id}                                                     
                                     onClick={loadNewProfile} >
                                     <Link to={{
@@ -66,9 +70,9 @@ function ConnectionList (props) {
                                         </p>
                                     </Link>
                                 </div>
-                                <div className="col-md-1">
-                                    <i className="fa fa-trash-o" aria-hidden="true"></i>
-                                </div>
+                                {/* <div className="col-md-1">
+                                    <i className="fa fa-trash-o" id={follower._id} onClick={unFollow} aria-hidden="true"></i>
+                                </div> */}
                             </div>
                         )
                     })}
@@ -80,7 +84,7 @@ function ConnectionList (props) {
                                 <div className="col-md-3">
                                     <img src={following.image} alt={following.username} height="50px" width="50px" />
                                 </div>
-                                <div className="col-md-6" 
+                                <div className="col-md-7" 
                                     id={following.id}                                                     
                                     onClick={loadNewProfile} >
                                     <Link to={{
@@ -92,9 +96,9 @@ function ConnectionList (props) {
                                         </p>
                                     </Link>
                                 </div>
-                                <div className="col-md-1">
-                                    <i className="fa fa-trash-o" aria-hidden="true"></i>
-                                </div>
+                                {/* <div className="col-md-1">
+                                    <i className="fa fa-trash-o" id={following._id} onClick={unFollow} aria-hidden="true"></i>
+                                </div> */}
                             </div>
                         )
                     })}

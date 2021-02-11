@@ -68,7 +68,6 @@ module.exports = {
   },
 
   updateQueue: async function(req, res) {
-    console.log("req: ", req)
     const currentUser = await db.User.findById({ _id: req.params.id })
     const updateReq = await db.User.findByIdAndUpdate({ _id: req.params.id }, {
       $set: {
@@ -92,8 +91,6 @@ module.exports = {
     
   },
   updateRecs: async function(req, res) {
-    console.log("params: ", req.params)
-    console.log("req.user: ", req.user)
     const currentUser = await db.User.findById({ _id: req.params.id })
     const updateReq = await db.User.findByIdAndUpdate({ _id: req.params.id }, {
       $set: {
@@ -135,8 +132,6 @@ module.exports = {
   // },
 
   removeFromQueue: function(req, res) {
-    console.log("req.user: ", req.user),
-    console.log("req.params: ", req.params)
     db.User.findOneAndUpdate({ _id: req.user._id }, 
       { $pull: { queue: { _id: req.params.id } } })
       .then((dbList) => 
@@ -145,8 +140,6 @@ module.exports = {
   },
 
   removeFromRecs: function(req, res) {
-    console.log("req.user: ", req.user),
-    console.log("req.params: ", req.params)
     db.User.findOneAndUpdate({ _id: req.user._id }, 
       { $pull: { recommended: { _id: req.params.id } } })
       .then((dbList) => 
@@ -156,7 +149,6 @@ module.exports = {
 
   updateImage: (req, res) => {
     const { image } = req.body;
-    // console.log(req.body);
     db.User.findOneAndUpdate({
       _id: req.params.id
     }, req.body, { new: true }

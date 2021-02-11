@@ -38,6 +38,11 @@ export default {
     })
   },
 
+  unFollow: function (id) {
+    console.log("ufollow front end: ", id)
+    return axios.put("/api/connection/remove/" + id)
+  },
+
   updateImage: function(id, image) {
     return axios.put("/api/profile/images/" + id, image);
   },

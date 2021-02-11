@@ -16,25 +16,31 @@ const Nav = (props) => {
   }
   
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-success">
-      <Col size="md-6 sm-6">
-        <Link to="/" className="navbar-brand"><span id="a">a</span>c<span id="c">c</span>om<span id="p">p</span>animen<span id="t">t</span></Link>
-      </Col>
-      <Col size="md-6 sm-6">
-        <ul className="navbar-nav float-right"> 
-          <li className="nav-item">
-            <Link to="/login" className="logout link-logout" onClick={props.logout}>Logout</Link>
-          </li>
-          <li className="nav-item">
-            <Link to="/search" className="logout link-discover">Discover</Link>
-          </li>
-          <li className="nav-item">
-            <Link to="/profile" className="logout link-profile" onClick={loadMyProfile}>Profile</Link>
-          </li>
-        </ul>
+    <div>
+      <nav className="navbar navbar-expand-lg navbar-dark bg-success">
+        <Col size="md-6 sm-6">
+          <Link to="/" className="navbar-brand"><span id="a">a</span>c<span id="c">c</span>om<span id="p">p</span>animen<span id="t">t</span></Link>
+        </Col>
+        <Col size="md-6 sm-6">
+          <ul className="navbar-nav float-right"> 
+            <li className="nav-item">
+              <Link to="/login" className="logout link-logout" onClick={props.logout}>Logout</Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/search" className="logout link-discover">Discover</Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/profile" className="logout link-profile" onClick={loadMyProfile}>Profile</Link>
+            </li>
+          </ul>
+        </Col>
         
-      </Col>
-    </nav>
+      </nav>
+      <div className=" row border-row border-2"></div>
+      <div className=" row border-row border-3"></div>
+      <div className=" row border-row border-4"></div>
+      <div className=" row border-row border-5"></div>
+    </div>
   )
 };
 
