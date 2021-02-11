@@ -68,6 +68,7 @@ module.exports = {
   },
 
   updateQueue: async function(req, res) {
+    console.log("req: ", req)
     const currentUser = await db.User.findById({ _id: req.params.id })
     const updateReq = await db.User.findByIdAndUpdate({ _id: req.params.id }, {
       $set: {
@@ -91,6 +92,8 @@ module.exports = {
     
   },
   updateRecs: async function(req, res) {
+    console.log("params: ", req.params)
+    console.log("req.user: ", req.user)
     const currentUser = await db.User.findById({ _id: req.params.id })
     const updateReq = await db.User.findByIdAndUpdate({ _id: req.params.id }, {
       $set: {
@@ -104,7 +107,7 @@ module.exports = {
             tracks: req.body.tracks,
             url: req.body.url
           },
-          ...currentUser.queue
+          ...currentUser.recommended
         ]
       }
     })
@@ -112,6 +115,24 @@ module.exports = {
     .catch(err => res.status(422).json(err))
     
   },
+
+  // addToQueue: function(req, res) {
+  //   console.log("user: ", req.user)
+  //   console.log("params: ", req.params)
+  //   console.log("body: ", req.body)
+  //   db.User.findOneAndUpdate({ _id: req.user._id }, 
+  //     { $push: { queue: { 
+  //         album:  req.body.album,
+  //         artist: req.body.artist,
+  //         image: req.body.image,
+  //         mbid: req.body.mbid,
+  //         tags: req.body.tags,
+  //         tracks: req.body.tracks,
+  //         url: req.body.url } } })
+  //     .then((dbList) => 
+  //       res.json(dbList))
+  //     .catch(err => res.status(422).json(err));
+  // },
 
   removeFromQueue: function(req, res) {
     console.log("req.user: ", req.user),

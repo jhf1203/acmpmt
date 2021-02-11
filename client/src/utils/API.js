@@ -21,20 +21,7 @@ export default {
   saveBook: function(bookData) {
     return axios.post("/api/profile", bookData);
   },
-  addToQueue: function(id, album) {
-    return axios({
-      method: "patch",
-      url: "/api/profile/" + id,
-      data: album
-    });
-  },
-  addToRecs: function(id, album) {
-    return axios({
-      method: "put",
-      url: "/api/profile/" + id,
-      data: album
-    });
-  },
+
   followUser: function (id, user) {
     return axios ({
       method: "put",
@@ -42,6 +29,7 @@ export default {
       data: user
     })
   },
+
   followerAdd: function (id, user) {
     return axios ({
       method: "patch",
@@ -49,12 +37,31 @@ export default {
       data: user
     })
   },
+
   updateImage: function(id, image) {
     return axios.put("/api/profile/images/" + id, image);
   },
+
+  addToQueue: function(id, album) {
+    return axios({
+      method: "put",
+      url: "/api/profile/" + id,
+      data: album
+    });
+  },
+
+  addToRecs: function(id, album) {
+    return axios({
+      method: "patch",
+      url: "api/profile/" + id,
+      data: album
+    });
+  },
+
   removeFromQueue: function(id) {
     return axios.put("api/profile/queue/" + id)
   },
+
   removeFromRecs: function(id) {
     return axios.put("api/profile/recommended/" + id)
   }
