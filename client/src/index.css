@@ -8,10 +8,12 @@ body {
 
 h1 {
   font-family: "Raleway";
-  font-weight:900;
+  font-weight:800;
   font-size: 80px;
   padding-left: 15%;
   color:#ececec;
+  margin-bottom:-1%;
+  
 }
 
 h3 {
@@ -36,6 +38,18 @@ h6 {
 
 /* Login Page */
 
+.eight-text{
+  font-size:120px;
+  font-weight:800;
+}
+
+.h1-logo{
+  height:15%;
+  width:15%;
+  margin-bottom:6%;
+  margin-left:1%;
+}
+
 .auth-wrapper {
   padding-top:1%!important;
 }
@@ -44,24 +58,26 @@ h6 {
   border-bottom: 3px solid #F8E9A1;
   margin-right:-14%;
   margin-left:-14%;
-  padding-bottom:1%;
+  padding-bottom:0%;
   margin-top:0%
 }
 
 .pronunciation-text {
   font-family: "IM Fell Great Primer";
-  font-size: 18px;
-  padding-left: 3%;
+  font-size: 24px;
+  /* padding-left: 3%; */
   margin-top:3%;
   text-align: left;
-  margin-bottom: 1%
+  margin-bottom: 1%;
+  color:#ececec
 }
 .definition-text {
   font-family: "IM Fell Great Primer";
   font-size: 14px;
   font-weight:600;
-  padding-right: 35%;
+  padding-right: 27%;
   text-align: right;
+  color:#ececec;
 }
 
 .border-row {
@@ -676,6 +692,10 @@ h6 {
   margin-right:-6%;
   margin-left:-6%;
   border-bottom:3px solid #F8E9A1;
+}
+
+.eight-nav{
+  font-size:70px
 }
 
 .navbar-brand {

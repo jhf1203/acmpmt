@@ -6,6 +6,7 @@ import { Input, FormBtn } from '../../components/Form';
 import Randomizer from "../../utils/randomizer"
 import Quotes from "../../utils/quotes.json"
 import RandomQuote from "../../components/RandomQuote"
+import logo from "../../assets/logos/logo-100.png"
 
 function LoginForm({login}) {
   const [userObject, setUserObject] = useState({
@@ -37,15 +38,15 @@ function LoginForm({login}) {
     return (
       <Container>
         <div className="row title-row">
-          <Col size="md-8">
-            <h1>accompaniment</h1>
+          <Col size="md-7">
+            <h1>cr<span className="eight-text">8</span>ed<img className="h1-logo" src={logo} alt="logo" /> </h1>
           </Col>
-          <Col size="md-4">
+          <Col size="md-5">
             <div className="row">
-              <p className="pronunciation-text">/əˈkəmp(ə)nimənt/</p>
+              <p className="pronunciation-text">crate digging (v.)</p>
             </div>
-            <div className="row">
-              <p className="definition-text">something that is supplementary to or complements something else</p>
+            <div className="row definition-row">
+              <p className="definition-text">Crate digging is an art unto itself, a treasure hunt for something personally meaningful.  The record store is the excavation site, the records are the artifacts that tell the story.  It is musical archeology, cultural anthropology.</p>
             </div>
           </Col>
         </div>

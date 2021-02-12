@@ -19,7 +19,7 @@ const Nav = (props) => {
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-success">
         <Col size="md-6 sm-6">
-          <Link to="/" className="navbar-brand"><span id="a">a</span>c<span id="c">c</span>om<span id="p">p</span>animen<span id="t">t</span></Link>
+          <Link to="/" className="navbar-brand">cr<span className="eight-nav">8</span>ed</Link>
         </Col>
         <Col size="md-6 sm-6">
           <ul className="navbar-nav float-right"> 
