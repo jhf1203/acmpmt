@@ -35,6 +35,7 @@ const Profile = (props) => {
   const [otherUser, setOtherUser] = useState("dummy")
   const [formObject, setFormObject] = useState({});
   const [visibleEdits, setVisibleEdits] = useState("hide")
+  const [visibleAdd, setVisibleAdd] = useState("show")
 
  
   const formEl = useRef("rvfr");
@@ -115,11 +116,36 @@ function checkForMatch () {
     setRecUsers(recPeople)
     setDetailAlbum(profile.queue[event.target.title])
     setVisibleDetail("visible-detail")
+    setVisibleAdd("hide")
+  };
+
+  async function changeDetailFromRec (event, list) {
+
+    let queuePeople = [];
+    let recPeople = [];
+
+    allUsers.map(person => {
+      person.queue.map(queue => {
+        console.log("queue loop error testing: ", event.target.title)
+        if (queue.mbid === profile.queue[event.target.title].mbid) {
+          queuePeople.push(person)
+        }
+      })
+      person.recommended.map(rec => {
+        if (rec.mbid === profile.queue[event.target.title].mbid) {
+          recPeople.push(person)
+        }
+      })
+    })
+    setQueueUsers(queuePeople);
+    setRecUsers(recPeople)
+    setDetailAlbum(profile.recommended[event.target.title])
+    setVisibleDetail("visible-detail")
   }
 
   async function followUser (event) {
     let me = user._id;
-    let userToFollow = await API.getProfile(event.target.id)
+    let userToFollow = await API.getProfile(event.target.name)
     let userToFollowId = userToFollow.data.result._id
     API.followUser(me, userToFollowId)
     API.followerAdd(userToFollowId, me)
@@ -206,9 +232,10 @@ async function removeFromRecs (event) {
               lastName={profile.lastName}
               userName={profile.username}
               joinDate={formattedDate}
-              id={profile._id}
+              name={profile._id}
               image={profile.image}
               visibleEdits={visibleEdits}
+              visibleAdd={visibleAdd}
               followUser={followUser}
               showWidget={showWidget}
               />

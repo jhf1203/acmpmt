@@ -29,7 +29,7 @@ let imgStyle = {
                   <p className="profile-membersince-text">Member Since {props.joinDate}</p>
                 </Row>
                 <Row>
-                  <button className="btn btn-link follow-btn" id={props.id} onClick={props.followUser}>Follow {props.firstName}</button>
+                  <button className="btn btn-link follow-btn" id={props.visibleAdd} name={props.name} onClick={props.followUser}>Follow {props.firstName}</button>
                 </Row>
               </div>
             </div>  

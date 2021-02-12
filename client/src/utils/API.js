@@ -30,7 +30,7 @@ export default {
     })
   },
 
-  followerAdd: function (id, user) {
+  followerAdd: function (user, id) {
     return axios ({
       method: "patch",
       url: "/api/connection/" + id,
