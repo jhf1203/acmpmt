@@ -2,6 +2,7 @@ import React, { Fragment } from "react";
 import { Link } from 'react-router-dom';
 import API from "../../utils/API";
 import { Col } from '../Grid';
+import logo from "../../assets/logos/android-chrome-512x512.png"
 import './Nav.css';
 
 const Nav = (props) => {
@@ -19,7 +20,7 @@ const Nav = (props) => {
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-success">
         <Col size="md-6 sm-6">
-          <Link to="/" className="navbar-brand">cr<span className="eight-nav">8</span>ed</Link>
+          <Link to="/" className="navbar-brand">cr<span className="eight-nav">8</span>ed<span className="nav-img-span"><img className="nav-img" src={logo} alt="logo" /> </span></Link>
         </Col>
         <Col size="md-6 sm-6">
           <ul className="navbar-nav float-right"> 
