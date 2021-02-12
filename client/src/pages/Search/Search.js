@@ -244,10 +244,10 @@ const Search = (props) => {
           <div className="col-md-4 pl-5 pr-4 pt-5 pb-5">
               <div className="card search-card-top">
                 <div className="card-body search-card-body-top">
-                  <p className="row about-header-text">We try to keep it as simple as we can here.</p>
+                  <p className="row about-header-text">how it works:</p>
                   <p className="row about-text">Enter three artists that you like that are marginally related to one another (e.g. not "2pac", "Beethoven", and "Cannibal Corpse")</p>
                   <p className="row about-text">We'll find three things you're going to LOVE!  Pick any of the three</p>
-                  <p className="row about-text">If you've heard it, let the world know it's awesome by adding it to your recommendations.  If you haven't, add it to your queue until you get a chance to play it on your platform of choice</p>
+                  <p className="row about-text">If you've heard it, let the world know it's awesome by recommending it.  If you haven't, add it to your queue to play later on your platform of choice</p>
                   <p className="row about-text">See what others think!  Check out others who have queued or recommended it, and see what their tastes are all about.</p>
                 </div>
               </div>

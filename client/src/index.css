@@ -137,6 +137,8 @@ h6 {
   background-size:100%;
   margin-bottom:1%;
   margin-top:5%;
+  background-color:#111;
+  border:3px solid #111;
   box-shadow: 0px 10px 25px 25px inset  #111,
   0px -10px 25px 25px inset #111,
   10px 0px 25px 25px inset  #111,
@@ -563,12 +565,14 @@ h6 {
 
 .about-header-text{
   font-weight: 700;
-  font-size:15.5px;
-  color:#374785;
+  font-size:24px;
+  color:#4659a8;
 }
 
 .about-text{
-  font-size:11.5px;
+  font-size:13px;
+  margin-bottom:4%;
+  text-transform: lowercase
 }
 
 .search-row-middle {
@@ -606,6 +610,9 @@ h6 {
   10px 0px 15px 15px   #111,
   10px 0px 15px 15px  #111
 }
+.search-results-card{
+  height:325px;
+}
 
 .search-results-card,
 .search-detail-card{
@@ -613,6 +620,7 @@ h6 {
   opacity:.9;
   /* border: 2px solid #F8E9A1; */
   transition: opacity 0.5s ease-in-out;
+  /* height: 325px; */
   box-shadow:
     0 2.8px 2.2px rgba(0, 0, 0, 0.034),
     0 4.7px 5.3px rgba(0, 0, 0, 0.048),
@@ -1015,6 +1023,55 @@ color:#ececec
 
 .profile-link{
   color:blue
+}
+
+.album-list-body{
+  opacity:0;
+  background-color: #2a2a2a;
+  transition: opacity 0.5s ease-in-out;
+
+}
+
+.album-list-body:hover{
+  opacity:0.9;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.album-list-text-album,
+.album-list-text-artist,
+.album-list-text-link{
+  color:#ececec;
+  width: 100%;
+  text-align: center;
+  font-family: "Raleway";
+  text-transform: lowercase;
+}
+
+.album-list-text-album{
+  font-size:20px;
+  font-weight:800;
+}
+
+.album-list-text-artist{
+  font-size:20px;
+  font-weight:400;
+}
+
+.album-list-text-link{
+  font-weight:600;
+  margin-top:15%;
+  font-size:20px;
+  transition: font-weight 0.15s ease-in-out
+}
+
+.album-list-text-link:hover{
+  font-weight:800;
+  cursor: pointer;
+  transition: font-weight 0.15s ease-in-out
+}
+
+.album-list-card{
+  height:280px
 }
 
 /* TrackList */

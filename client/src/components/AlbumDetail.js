@@ -154,7 +154,7 @@ function loadNewProfile (event) {
                                         <div className="col-md-12">
                                             <div className="row">
                                                 <div className="col-md-11">
-                                                    <h6>users with album in queue</h6>
+                                                    <h6>in queue for:</h6>
                                                 </div>
                                                 <div className="col-md-1">
                                                     <i className="fa fa-times close-list"  onClick={closeQueue} aria-hidden="true"></i>
@@ -164,14 +164,19 @@ function loadNewProfile (event) {
                                                 return(
                                                     <div className="row connection-li-row" 
                                                     onClick={loadNewProfile}>
-                                                        <Link className="profile-link" id={person._id} to={{
-                                                            pathname: "/profile/" + person._id,
-                                                            state: "string"
-                                                        }}>
-                                                            <p className="connection-link">
-                                                                {person.firstName} {person.lastName} 
-                                                            </p>
-                                                        </Link>                                                    
+                                                        <div className="col-md-3">
+                                                            <img src={person.image} alt={person.username} height="50px" width="50px" />
+                                                        </div>
+                                                        <div className="col-md-9">
+                                                            <Link className="profile-link" id={person._id} to={{
+                                                                pathname: "/profile/" + person._id,
+                                                                state: "string"
+                                                            }}>
+                                                                <p className="connection-link">
+                                                                    {person.firstName} {person.lastName} 
+                                                                </p>
+                                                            </Link>          
+                                                        </div>                                          
                                                     </div>
                                                 )
                                             })}
@@ -190,7 +195,7 @@ function loadNewProfile (event) {
                                         <div className="col-md-12">
                                             <div className="row">
                                                 <div className="col-md-11">
-                                                    <h6>users with album in recs</h6>
+                                                    <h6>recommended by:</h6>
                                                 </div>
                                                 <div className="col-md-1">
                                                     <i className="fa fa-times close-list" onClick={closeRecs} aria-hidden="true"></i>
@@ -198,15 +203,23 @@ function loadNewProfile (event) {
                                             </div>
                                             {props.rec.map(person => {
                                                 return(
-                                                    <div className="row" 
+                                                    <div className="row connection-li-row" 
                                                     onClick={loadNewProfile}>
-                                                        <Link className="profile-link" id={person._id} to={{
-                                                            pathname: "/profile/" + person._id,
-                                                            state: "string"
-                                                        }}>
-                                                            {person.firstName} {person.lastName} 
-                                                        </Link>                                                    </div>
-                                                    )
+                                                        <div className="col-md-3">
+                                                            <img src={person.image} alt={person.username} height="50px" width="50px" />
+                                                        </div>
+                                                        <div className="col-md-9">
+                                                            <Link className="profile-link" id={person._id} to={{
+                                                                pathname: "/profile/" + person._id,
+                                                                state: "string"
+                                                            }}>
+                                                                <p className="connection-link">
+                                                                    {person.firstName} {person.lastName} 
+                                                                </p>
+                                                            </Link>          
+                                                        </div>                                          
+                                                    </div>
+                                                )
                                             })}
                                         </div>
                                     </div>

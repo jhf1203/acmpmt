@@ -148,7 +148,7 @@ function toggleSuccess () {
                                         <div className="col-md-12">
                                             <div className="row">
                                                 <div className="col-md-11">
-                                                    <h6>users with album in queue</h6>
+                                                    <h6>in queue for:</h6>
                                                 </div>
                                                 <div className="col-md-1">
                                                     <i className="fa fa-times close-list"  onClick={closeQueue} aria-hidden="true"></i>
@@ -186,7 +186,7 @@ function toggleSuccess () {
                                         <div className="col-md-12">
                                             <div className="row">
                                                 <div className="col-md-11">
-                                                    <h6>users with album in recs</h6>
+                                                    <h6>recommended by:</h6>
                                                 </div>
                                                 <div className="col-md-1">
                                                     <i className="fa fa-times close-list" onClick={closeRecs} aria-hidden="true"></i>
