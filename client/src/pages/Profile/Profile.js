@@ -126,13 +126,12 @@ function checkForMatch () {
 
     allUsers.map(person => {
       person.queue.map(queue => {
-        console.log("queue loop error testing: ", event.target.title)
-        if (queue.mbid === profile.queue[event.target.title].mbid) {
+        if (queue.mbid === profile.recommended[event.target.title].mbid) {
           queuePeople.push(person)
         }
       })
       person.recommended.map(rec => {
-        if (rec.mbid === profile.queue[event.target.title].mbid) {
+        if (rec.mbid === profile.recommended[event.target.title].mbid) {
           recPeople.push(person)
         }
       })
@@ -297,6 +296,7 @@ async function removeFromRecs (event) {
                           tags={album.tags}
                           tracks={album.tracks}
                           mbid={album.mbid}
+                          user={user}
                           visibleEdits={visibleEdits}
                           function={changeDetailFromQueue}
                           remove={removeFromQueue}
@@ -329,6 +329,7 @@ async function removeFromRecs (event) {
                           tags={album.tags}
                           tracks={album.tracks}
                           mbid={album.mbid}
+                          user={user}
                           visibleEdits={visibleEdits}
                           function={changeDetailFromRec}
                           remove={removeFromRecs}
@@ -355,6 +356,7 @@ async function removeFromRecs (event) {
                     mbid={detailAlbum.mbid}
                     queue={queueUsers}
                     rec={recUsers}
+                    user={user}
                     loadProfile={loadProfile}
 
                   />

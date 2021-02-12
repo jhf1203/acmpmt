@@ -17,6 +17,7 @@ const [visibleQueue, setVisibleQueue] = useState("hide")
 const [visibleRecs, setVisibleRecs] = useState("hide")
 const [visibleSuccess, setVisibleSuccess] = useState("hide")
 
+console.log("props in profileview: ", props)
 
 const trackArr = []
 
@@ -34,7 +35,7 @@ function addToQueue () {
         tracks: trackArr,
         url: props.url
     }
-    API.addToQueue(props.user, albumData)
+    API.addToQueue(props.user._id, albumData)
     toggleSuccess()
 
     .catch(err => console.log(err))
@@ -50,7 +51,7 @@ function addToRecs () {
         tracks: trackArr,
         url: props.url
     }
-    API.addToRecs(props.user, albumData)
+    API.addToRecs(props.user._id, albumData)
     toggleSuccess()
 
     .catch(err => console.log(err))

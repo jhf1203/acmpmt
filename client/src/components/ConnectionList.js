@@ -4,9 +4,6 @@ import API from "../utils/API"
 
 function ConnectionList (props) {
 
-    console.log("followers: ", props.followers);
-    console.log("and following: ", props.following)
-
     const [visibleFollowers, setVisibleFollowers] = useState("show-followers")
     const [visibleFollowing, setVisibleFollowing] = useState("hide-following")
     const [idToggleFollowers, setIdToggleFollowers] = useState("invisible-border")

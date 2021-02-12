@@ -29,8 +29,6 @@ for (let i =0; i < tagArrMaster.length; i++) {
     
 }
 
-console.log("parseint test: ", Number.isInteger(parseInt("5")))
-
 const countStats = Lodash.countBy(tagArrFiltered)
 const dataArr = []
 Object.getOwnPropertyNames(countStats).forEach((val, idx, array) => {

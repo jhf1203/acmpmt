@@ -15,6 +15,7 @@ const [visibleQueue, setVisibleQueue] = useState("hide")
 const [visibleRecs, setVisibleRecs] = useState("hide")
 const [visibleSuccess, setVisibleSuccess] = useState("hide")
 
+console.log("props: ", props)
 // Mapping an array of the album's tracklist to reduce data present in the 3rd party call vs what we want
 // to keep in the user's profile
 const trackArr = []
