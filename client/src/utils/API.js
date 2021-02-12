@@ -22,7 +22,7 @@ export default {
     return axios.post("/api/profile", bookData);
   },
 
-  followUser: function (id, user) {
+  followUser: function (user, id) {
     return axios ({
       method: "put",
       url: "/api/connection/" + id,
@@ -33,8 +33,8 @@ export default {
   followerAdd: function (user, id) {
     return axios ({
       method: "patch",
-      url: "/api/connection/" + id,
-      data: user
+      url: "/api/connection/" + user,
+      data: id
     })
   },
 

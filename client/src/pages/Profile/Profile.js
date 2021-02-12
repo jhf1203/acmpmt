@@ -328,7 +328,7 @@ async function removeFromRecs (event) {
                           tags={album.tags}
                           tracks={album.tracks}
                           mbid={album.mbid}
-                          function={changeDetailFromQueue}
+                          function={changeDetailFromRec}
                           remove={removeFromRecs}
                           />  
                         ))}

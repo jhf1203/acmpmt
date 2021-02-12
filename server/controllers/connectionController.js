@@ -5,9 +5,13 @@ const db = require("../models");
 module.exports = {
 
     followUser: function (req, res) {
+        console.log("FOLLOW USER")
+        console.log("params: ", req.params)
+        console.log("user", req.user)
+        console.log("==================")
         if(req) {
         db.User
-            .findOneAndUpdate({ _id: req.user.id }, 
+            .findOneAndUpdate({ _id: req.user._id }, 
                 { $push: { following: new ObjectId(req.params.id) } })
                 .then(cnxn => {
                     res.json(cnxn)
@@ -17,9 +21,12 @@ module.exports = {
     },
 
     followerAdd: function (req, res) {
+        console.log("FOLLOWER ADD")
+        console.log("params: ", req.params)
+        console.log("user", req.user)
         db.User
             .findOneAndUpdate({ _id: req.params.id },
-                { $push: { followers: new ObjectId(req.user.id) }
+                { $push: { followers: new ObjectId(req.user._id) }
                 })
                 .then(cnxn => {
                     res.json(cnxn)
