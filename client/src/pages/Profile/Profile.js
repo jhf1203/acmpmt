@@ -72,6 +72,7 @@ function checkForMatch () {
     if(user) {
       if (profile._id === user._id) {
         setVisibleEdits("show")
+        setVisibleAdd("hide")
       }
     }
   }, 1000);
@@ -101,7 +102,6 @@ function checkForMatch () {
 
     allUsers.map(person => {
       person.queue.map(queue => {
-        console.log("queue loop error testing: ", event.target.title)
         if (queue.mbid === profile.queue[event.target.title].mbid) {
           queuePeople.push(person)
         }
@@ -213,13 +213,13 @@ function toggleSuccess () {
 
 async function removeFromQueue (event) {
   event.preventDefault();
-  API.removeFromQueue(event.target.id)
+  API.removeFromQueue(event.target.name)
   window.location.reload()
 };
 
 async function removeFromRecs (event) {
   event.preventDefault();
-  API.removeFromRecs(event.target.id)
+  API.removeFromRecs(event.target.name)
   window.location.reload()
 }
 
@@ -287,7 +287,7 @@ async function removeFromRecs (event) {
                   {
                       profile.queue.map((album, index) => (
                         <UserList
-                          id={album._id}
+                          name={album._id}
                           key={index}
                           title={index}
                           album={album.album}
@@ -297,6 +297,7 @@ async function removeFromRecs (event) {
                           tags={album.tags}
                           tracks={album.tracks}
                           mbid={album.mbid}
+                          visibleEdits={visibleEdits}
                           function={changeDetailFromQueue}
                           remove={removeFromQueue}
                           />  
@@ -318,7 +319,7 @@ async function removeFromRecs (event) {
                   {
                       profile.recommended.map((album, index) => (
                         <UserList
-                          id={album._id}
+                          name={album._id}
                           key={index}
                           title={index}
                           album={album.album}
@@ -328,6 +329,7 @@ async function removeFromRecs (event) {
                           tags={album.tags}
                           tracks={album.tracks}
                           mbid={album.mbid}
+                          visibleEdits={visibleEdits}
                           function={changeDetailFromRec}
                           remove={removeFromRecs}
                           />  
