@@ -32,6 +32,7 @@ function SignupForm() {
             username: userObject.username,
             password: userObject.password
         }).then(response => {
+            // console.log("response: ", response)
             if (!response.data.errmsg) {
               setRedirectTo('/');
             } else {

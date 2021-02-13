@@ -1,4 +1,6 @@
 const db = require("../models");
+const ObjectId = require("mongoose").Types.ObjectId;
+
 
 // Defining methods for the userController
 module.exports = {
@@ -29,13 +31,19 @@ module.exports = {
               'joinDate': new Date(),
               'queue': [],
               'recommended': [],
-              'followers': [],
-              'following': [],
+              'followers': [
+                new ObjectId("6021ecf19095520028151ca5")
+              ],
+              'following': [
+                new ObjectId("6021ecf19095520028151ca5")
+              ],
           });
           newUser.save((err, savedUser) => {
               if (err) return res.json(err);
+              console.log("saveduser: ", savedUser)
               return res.json(savedUser);
-          });
+
+          })
       });
   },
 
