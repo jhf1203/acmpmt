@@ -5,7 +5,7 @@ import { Row } from "./Grid"
 const AlbumCover = (props) => {
 
     return (
-        <div className= "col-md-4">
+        <div className= "col-md-4 user-list-col">
             <div style={{backgroundImage: `url(${props.image})`}} className= "card user-list-card">
                 <div className="card-body list-card-body">
                     <Row>

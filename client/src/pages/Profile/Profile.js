@@ -279,7 +279,7 @@ const Profile = (props) => {
                 </Col>
             </div>
             <div className="row profile-row-bottom">
-                <div className="col-md-6 pl-5 pr-4 pt-5 pb-5">
+                <div className="col-md-6 pl-5 pr-4 pt-5 pb-5 profile-list-col">
                     <div className="card profile-card-bottom">
                         <div className="card-body profile-card-body-bottom">
                             <div className="row">
@@ -310,7 +310,7 @@ const Profile = (props) => {
                             </div>
                         </div>
                     </div>
-                <div className="col-md-6 pl-4 pr-5 pt-5 pb-5">
+                <div className="col-md-6 pl-4 pr-5 pt-5 pb-5 profile-list-col">
                     <div className="card profile-card-bottom">
                         <div className="card-body profile-card-body-bottom">
                             <div className="row">

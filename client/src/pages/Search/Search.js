@@ -221,7 +221,7 @@ const Search = (props) => {
     return (
         <Container fluid>
             <div className="row search-row-top">
-              <div className="col-md-4 pl-5 pr-4 pt-5 pb-5">
+              <div className="col-md-4 pl-5 pr-4 pt-5 pb-5 profile-col">
                   <div className="card search-card-top">
                       <div className="card-body search-card-body-top">
                           <p className="row about-header-text">how it works:</p>
@@ -232,7 +232,7 @@ const Search = (props) => {
                       </div>
                   </div>
               </div>
-              <div className="col-md-8 pr-5 pl-4 pt-5 pb-5">
+              <div className="col-md-8 pr-5 pl-4 pt-5 pb-5 profile-col">
                   <div className="card search-card-top">
                       <div className="card-body search-card-body-top">
                           <form>
@@ -284,7 +284,7 @@ const Search = (props) => {
 
 {/* The below div will not be visible upon initial load, until the visibleList state is changed */}
           <div className="row search-row-middle" id={visibleList}>
-              <div className="col-md-9 pl-5 pt-5 pb-5">
+              <div className="col-md-9 pl-5 pt-5 pb-5 profile-col">
                   <div className="card search-results-card mt-3 mb-3" id={visibleCard}>
                   <div className="card-body search-results-card-body">
                       <Row>
@@ -314,7 +314,7 @@ const Search = (props) => {
         <div className="row search-row-bottom" id={visibleDetail}>
             <div className="col-md-3">
             </div>
-            <div className="col-md-9 pr-5 pt-5 pb-5">
+            <div className="col-md-9 pr-5 pt-5 pb-5 profile-col">
                 <div className="card search-detail-card">
                     <div className="card-body search-detail-card-body">
                         <AlbumDetail 

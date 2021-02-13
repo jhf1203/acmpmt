@@ -1149,4 +1149,225 @@ color:#ececec
 
 }
 
+/* ================== MEDIA ================== */
+
+@media only screen and (max-width: 768px) {
+
+  /* Login Page */
+
+  .h1-logo{
+    margin-bottom:3%;
+  }
+
+  .pronunciation-text{
+    padding-left:22%;
+  }
+
+  .definition-text {
+    padding-right: 0%;
+    padding-left: 25%; 
+  }
+
+  .desc-header,
+  .simple1,
+  .simple2 {
+    font-size:20px
+  }
+
+  .desc-body {
+    font-size:18px
+  }
+
+  .img-card-login {
+    box-shadow: 0px 5px 95px 5px inset  #111,
+    0px -5px 95px 5px inset #111,
+    5px 0px 95px 5px inset  #111,
+    5px 0px 95px 5px inset #111,
+    0px 2px 5px    #111,
+    0px -2px 5px  #111,
+    2px 0px 5px    #111,
+    2px 0px 5px   #111;
+    background-image: url("./assets/content-imgs/gybe-media-768.jpeg")  
+  }
+
+  .login-input {
+    margin-left:2%
+  }
+
+  /* Register Page */
+
+  .outer-col {
+    background-image:url("./assets/content-imgs/badu-media-768.jpg");
+    box-shadow: 0px 5px 95px 5px inset  #111,
+    0px -5px 95px 5px inset #111,
+    5px 0px 95px 5px inset  #111,
+    5px 0px 95px 5px inset #111,
+    0px 2px 5px    #111,
+    0px -2px 5px  #111,
+    2px 0px 5px    #111,
+    2px 0px 5px   #111;
+  }
+
+  /* Profile Page/ProfileCard Component */
+
+  .profile-col {
+    padding-left:4%!important;
+    padding-right:4%!important;
+  }
+  .profile-username-text {
+    width:100%;
+    text-align: center
+  }
+
+  .profile-pic-card {
+    margin-left:18%;
+    width:400px;
+    height: 400px
+  }
+
+  .profile-realname-text,
+  .profile-membersince-text,
+  .follow-btn {
+    width:100%;
+    text-align: center;
+    font-size:28px
+  }
+
+  /* Profile Page/ConnectionList Component */
+
+  .follower-btn{
+    font-size:24px
+  }
+
+  .connection-li-row{
+    width: 530px;
+  }
+  .connection-img-col {
+    width:150px
+  }
+
+  .connection-text-col{
+    width: 350px;
+  }
+  .connection-img{
+    height:100px;
+    width:100px
+  }
+
+  .connection-link {
+    font-size:28px;
+    padding-left:0%;
+    margin-top:10%;
+  }
+
+  /* Profile Page/UserList Components */
+
+  .profile-list-col{
+    padding-left:4%!important;
+    padding-right:4%!important
+  }
+
+  h3 {
+    font-size:32px;
+    width:100%;
+    text-align:center;
+
+  }
+
+  .user-list-col{
+    width:33%
+  }
+
+  .user-list-card{
+    width:100%;
+    height:181px
+  }
+
+  /* Profile Page/ProfileAlbumView Component */
+
+  .rec-queue-stats-row{
+    padding-top:5%;
+  }
+
+  .search-detail-album-text,
+  .search-detail-artist-text{
+    width:100%;
+    text-align:center
+  }
+
+  .list-detail-img{
+    width:507px;
+    height:507px;
+    margin-left:6%
+  }
+
+  .search-detail-link-ext,
+  .search-detail-btn-queue,
+  .search-detail-btn-rec{
+    width:100%;
+    text-align:center;
+    font-size:24px;
+  }
+
+  .rec-queue-stats-row{
+    width:100%;
+    padding-left:24%;
+  }
+
+  .rec-queue-stats-text{
+    font-size:20px
+  }
+
+  .search-detail-tracklist-header{
+    margin-top:3%;
+    font-size:28px;
+    width:100%;
+    text-align: center;
+  }
+
+  .track-list-div{
+    text-align:center;
+    margin-bottom:0%
+  }
+
+  .track-list-text{
+    width:100%;
+    text-align: center;
+    font-size:18px
+  }
+
+  /* Search Page/AlbumList Component */
+
+  .album-list-col{
+    width:33.3%
+  }
+
+  .search-results-card{
+    height:222px;
+  }
+  .album-list-card,
+  .album-list-body{
+    height:181px;
+    width: 181px;
+    background-size:181px!important;
+  }
+
+  .album-list-text-album,
+  .album-list-text-artist,
+  .album-list-text-link{
+    font-size:18px
+  }
+
+  .album-list-text-link{
+    margin-top:5%;
+  }
+
+  /* Nav Component */
+
+  .nav-img{
+    height:40px;
+    width:40px
+  }
+}
+
 

@@ -118,7 +118,7 @@ const ProfileAlbumView = (props) => {
                     </Row>
                     <div className="row">
                         <div className="col-md-6">
-                            <img src={props.image} alt={props.album} height="372px" width="372px"></img>
+                            <img className="list-detail-img" src={props.image} alt={props.album} height="372px" width="372px"></img>
                         </div>
                         <div className="col-md-3" id={visibleMain}>
                             <div className="row">

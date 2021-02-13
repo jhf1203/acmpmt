@@ -53,10 +53,10 @@ function ConnectionList (props) {
                     {props.followers.map(follower => {
                         return (
                             <div className="row connection-li-row" id={follower.id}>
-                                <div className="col-md-3">
-                                    <img src={follower.image} alt={follower.username} height="50px" width="50px" />
+                                <div className="col-md-3 connection-img-col">
+                                    <img className="connection-img" src={follower.image} alt={follower.username} height="50px" width="50px" />
                                 </div>
-                                <div className="col-md-7" 
+                                <div className="col-md-7 connection-text-col" 
                                     id={follower.id}                                                     
                                     onClick={loadNewProfile} >
                                     <Link to={{
