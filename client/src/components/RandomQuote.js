@@ -1,8 +1,8 @@
 import React from "react"
+
 import { Row, Col } from "./Grid"
 
 function RandomQuote (props) {
-
 
     return (
         <div name="quote-div" className="quote-div">

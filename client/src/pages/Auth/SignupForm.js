@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Redirect, Link } from 'react-router-dom';
+
 import { Container, Row, Col } from '../../components/Grid';
-import { Card } from '../../components/Card';
-import { Input, FormBtn } from '../../components/Form';
+
 import AUTH from '../../utils/AUTH';
 
 function SignupForm() {

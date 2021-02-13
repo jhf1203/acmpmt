@@ -29,21 +29,9 @@ app.use(session({
   saveUninitialized: false
 }));
 
-// mongoose.connect(
-// 	process.env.MONGODB_URI || 'mongodb://localhost/deep-thoughts',
-// 	{
-// 	  useNewUrlParser: true,
-// 	  useUnifiedTopology: true,
-// 	  useCreateIndex: true,
-// 	  useFindAndModify: false
-// 	}
-//   );
-
 // Passport
 app.use(passport.initialize());
 app.use(passport.session()); // will call the deserializeUser
-
-// JIM COMMENTED THIS
 
 // If its production environment!
 if (process.env.NODE_ENV === 'production') {
@@ -69,14 +57,6 @@ app.post("/api/imageUpload", upload.single("image"), async (req, res) => {
 	});
 	return res.json(images);
   });
-
-//   app.get('/*', function(req, res) {
-// 	res.sendFile(path.join(__dirname, '../client/public/index.html'), function(err) {
-// 	  if (err) {
-// 		res.status(500).send(err)
-// 	  }
-// 	})
-//   })
 
 // Add routes, both API and view
 app.use(routes);

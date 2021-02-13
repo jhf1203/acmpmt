@@ -10,16 +10,23 @@ import TrackList from "./TrackList"
 
 const ProfileAlbumView = (props) => {
 
+// States to manage when certain elements are visible and not
+
     const [visibleMain, setVisibleMain] = useState("show")
     const [visibleQueue, setVisibleQueue] = useState("hide")
     const [visibleRecs, setVisibleRecs] = useState("hide")
     const [visibleSuccess, setVisibleSuccess] = useState("hide")
+
+// Mapping an array of the album's tracklist to reduce data present in the 3rd party call vs what we want
+// to keep in the user's profile
 
     const trackArr = []
 
     for (let i=0; i<props.tracks.length; i++) {
         trackArr.push(props.tracks[i])
     }
+
+// Adds the album to my queue
 
     function addToQueue () {
         const albumData = {
@@ -37,6 +44,8 @@ const ProfileAlbumView = (props) => {
         .catch(err => console.log(err))
     };
 
+// Adds the album to my list of recommendations
+
     function addToRecs () {
         const albumData = {
             album: props.album,
@@ -51,6 +60,9 @@ const ProfileAlbumView = (props) => {
         toggleSuccess()
         .catch(err => console.log(err))
     }
+
+// Functions to toggle what's visible:  Either the option to add the album to your queue/recommendations, 
+// or a list of current users who have the album either queued or recommended.
 
     function closeQueue () {
         setVisibleQueue("hide");

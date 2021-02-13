@@ -3,18 +3,19 @@ import moment from "moment"
 import { HashRouter as Router, Route, Link, useRouteMatch, useParams } from 'react-router-dom';
 
 import { Col, Container } from "../../components/Grid";
-import API from "../../utils/API";
-import AUTH from "../../utils/AUTH"
 import UserList from "../../components/UserList";
-import PlaceholderProfile from "../../utils/placeholderProfile.json"
-import Randomizer from "../../utils/randomizer"
-import Quotes from "../../utils/quotes.json"
 import RandomQuote from "../../components/RandomQuote"
 import ProfileAlbumView from "../../components/ProfileAlbumView"
 import PlaceholderAlbum from "../../utils/placeholder.json"
 import ProfileCard from "../../components/ProfileCard"
 import WordCloud from "../../components/WordCloud"
 import ConnectionList from "../../components/ConnectionList"
+
+import API from "../../utils/API";
+import AUTH from "../../utils/AUTH"
+import PlaceholderProfile from "../../utils/placeholderProfile.json"
+import Randomizer from "../../utils/randomizer"
+import Quotes from "../../utils/quotes.json"
 
 
 const Profile = (props) => {
@@ -24,22 +25,27 @@ const Profile = (props) => {
     const [profile, setProfile] = useState(
       PlaceholderProfile
     )
+
+// Determining which album will be passed into the ProfileAlbumView component 
     const [detailAlbum, setDetailAlbum] = useState(
       PlaceholderAlbum
     )
+
+// Toggling the display property of the ProfileAlbumView component to hide until it has content
     const [visibleDetail, setVisibleDetail] = useState("hide")
+
+// Storing the info for all users, to obtain list data
     const [allUsers, setAllUsers] = useState([])
+
+// Arrays housing all users who have a particular album on a list
     const [queueUsers, setQueueUsers] = useState([]);
     const [recUsers, setRecUsers] = useState([]);
-    const [otherUser, setOtherUser] = useState("dummy")
-    const [formObject, setFormObject] = useState({});
+  
+// Managing display properties of elements we only want to see on the user page or the non-user pages (Follow user, delete album)
     const [visibleEdits, setVisibleEdits] = useState("hide")
     const [visibleAdd, setVisibleAdd] = useState("show")
 
-  
-    const formEl = useRef("rvfr");
-
-    // Load all profile and store them with setUser
+// Calling functions on load 
     useEffect(() => {
       loadProfile();
     }, []);
@@ -52,17 +58,17 @@ const Profile = (props) => {
       checkForMatch()
     })
 
+// Passing the userID into this page from links on various components
     let params = useParams().id
 
-    let quoteArr = []
+// Using Moment to format the join date properly
     let formattedDate = moment(profile.joinDate).format("l")
 
-    const queue = profile.queue;
-    const rec = profile.recommended;
-
+// Using the randomizer util to populate the RandomQuote component
+    let quoteArr = []
     quoteArr.push(Randomizer.randomVal(Quotes))
 
-
+// Determining if the profile page we're on is for the logged in user, which will toggle some display properties
     function checkForMatch () {
         setTimeout(function () {
             if(user) {
@@ -74,6 +80,7 @@ const Profile = (props) => {
         }, 1000);
     }
 
+// Setting the profile state based on whose page we should be on
     async function loadProfile () {
         let foundUser = await AUTH.getUser();
         setUser(foundUser.data.user)
@@ -86,11 +93,13 @@ const Profile = (props) => {
         }
     }
 
+// Creating an array of all users to populate list data
     async function findUsers () {
         let userList = await API.getAllProfiles()
         setAllUsers(userList.data.users)
     }
 
+// Populating the ProfileAlbumView component from the profile's queue list
     async function changeDetailFromQueue (event) {
         let queuePeople = [];
         let recPeople = [];
@@ -113,6 +122,7 @@ const Profile = (props) => {
         setVisibleAdd("hide")
     };
 
+// Populating the ProfileAlbumView component from the profile's recommendation list
     async function changeDetailFromRec (event, list) {
         let queuePeople = [];
         let recPeople = [];
@@ -134,6 +144,7 @@ const Profile = (props) => {
         setVisibleDetail("visible-detail")
     }
 
+// Creating ourselves as a profile user's follower, and them as a followee
     async function followUser (event) {
         let me = user._id;
         let userToFollow = await API.getProfile(event.target.name)
@@ -143,6 +154,7 @@ const Profile = (props) => {
         toggleSuccess()
     }
 
+// Handling the widget that uploads profile images
     let widget =  window.cloudinary.createUploadWidget({
         cloud_name: "duf4y1dco",
         upload_preset: "lni6nbrv",
@@ -175,8 +187,6 @@ const Profile = (props) => {
       imageUpload(result);
       });
 
-
-
     function showWidget() {
         widget.open();
     };
@@ -198,10 +208,12 @@ const Profile = (props) => {
         }
     }
 
+// Toggling notification that a selected album was added to our list
     function toggleSuccess () {
         window.location.reload()
     }
 
+// Removing an album from our queue, or our recommendations (element only visible on the logged in user's page)
     async function removeFromQueue (event) {
         event.preventDefault();
         API.removeFromQueue(event.target.name)
@@ -330,29 +342,32 @@ const Profile = (props) => {
                     </div>
                 </div>
             </div>
+
+{/* Below has a display value of "none" until a result is actually populated, triggering a change in the
+visibleDetail state */}
             <div className="row search-row-bottom profile-detail-display-row" id={visibleDetail}>
                 <div className="col-md-3">
                 </div>
                 <div className="col-md-9 pr-5 pt-5 pb-5">
-                <div className="card search-detail-card">
-                    <div className="card-body search-detail-card-body">
-                        <ProfileAlbumView 
-                          album={detailAlbum.album}
-                          artist={detailAlbum.artist}
-                          image={detailAlbum.image}
-                          url={detailAlbum.url}
-                          tags={detailAlbum.tags}
-                          tracks={detailAlbum.tracks}
-                          mbid={detailAlbum.mbid}
-                          queue={queueUsers}
-                          rec={recUsers}
-                          user={user}
-                          loadProfile={loadProfile}
-                        />
-                    </div>  
+                    <div className="card search-detail-card">
+                        <div className="card-body search-detail-card-body">
+                            <ProfileAlbumView 
+                                album={detailAlbum.album}
+                                artist={detailAlbum.artist}
+                                image={detailAlbum.image}
+                                url={detailAlbum.url}
+                                tags={detailAlbum.tags}
+                                tracks={detailAlbum.tracks}
+                                mbid={detailAlbum.mbid}
+                                queue={queueUsers}
+                                rec={recUsers}
+                                user={user}
+                                loadProfile={loadProfile}
+                            />
+                        </div>  
+                    </div>
                 </div>
             </div>
-        </div>
         </Container>
     );
   }

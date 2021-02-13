@@ -1,8 +1,11 @@
 import  React, { useState } from "react" 
 import { HashRouter as Router, Route, Link, useRouteMatch, useParams } from 'react-router-dom';
+
 import API from "../utils/API"
 
 function ConnectionList (props) {
+
+// Managing visibiity of followers/following, depending on which tab is selected
 
     const [visibleFollowers, setVisibleFollowers] = useState("show-followers")
     const [visibleFollowing, setVisibleFollowing] = useState("hide-following")
@@ -29,6 +32,8 @@ function ConnectionList (props) {
         setBtnToggleFollowers("dark")
         setBtnToggleFollowing("light")
     }
+
+// Helper to "redirect" to the user's page who is selected
 
     function loadNewProfile (event) {
         API.getProfile(event.target.id)

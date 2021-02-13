@@ -1,12 +1,13 @@
 import React from 'react';
 
-
 const AlbumList = (props) => {
 
     const styles = {
         backgroundImage: `url(${props.image[3]["#text"]})`,
         backgroundSize: "280px 280px"
     }
+
+// Randomizing the color in which a certain block of text appears
 
     let colorArr=["#4659a8", "#a8d0e6", "#f76c6c", "#f8e9a1"]
     let selectedColor = Math.floor(Math.random() * colorArr.length)

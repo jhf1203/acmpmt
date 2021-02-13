@@ -9,7 +9,6 @@ function ProfileCard (props) {
       backgroundSize: "100%"
     }
 
-
     return (
         <div className="card profile-card-top">
             <div className="card-body profile-card-body-top">

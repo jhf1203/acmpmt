@@ -4,11 +4,8 @@ const db = require("../models");
 
 module.exports = {
 
+// Activated when I want to follow a user, which shows their account under my "following" property
     followUser: function (req, res) {
-        console.log("FOLLOW USER")
-        console.log("params: ", req.params)
-        console.log("user", req.user)
-        console.log("==================")
         if(req) {
         db.User
             .findOneAndUpdate({ _id: req.user._id }, 
@@ -20,10 +17,8 @@ module.exports = {
             }
     },
 
+// Automatically called on the client side right after followUser, showing me as a follower of the given user
     followerAdd: function (req, res) {
-        console.log("FOLLOWER ADD")
-        console.log("params: ", req.params)
-        console.log("user", req.user)
         db.User
             .findOneAndUpdate({ _id: req.params.id },
                 { $push: { followers: new ObjectId(req.user._id) }
@@ -32,17 +27,18 @@ module.exports = {
                     res.json(cnxn)
                 })
                 .catch(err => {res.status(422).json(err)})
-    },
+    }
 
-    unFollow: function(req, res) {
-        console.log("req.user: ", req.user),
-        console.log("req.params: ", req.params)
-        db.User.findOneAndUpdate({ _id: req.user._id }, 
-          { $pull: { following: { id: ObjectId(req.params.id) } } })
-          .then((dbList) => 
-            res.json(dbList))
-          .catch(err => res.status(422).json(err));
-      },
+// WIP fn for future development
+    // unFollow: function(req, res) {
+    //     console.log("req.user: ", req.user),
+    //     console.log("req.params: ", req.params)
+    //     db.User.findOneAndUpdate({ _id: req.user._id }, 
+    //       { $pull: { following: { id: ObjectId(req.params.id) } } })
+    //       .then((dbList) => 
+    //         res.json(dbList))
+    //       .catch(err => res.status(422).json(err));
+    //   },
 }
 
     

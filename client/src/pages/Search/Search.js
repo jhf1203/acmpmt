@@ -45,10 +45,6 @@ const Search = (props) => {
     const [queueUsers, setQueueUsers] = useState([]);
     const [recUsers, setRecUsers] = useState([]);
 
-// From starter code
-    const formEl = useRef(null);
-
-
 // Load all profile and store them with setProfile
     useEffect(() => {
         loadProfile();
@@ -132,6 +128,7 @@ const Search = (props) => {
         if (match3.length < 3) {
             setVisibleError("visible-error")
         } else {
+            
 // Loading all artists who matched as similar for all three entries into their own object
             addBandObj(match3);
 

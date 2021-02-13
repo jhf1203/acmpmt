@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { Redirect, Link } from 'react-router-dom';
+
 import { Container, Row, Col } from '../../components/Grid';
-import { Card } from '../../components/Card';
-import { Input, FormBtn } from '../../components/Form';
+import RandomQuote from "../../components/RandomQuote"
+
 import Randomizer from "../../utils/randomizer"
 import Quotes from "../../utils/quotes.json"
-import RandomQuote from "../../components/RandomQuote"
+
 import logo from "../../assets/logos/logo-100.png"
 
 function LoginForm({login}) {

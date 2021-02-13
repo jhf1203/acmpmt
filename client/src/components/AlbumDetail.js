@@ -1,14 +1,14 @@
-import { PromiseProvider } from 'mongoose';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { HashRouter as Router, Route, Link, useRouteMatch, useParams } from 'react-router-dom';
-import { Accordion, Card, Button } from "react-bootstrap"
-import API from '../utils/API';
+
 import {Col, Row} from "./Grid"
 import TrackList from "./TrackList"
 
-
+import API from '../utils/API';
 
 const AlbumDetail = (props) => {
+
+// States to manage when certain elements are visible and not
 
     const [visibleMain, setVisibleMain] = useState("show")
     const [visibleQueue, setVisibleQueue] = useState("hide")
@@ -85,10 +85,14 @@ const AlbumDetail = (props) => {
         window.open(props.url, "_blank")
     }
 
+// Notification that our list was successfully updated
+
     function toggleSuccess () {
         setVisibleSuccess("show")
         window.location.reload()
     }
+
+// Helper to "redirect" to the selected user's page
 
     function loadNewProfile (event) {
         API.getProfile(event.target.id)

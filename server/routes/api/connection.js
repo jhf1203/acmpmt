@@ -8,6 +8,6 @@ router.route("/:id")
 
 router
 .route("/remove/:id")
-.put(connectionController.unFollow)
+// .put(connectionController.unFollow)
 
 module.exports = router
