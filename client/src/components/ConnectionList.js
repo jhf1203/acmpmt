@@ -35,11 +35,6 @@ function ConnectionList (props) {
         window.location.reload()
     }
 
-    function unFollow (event) {
-        API.unFollow(event.target.id)
-        window.location.reload()
-    }
-
     return (
         <div className="container connection-container">
             <div className="row connection-row-header">
@@ -68,9 +63,6 @@ function ConnectionList (props) {
                                         </p>
                                     </Link>
                                 </div>
-                                {/* <div className="col-md-1">
-                                    <i className="fa fa-trash-o" id={follower._id} onClick={unFollow} aria-hidden="true"></i>
-                                </div> */}
                             </div>
                         )
                     })}
@@ -94,9 +86,6 @@ function ConnectionList (props) {
                                         </p>
                                     </Link>
                                 </div>
-                                {/* <div className="col-md-1">
-                                    <i className="fa fa-trash-o" id={following._id} onClick={unFollow} aria-hidden="true"></i>
-                                </div> */}
                             </div>
                         )
                     })}

@@ -10,88 +10,90 @@ import TrackList from "./TrackList"
 
 const AlbumDetail = (props) => {
 
-const [visibleMain, setVisibleMain] = useState("show")
-const [visibleQueue, setVisibleQueue] = useState("hide")
-const [visibleRecs, setVisibleRecs] = useState("hide")
-const [visibleSuccess, setVisibleSuccess] = useState("hide")
+    const [visibleMain, setVisibleMain] = useState("show")
+    const [visibleQueue, setVisibleQueue] = useState("hide")
+    const [visibleRecs, setVisibleRecs] = useState("hide")
+    const [visibleSuccess, setVisibleSuccess] = useState("hide")
 
-console.log("props: ", props)
 // Mapping an array of the album's tracklist to reduce data present in the 3rd party call vs what we want
 // to keep in the user's profile
-const trackArr = []
-props.tracks.track.map(track => {
-    trackArr.push(track.name)
-});
+
+    const trackArr = []
+    props.tracks.track.map(track => {
+        trackArr.push(track.name)
+    });
 
 // Adds the album to my queue
-function addToQueue () {
-    const albumData = {
-        album: props.album,
-        artist: props.artist,
-        image: props.image[3]["#text"],
-        mbid: props.mbid,
-        tags: props.tags.tag,
-        tracks: trackArr,
-        url: props.url
-    }
-    API.addToQueue(props.user, albumData)
-    toggleSuccess()
-    .catch(err => console.log(err))
-};
+
+    function addToQueue () {
+        const albumData = {
+            album: props.album,
+            artist: props.artist,
+            image: props.image[3]["#text"],
+            mbid: props.mbid,
+            tags: props.tags.tag,
+            tracks: trackArr,
+            url: props.url
+        }
+        API.addToQueue(props.user, albumData)
+        toggleSuccess()
+        .catch(err => console.log(err))
+    };
 
 // Adds the album to my list of recommendations
-function addToRecs () {
-    const albumData = {
-        album: props.album,
-        artist: props.artist,
-        image: props.image[3]["#text"],
-        mbid: props.mbid,
-        tags: props.tags.tag,
-        tracks: trackArr,
-        url: props.url
+
+    function addToRecs () {
+        const albumData = {
+            album: props.album,
+            artist: props.artist,
+            image: props.image[3]["#text"],
+            mbid: props.mbid,
+            tags: props.tags.tag,
+            tracks: trackArr,
+            url: props.url
+        }
+        API.addToRecs(props.user, albumData)
+        toggleSuccess()
+        .catch(err => console.log(err))
     }
-    API.addToRecs(props.user, albumData)
-    toggleSuccess()
-    .catch(err => console.log(err))
-}
 
 
 // Functions to toggle what's visible:  Either the option to add the album to your queue/recommendations, 
 // or a list of current users who have the album either queued or recommended.
 
-function closeQueue () {
-    setVisibleQueue("hide");
-    setVisibleMain("show")
-}
+    function closeQueue () {
+        setVisibleQueue("hide");
+        setVisibleMain("show")
+    }
 
-function closeRecs () {
-    setVisibleRecs("hide");
-    setVisibleMain("show")
-}
+    function closeRecs () {
+        setVisibleRecs("hide");
+        setVisibleMain("show")
+    }
 
-function openQueue () {
-    setVisibleMain("hide");
-    setVisibleQueue("show")
-}
+    function openQueue () {
+        setVisibleMain("hide");
+        setVisibleQueue("show")
+    }
 
-function openRecs () {
-    setVisibleMain("hide");
-    setVisibleRecs("show")
-}
+    function openRecs () {
+        setVisibleMain("hide");
+        setVisibleRecs("show")
+    }
 
-function moreInfo () {
-    window.open(props.url, "_blank")
-}
+    function moreInfo () {
+        window.open(props.url, "_blank")
+    }
 
-function toggleSuccess () {
-    setVisibleSuccess("show")
-    window.location.reload()
-}
+    function toggleSuccess () {
+        setVisibleSuccess("show")
+        window.location.reload()
+    }
 
-function loadNewProfile (event) {
-    API.getProfile(event.target.id)
-    window.location.reload()
-}
+    function loadNewProfile (event) {
+        API.getProfile(event.target.id)
+        window.location.reload()
+    }   
 
     return (
         <div>

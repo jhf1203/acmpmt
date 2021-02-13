@@ -1,6 +1,4 @@
-import { PromiseProvider } from 'mongoose';
-import React, { useState, useEffect } from 'react';
-import { Accordion, Card, Button } from "react-bootstrap"
+import React, { useState } from 'react';
 import { HashRouter as Router, Route, Link, useRouteMatch, useParams } from 'react-router-dom';
 
 import API from '../utils/API';
@@ -12,84 +10,81 @@ import TrackList from "./TrackList"
 
 const ProfileAlbumView = (props) => {
 
-const [visibleMain, setVisibleMain] = useState("show")
-const [visibleQueue, setVisibleQueue] = useState("hide")
-const [visibleRecs, setVisibleRecs] = useState("hide")
-const [visibleSuccess, setVisibleSuccess] = useState("hide")
+    const [visibleMain, setVisibleMain] = useState("show")
+    const [visibleQueue, setVisibleQueue] = useState("hide")
+    const [visibleRecs, setVisibleRecs] = useState("hide")
+    const [visibleSuccess, setVisibleSuccess] = useState("hide")
 
-console.log("props in profileview: ", props)
+    const trackArr = []
 
-const trackArr = []
-
-for (let i=0; i<props.tracks.length; i++) {
-    trackArr.push(props.tracks[i])
-}
-
-function addToQueue () {
-    const albumData = {
-        album: props.album,
-        artist: props.artist,
-        image: props.image,
-        mbid: props.mbid,
-        tags: props.tags.tag,
-        tracks: trackArr,
-        url: props.url
+    for (let i=0; i<props.tracks.length; i++) {
+        trackArr.push(props.tracks[i])
     }
-    API.addToQueue(props.user._id, albumData)
-    toggleSuccess()
 
-    .catch(err => console.log(err))
-};
+    function addToQueue () {
+        const albumData = {
+            album: props.album,
+            artist: props.artist,
+            image: props.image,
+            mbid: props.mbid,
+            tags: props.tags.tag,
+            tracks: trackArr,
+            url: props.url
+        }
+        API.addToQueue(props.user._id, albumData)
+        toggleSuccess()
 
-function addToRecs () {
-    const albumData = {
-        album: props.album,
-        artist: props.artist,
-        image: props.image,
-        mbid: props.mbid,
-        tags: props.tags.tag,
-        tracks: trackArr,
-        url: props.url
+        .catch(err => console.log(err))
+    };
+
+    function addToRecs () {
+        const albumData = {
+            album: props.album,
+            artist: props.artist,
+            image: props.image,
+            mbid: props.mbid,
+            tags: props.tags.tag,
+            tracks: trackArr,
+            url: props.url
+        }
+        API.addToRecs(props.user._id, albumData)
+        toggleSuccess()
+        .catch(err => console.log(err))
     }
-    API.addToRecs(props.user._id, albumData)
-    toggleSuccess()
 
-    .catch(err => console.log(err))
-}
+    function closeQueue () {
+        setVisibleQueue("hide");
+        setVisibleMain("show")
+    }
 
-function closeQueue () {
-    setVisibleQueue("hide");
-    setVisibleMain("show")
-}
+    function closeRecs () {
+        setVisibleRecs("hide");
+        setVisibleMain("show")
+    }
 
-function closeRecs () {
-    setVisibleRecs("hide");
-    setVisibleMain("show")
-}
+    function openQueue () {
+        setVisibleMain("hide");
+        setVisibleQueue("show")
+    }
 
-function openQueue () {
-    setVisibleMain("hide");
-    setVisibleQueue("show")
-}
+    function openRecs () {
+        setVisibleMain("hide");
+        setVisibleRecs("show")
+    }
 
-function openRecs () {
-    setVisibleMain("hide");
-    setVisibleRecs("show")
-}
+    function moreInfo () {
+        window.open(props.url, "_blank")
+    } 
 
-function moreInfo () {
-    window.open(props.url, "_blank")
-} 
+    function loadNewProfile (event) {
+        API.getProfile(event.target.id)
+        window.location.reload()
+    }
 
-function loadNewProfile (event) {
-    API.getProfile(event.target.id)
-    window.location.reload()
-}
-
-function toggleSuccess () {
-    setVisibleSuccess("show")
-    window.location.reload()
-}
+    function toggleSuccess () {
+        setVisibleSuccess("show")
+        window.location.reload()
+    }
 
     return (
         <div>
@@ -109,7 +104,6 @@ function toggleSuccess () {
                             </div>
                         </Col>
                     </Row>
-
                     <div className="row">
                         <div className="col-md-6">
                             <img src={props.image} alt={props.album} height="372px" width="372px"></img>
@@ -218,13 +212,11 @@ function toggleSuccess () {
                                 </div>
                             </div>                        
                         </div>
-                    </div>
-                        
-                    
+                    </div> 
                 </div>
             </div>
         </div>
-  );
+    );
 
 };
         

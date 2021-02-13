@@ -1,8 +1,6 @@
-import { PromiseProvider } from 'mongoose';
-import React, { useState } from 'react';
-import { Accordion, Card, Button } from "react-bootstrap"
-import { Row, Col} from "./Grid"
+import React from 'react';
 
+import { Row } from "./Grid"
 
 const AlbumCover = (props) => {
 
@@ -25,7 +23,7 @@ const AlbumCover = (props) => {
                 </div>
             </div>
         </div>
-  );
+    );
 };
         
 export default AlbumCover
