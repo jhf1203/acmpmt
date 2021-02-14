@@ -3,167 +3,157 @@ body {
   padding-left: 5%;
   padding-right: 5%;
   font-family: "Raleway";
-  background-color:#111111
+  background-color: #111111;
 }
 
 h1 {
   font-family: "Raleway";
-  font-weight:800;
+  font-weight: 800;
   font-size: 80px;
   padding-left: 20%;
-  color:#ececec;
-  margin-bottom:-1%;
+  color: #ececec;
+  margin-bottom: -1%;
   text-shadow: 1px 1px 2px #ececec;
-  
 }
 
 h3 {
-  width:100%;
-  font-weight:700;
-  font-family:"Raleway";
-  padding-left:4%;
-  padding-bottom:4%;
-  font-size:25px;
-  border-bottom:solid 2px #374785;
-  margin-bottom:0
+  width: 100%;
+  font-weight: 700;
+  font-family: "Raleway";
+  padding-left: 4%;
+  padding-bottom: 4%;
+  font-size: 25px;
+  border-bottom: solid 2px #374785;
+  margin-bottom: 0;
 }
 
 h6 {
   color: #ececec;
   font-family: "Raleway";
   font-size: 24px;
-  font-weight:700
+  font-weight: 700;
 }
 
 /* ========    PAGES    ======== */
 
 /* Login Page */
 
-.eight-text{
-  font-size:120px;
-  font-weight:800;
+.eight-text {
+  font-size: 120px;
+  font-weight: 800;
 }
 
-.h1-logo{
-  height:15%;
-  width:15%;
-  margin-bottom:6%;
-  margin-left:1%;
+.h1-logo {
+  height: 15%;
+  width: 15%;
+  margin-bottom: 6%;
+  margin-left: 1%;
 }
 
 .auth-wrapper {
-  padding-top:1%!important;
+  padding-top: 1% !important;
 }
 
 .title-row {
-  border-bottom: 3px solid #F8E9A1;
-  margin-right:-14%;
-  margin-left:-14%;
-  padding-bottom:0%;
-  margin-top:0%
+  border-bottom: 3px solid #f8e9a1;
+  margin-right: -14%;
+  margin-left: -14%;
+  padding-bottom: 0%;
+  margin-top: 0%;
 }
 
 .pronunciation-text {
   font-family: "IM Fell Great Primer";
   font-size: 24px;
-  margin-top:3%;
+  margin-top: 3%;
   text-align: left;
   margin-bottom: 1%;
-  color:#ececec
+  color: #ececec;
 }
 .definition-text {
   font-family: "IM Fell Great Primer";
   font-size: 14px;
-  font-weight:600;
+  font-weight: 600;
   padding-right: 27%;
   text-align: right;
-  color:#ececec;
+  color: #ececec;
 }
 
 .border-row {
-  height:3px;
+  height: 3px;
   margin-right: -14%;
-  margin-left:-14%;
+  margin-left: -14%;
 }
 
 .border-2 {
-  background-color: #F76C6C
+  background-color: #f76c6c;
 }
 
 .border-3 {
-  background-color: #A8D0E6
+  background-color: #a8d0e6;
 }
 
 .border-4 {
-  background-color: #374785
+  background-color: #374785;
 }
 
 .border-5 {
-  background-color: #24305E;
-  margin-bottom: 3%
+  background-color: #24305e;
+  margin-bottom: 3%;
 }
 
 .login-card {
   background-color: #111;
-  border:none
+  border: none;
 }
 
-.input-row-name{
-  margin-top:5%
+.input-row-name {
+  margin-top: 5%;
 }
 
 .input-row-password {
-  margin-bottom:6%
+  margin-bottom: 6%;
 }
 
 .login-input {
   background-color: #111;
   width: 90%;
   margin: 5%;
-  border-bottom: 1px solid #4659a8!important;
-  border:none;
+  border-bottom: 1px solid #4659a8 !important;
+  border: none;
   font-size: 50px;
   font-weight: 800;
-  margin-top:2%;
-  margin-bottom:2%;
-  color:#ececec
+  margin-top: 2%;
+  margin-bottom: 2%;
+  color: #ececec;
 }
 
 .login-input:focus {
-  border:none!important
+  border: none !important;
 }
 
 .img-card-login {
-  background-image:url("./assets/content-imgs/gybe.jpg");
-  background-size:100%;
-  margin-bottom:1%;
-  margin-top:5%;
-  background-color:#111;
-  border:3px solid #111;
-  box-shadow: 0px 10px 25px 25px inset  #111,
-  0px -10px 25px 25px inset #111,
-  10px 0px 25px 25px inset  #111,
-  10px 0px 25px 25px inset #111,
-  0px 10px 25px 25px   #111,
-  0px -10px 25px 25px  #111,
-  10px 0px 25px 25px   #111,
-  10px 0px 25px 25px  #111
-  
+  background-image: url("./assets/content-imgs/gybe.jpg");
+  background-size: 100%;
+  margin-bottom: 1%;
+  margin-top: 5%;
+  background-color: #111;
+  border: 3px solid #111;
+  box-shadow: 0px 10px 25px 25px inset #111, 0px -10px 25px 25px inset #111,
+    10px 0px 25px 25px inset #111, 10px 0px 25px 25px inset #111,
+    0px 10px 25px 25px #111, 0px -10px 25px 25px #111, 10px 0px 25px 25px #111,
+    10px 0px 25px 25px #111;
 }
 
 .img-card-content {
   opacity: 0%;
-  background-color:#111;
-  margin:1%;
+  background-color: #111;
+  margin: 1%;
   transition: opacity 1s ease;
-  box-shadow: 0px 10px 25px 25px inset  #111,
-  0px -10px 25px 25px inset #111,
-  10px 0px 25px 25px inset  #111,
-  10px 0px 25px 25px inset #111,
-  0px 10px 25px 25px   #111,
-  0px -10px 25px 25px  #111,
-  10px 0px 25px 25px   #111,
-  10px 0px 25px 25px  #111
+  box-shadow: 0px 10px 25px 25px inset #111, 0px -10px 25px 25px inset #111,
+    10px 0px 25px 25px inset #111, 10px 0px 25px 25px inset #111,
+    0px 10px 25px 25px #111, 0px -10px 25px 25px #111, 10px 0px 25px 25px #111,
+    10px 0px 25px 25px #111;
 }
 
 .img-card-content:hover {
@@ -172,432 +162,384 @@ h6 {
 }
 
 .login-btn {
-  color: #F76C6C;
-  font-weight:600
+  color: #f76c6c;
+  font-weight: 600;
 }
 
 .signup-btn {
   color: #4659a8;
-  font-weight:600
+  font-weight: 600;
 }
 
 .desc-header {
-  font-weight:800;
-  font-size:30px;
-  color: #F76C6C;
-  margin-bottom:10%;
+  font-weight: 800;
+  font-size: 30px;
+  color: #f76c6c;
+  margin-bottom: 10%;
 }
 
 .desc-body {
-  font-size:20px;
-  margin-top:0%;
-  margin-bottom:0%;
-  color:#ececec
-  
+  font-size: 20px;
+  margin-top: 0%;
+  margin-bottom: 0%;
+  color: #ececec;
 }
 
-.simple1{
+.simple1 {
   font-size: 20px;
   font-weight: 600;
   color: #4659a8;
   margin-bottom: 0;
-  margin-top:10%
+  margin-top: 10%;
 }
 
 .simple2 {
-  font-size:30px;
-  font-weight:800;
-  color: #F76C6C
+  font-size: 30px;
+  font-weight: 800;
+  color: #f76c6c;
 }
 
 .quote-row {
-  margin-top:0%;
+  margin-top: 0%;
 }
 
 /* Register Page */
 
 .outer-col {
   border-radius: 10px;
-  background-image:url("./assets/content-imgs/badu.jpg");
+  background-image: url("./assets/content-imgs/badu.jpg");
   min-height: 600px;
-  box-shadow: 0px 10px 25px 25px inset  #111,
-  0px -10px 25px 25px inset #111,
-  10px 0px 25px 25px inset  #111,
-  10px 0px 25px 25px inset #111,
-  0px 10px 25px 25px   #111,
-  0px -10px 25px 25px  #111,
-  10px 0px 25px 25px   #111,
-  10px 0px 25px 25px  #111
+  box-shadow: 0px 10px 25px 25px inset #111, 0px -10px 25px 25px inset #111,
+    10px 0px 25px 25px inset #111, 10px 0px 25px 25px inset #111,
+    0px 10px 25px 25px #111, 0px -10px 25px 25px #111, 10px 0px 25px 25px #111,
+    10px 0px 25px 25px #111;
 }
 
 .inner-row {
-  height:80%;
+  height: 80%;
 }
 .inner-col {
-  height:100%;
-  margin-left:7%;
-  opacity:0.9;
+  height: 100%;
+  margin-left: 7%;
+  opacity: 0.9;
   transition: opacity 1s ease-in-out;
 }
 
-.inner-col:hover{
-  opacity:1;
+.inner-col:hover {
+  opacity: 1;
   transition: opacity 1s ease-in-out;
 }
 
 .signup-title-text {
-  color:#ececec;
-  font-weight:800;
-  font-size:80px;
+  color: #ececec;
+  font-weight: 800;
+  font-size: 80px;
   font-family: "Raleway";
-  width:100%;
-  margin-top:10%;
+  width: 100%;
+  margin-top: 10%;
   text-shadow: 1px 1px 2px #ececec;
-  box-shadow:
-    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
-    0 4.7px 5.3px rgba(0, 0, 0, 0.048),
-    0 12.5px 10px rgba(0, 0, 0, 0.06),
-    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
-    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
-    0 100px 80px rgba(0, 0, 0, 0.12)
-
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 4.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
 }
 
 .register-card {
   height: 80%;
-  margin-top:10%;
-  margin-bottom:10%;
-  background-color:#ececec;
-  border-radius:10px;
-  opacity:0.9;
+  margin-top: 10%;
+  margin-bottom: 10%;
+  background-color: #ececec;
+  border-radius: 10px;
+  opacity: 0.9;
   transition: opacity 1s ease;
-  box-shadow:
-    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
-    0 4.7px 5.3px rgba(0, 0, 0, 0.048),
-    0 12.5px 10px rgba(0, 0, 0, 0.06),
-    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
-    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
-    0 100px 80px rgba(0, 0, 0, 0.12)
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 4.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
 }
 
-.register-card:hover{
+.register-card:hover {
   opacity: 1;
   transition: opacity 1s ease;
-
 }
 
 .signup-input {
   background-color: #ececec;
   width: 90%;
   margin: 5%;
-  border-bottom: 1px solid #24305E!important;
-  border:none;
+  border-bottom: 1px solid #24305e !important;
+  border: none;
   font-size: 25px;
   font-weight: 800;
-  margin-top:2%;
-  margin-bottom:2%;
+  margin-top: 2%;
+  margin-bottom: 2%;
 }
 
-.signup-input:active{
-  border:none!important
+.signup-input:active {
+  border: none !important;
 }
 
 /* Profile Page */
 
 .profile-row-top {
-  margin-right:-6%;
-  margin-left:-6%;
-  margin-top:1%;
-  margin-bottom:1%;
-  background-image:url("./assets/content-imgs/blackflag.jpg");
+  margin-right: -6%;
+  margin-left: -6%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  background-image: url("./assets/content-imgs/blackflag.jpg");
   background-size: cover;
-  box-shadow: 0px 10px 25px 25px inset  #111,
-              0px -10px 25px 25px inset #111,
-              10px 0px 25px 25px inset  #111,
-              10px 0px 25px 25px inset #111,
-              0px 10px 25px 25px   #111,
-              0px -10px 25px 25px  #111,
-              10px 0px 25px 25px   #111,
-              10px 0px 25px 25px  #111
+  box-shadow: 0px 10px 25px 25px inset #111, 0px -10px 25px 25px inset #111,
+    10px 0px 25px 25px inset #111, 10px 0px 25px 25px inset #111,
+    0px 10px 25px 25px #111, 0px -10px 25px 25px #111, 10px 0px 25px 25px #111,
+    10px 0px 25px 25px #111;
 }
 
 .profile-col {
-  height:inherit
+  height: inherit;
 }
 
-.profile-card-top{
-  background-color:#ececec;
-  opacity:.9;
-  min-height:545px;
+.profile-card-top {
+  background-color: #ececec;
+  opacity: 0.9;
+  min-height: 545px;
   transition: opacity 0.5s ease-in-out;
-  box-shadow:
-    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
-    0 4.7px 5.3px rgba(0, 0, 0, 0.048),
-    0 12.5px 10px rgba(0, 0, 0, 0.06),
-    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
-    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
-    0 100px 80px rgba(0, 0, 0, 0.12)
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 4.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
 }
 
 .profile-card-top:hover,
-.profile-card-bottom:hover{
-  opacity:1;
+.profile-card-bottom:hover {
+  opacity: 1;
   transition: opacity 0.5s ease-in-out;
 }
 
-.profile-username-text{
+.profile-username-text {
   font-family: "Raleway";
   font-weight: 800;
   font-size: 30px;
-  padding-left:5%;
-};
+  padding-left: 5%;
+}
 
-.profile-img{
-  padding-left:4%;
+.profile-img {
+  padding-left: 4%;
   border: 1px solid transparent;
-  border-radius:10px
+  border-radius: 10px;
 }
 
-.profile-realname-text{
-  padding-left:4%;
-  padding-top:5%;
-  font-size:20px;
-  font-weight:600
+.profile-realname-text {
+  padding-left: 4%;
+  padding-top: 5%;
+  font-size: 20px;
+  font-weight: 600;
 }
 
-.profile-membersince-text{
-  padding-left:4%;
+.profile-membersince-text {
+  padding-left: 4%;
 }
 
-.follow-btn{
-  color:#F76C6C;
-  padding-left:4%;
-  padding-top:0%;
-  font-size:16px;
+.follow-btn {
+  color: #f76c6c;
+  padding-left: 4%;
+  padding-top: 0%;
+  font-size: 16px;
   font-family: "Raleway";
-  font-weight:600
+  font-weight: 600;
 }
 
-.profile-quote-row{
-  padding-top:1%;
-  padding-bottom:1%;
+.profile-quote-row {
+  padding-top: 1%;
+  padding-bottom: 1%;
 }
 
-.profile-row-bottom{
-
-  margin-top:0%;
-  margin-left:-6%;
+.profile-row-bottom {
+  margin-top: 0%;
+  margin-left: -6%;
   margin-right: -6%;
-  background-image:url("./assets/content-imgs/alanis.jpg");
+  background-image: url("./assets/content-imgs/alanis.jpg");
   background-size: cover;
   min-height: 543px;
-  box-shadow: 0px 10px 25px 25px inset  #111,
-  0px -10px 25px 25px inset #111,
-  10px 0px 25px 25px inset  #111,
-  10px 0px 25px 25px inset #111,
-  0px 10px 25px 25px   #111,
-  0px -10px 25px 25px  #111,
-  10px 0px 25px 25px   #111,
-  10px 0px 25px 25px  #111
+  box-shadow: 0px 10px 25px 25px inset #111, 0px -10px 25px 25px inset #111,
+    10px 0px 25px 25px inset #111, 10px 0px 25px 25px inset #111,
+    0px 10px 25px 25px #111, 0px -10px 25px 25px #111, 10px 0px 25px 25px #111,
+    10px 0px 25px 25px #111;
 }
 
-.profile-card-bottom{
+.profile-card-bottom {
   height: 440px;
-  background-color:#ececec;
-  opacity:.9;
+  background-color: #ececec;
+  opacity: 0.9;
   transition: opacity 0.5s ease-in-out;
   overflow: scroll;
-  box-shadow:
-    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
-    0 4.7px 5.3px rgba(0, 0, 0, 0.048),
-    0 12.5px 10px rgba(0, 0, 0, 0.06),
-    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
-    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
-    0 100px 80px rgba(0, 0, 0, 0.12)
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 4.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
 }
 
-.list-row{
-  border-top:2px solid #F76C6C;
+.list-row {
+  border-top: 2px solid #f76c6c;
   overflow: scroll;
 }
 
 .profile-detail-display-row {
-  margin-top:5%;
-  background-image: url("./assets/content-imgs/kennedys.jpg")!important
+  margin-top: 5%;
+  background-image: url("./assets/content-imgs/kennedys.jpg") !important;
 }
 
 .cloud-header-text {
-  font-size:30px;
+  font-size: 30px;
   font-weight: 600;
   text-transform: lowercase;
   text-align: center;
-  width:100%
+  width: 100%;
 }
 
 .profile-pic-card {
   width: 300px;
   height: 300px;
-  margin-left:4%;
-  border-radius:10px;
-  box-shadow:
-    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
-    0 4.7px 5.3px rgba(0, 0, 0, 0.048),
-    0 12.5px 10px rgba(0, 0, 0, 0.06),
-    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
-    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
-    0 100px 80px rgba(0, 0, 0, 0.12)
+  margin-left: 4%;
+  border-radius: 10px;
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 4.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
 }
 
 .profile-pic-card-body {
   width: 100%;
   height: 100%;
-  background-color:#2a2a2a;
+  background-color: #2a2a2a;
   color: #ececec;
-  opacity:0;
+  opacity: 0;
   transition: opacity 0.5s ease-in-out;
 }
 
-.profile-pic-card-body:hover{
-  opacity:0.9;
+.profile-pic-card-body:hover {
+  opacity: 0.9;
   transition: opacity 0.5s ease-in-out;
 }
 
 .profile-pic-card-body-text {
-  width:100%;
+  width: 100%;
   text-align: center;
   font-size: 20px;
   text-transform: lowercase;
   font-weight: 600;
-  margin-top:40%;
-
+  margin-top: 40%;
 }
 
 /* Search Page */
 
 .search-row-top {
-
-  margin-left:-6%;
-  margin-right:-6%;
-  margin-top:1%;
-  margin-bottom:1%;
-  background-image:url("./assets/content-imgs/pearljam.jpg");
+  margin-left: -6%;
+  margin-right: -6%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  background-image: url("./assets/content-imgs/pearljam.jpg");
   background-size: cover;
-  box-shadow: 0px 10px 15px 15px inset  #111,
-  0px -10px 15px 15px inset #111,
-  10px 0px 15px 15px inset  #111,
-  10px 0px 15px 15px inset #111,
-  0px 10px 15px 15px   #111,
-  0px -10px 15px 15px  #111,
-  10px 0px 15px 15px   #111,
-  10px 0px 15px 15px  #111;
+  box-shadow: 0px 10px 15px 15px inset #111, 0px -10px 15px 15px inset #111,
+    10px 0px 15px 15px inset #111, 10px 0px 15px 15px inset #111,
+    0px 10px 15px 15px #111, 0px -10px 15px 15px #111, 10px 0px 15px 15px #111,
+    10px 0px 15px 15px #111;
 }
 
 .input-row-search {
-  width:100%;
-  font-size:30px;
-  font-family:"Raleway";
-  font-weight:500;
+  width: 100%;
+  font-size: 30px;
+  font-family: "Raleway";
+  font-weight: 500;
   border: none;
   border-bottom: 1px solid black;
-  background-color:#ececec
+  background-color: #ececec;
 }
 
-.input-row-search:focus{
-  outline: none!important;
-  background-color:#ececec!important
+.input-row-search:focus {
+  outline: none !important;
+  background-color: #ececec !important;
 }
 
-.input-row-search:enabled{
-  background-color:#ececec!important;
+.input-row-search:enabled {
+  background-color: #ececec !important;
 }
 
 .search-submit-btn {
-  width:100%;
+  width: 100%;
   text-align: left;
-  font-size:30px;
-  font-weight:800;
-  padding-left:0;
+  font-size: 30px;
+  font-weight: 800;
+  padding-left: 0;
 }
 
-.search-submit-btn:hover{
-  color:#F76C6C;
+.search-submit-btn:hover {
+  color: #f76c6c;
   text-decoration: none;
-  font-weight:900;
+  font-weight: 900;
 }
 
-.search-card-top{
-  background-color:#ececec;
-  opacity:.9;
-  min-height:338px;
+.search-card-top {
+  background-color: #ececec;
+  opacity: 0.9;
+  min-height: 338px;
   transition: opacity 0.5s ease-in-out;
-  box-shadow:
-    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
-    0 4.7px 5.3px rgba(0, 0, 0, 0.048),
-    0 12.5px 10px rgba(0, 0, 0, 0.06),
-    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
-    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
-    0 100px 80px rgba(0, 0, 0, 0.12)
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 4.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
 }
 
 .search-card-top:hover,
 .search-results-card:hover,
-.search-detail-card:hover{
-  opacity:1;
+.search-detail-card:hover {
+  opacity: 1;
   transition: opacity 0.5s ease-in-out;
 }
 
-.about-header-text{
+.about-header-text {
   font-weight: 700;
-  font-size:24px;
-  color:#4659a8;
+  font-size: 24px;
+  color: #4659a8;
 }
 
-.about-text{
-  font-size:13px;
-  margin-bottom:4%;
-  text-transform: lowercase
+.about-text {
+  font-size: 13px;
+  margin-bottom: 4%;
+  text-transform: lowercase;
 }
 
 .search-row-middle {
-  margin-bottom:3%;
+  margin-bottom: 3%;
   margin-right: -6%;
-  margin-left:-6%;
-  background-image:url("./assets/content-imgs/mitski.jpg");
+  margin-left: -6%;
+  background-image: url("./assets/content-imgs/mitski.jpg");
   background-size: cover;
-  box-shadow: 0px 10px 15px 15px inset  #111,
-  0px -10px 15px 15px inset #111,
-  10px 0px 15px 15px inset  #111,
-  10px 0px 15px 15px inset #111,
-  0px 10px 15px 15px   #111,
-  0px -10px 15px 15px  #111,
-  10px 0px 15px 15px   #111,
-  10px 0px 15px 15px  #111
+  box-shadow: 0px 10px 15px 15px inset #111, 0px -10px 15px 15px inset #111,
+    10px 0px 15px 15px inset #111, 10px 0px 15px 15px inset #111,
+    0px 10px 15px 15px #111, 0px -10px 15px 15px #111, 10px 0px 15px 15px #111,
+    10px 0px 15px 15px #111;
 }
 
 .search-row-bottom {
-  margin-bottom:3%;
-  margin-left:-6%;
-  margin-right:-6%;
-  background-image:url("./assets/content-imgs/wutang.jpg");
+  margin-bottom: 3%;
+  margin-left: -6%;
+  margin-right: -6%;
+  background-image: url("./assets/content-imgs/wutang.jpg");
   background-size: cover;
-  box-shadow: 0px 10px 15px 15px inset  #111,
-  0px -10px 15px 15px inset #111,
-  10px 0px 15px 15px inset  #111,
-  10px 0px 15px 15px inset #111,
-  0px 10px 15px 15px   #111,
-  0px -10px 15px 15px  #111,
-  10px 0px 15px 15px   #111,
-  10px 0px 15px 15px  #111
+  box-shadow: 0px 10px 15px 15px inset #111, 0px -10px 15px 15px inset #111,
+    10px 0px 15px 15px inset #111, 10px 0px 15px 15px inset #111,
+    0px 10px 15px 15px #111, 0px -10px 15px 15px #111, 10px 0px 15px 15px #111,
+    10px 0px 15px 15px #111;
 }
-.search-results-card{
-  height:390px;
+.search-results-card {
+  height: 390px;
 }
 
-.refresh-result-btn{
-  margin-left:22%;
-  margin-top:2.5%;
-  padding-bottom:1%;
-  font-size:20px;
+.refresh-result-btn {
+  margin-left: 22%;
+  margin-top: 2.5%;
+  padding-bottom: 1%;
+  font-size: 20px;
   border: 2px solid #2a2a2a;
   color: #2a2a2a;
   border-radius: 10px;
@@ -606,227 +548,216 @@ h6 {
   transition: border 0.15s ease-in-out;
 }
 
-.refresh-result-btn:hover{
+.refresh-result-btn:hover {
   border: 2px solid #ececec;
   color: #ececec;
-  background-color: #F76C6C;
+  background-color: #f76c6c;
   transition: background-color 0.15s ease-in-out;
   transition: color 0.15s ease-in-out;
   transition: border 0.15s ease-in-out;
-
 }
 
 .search-results-card,
-.search-detail-card{
-  background-color:#ececec;
-  opacity:.9;
+.search-detail-card {
+  background-color: #ececec;
+  opacity: 0.9;
   transition: opacity 0.5s ease-in-out;
-  box-shadow:
-    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
-    0 4.7px 5.3px rgba(0, 0, 0, 0.048),
-    0 12.5px 10px rgba(0, 0, 0, 0.06),
-    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
-    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
-    0 100px 80px rgba(0, 0, 0, 0.12)
-
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 4.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
 }
 
 #invisible-list,
 #invisible-detail,
 #invisible-card,
-#invisible-error{
-  display:none;
-  transition: display 2s ease-in-out
+#invisible-error {
+  display: none;
+  transition: display 2s ease-in-out;
 }
 
 #visible-list,
 #visible-detail,
 #visible-card,
-#visible-error{
-  display:flex;
-  transition: display 2s ease-in-out
+#visible-error {
+  display: flex;
+  transition: display 2s ease-in-out;
 }
 
-.detail-card{
-  width:100%;
-  height:375px;
+.detail-card {
+  width: 100%;
+  height: 375px;
   background-color: #2a2a2a;
   overflow-y: scroll;
 }
 
 .error-msg {
-  background-color: #F76C6C;
+  background-color: #f76c6c;
   color: #2a2a2a;
   font-size: 17px;
   font-weight: 700;
-  height:100%;
+  height: 100%;
   border: 1px solid black;
-  border-radius:10px;
-  padding-top:3%;
-  padding-left:4%;
-  width:100%;
+  border-radius: 10px;
+  padding-top: 3%;
+  padding-left: 4%;
+  width: 100%;
 }
 
-.btn-confirm-list{
+.btn-confirm-list {
   background-color: #4659a8;
   color: #ececec;
-  margin-left:9%;
+  margin-left: 9%;
   margin-top: 9%;
-  font-size:24px;
+  font-size: 24px;
 }
 
 .close-list {
-  color:#F76C6C;
-  font-size:24px;
-  border-radius:10px;
+  color: #f76c6c;
+  font-size: 24px;
+  border-radius: 10px;
   padding: 2px;
   transition: font-weight 0.15s ease-in-out;
-
 }
 
-.close-list:hover{
-  font-weight:900;
+.close-list:hover {
+  font-weight: 900;
   transition: font-weight 0.15s ease-in-out;
 }
-
-
 
 /* ========    COMPONENTS    ======== */
 
 /* Nav */
 
 .navbar {
-  background-color: #111!important;
-  margin-right:-6%;
-  margin-left:-6%;
-  border-bottom:3px solid #F8E9A1;
+  background-color: #111 !important;
+  margin-right: -6%;
+  margin-left: -6%;
+  border-bottom: 3px solid #f8e9a1;
 }
 
-.eight-nav{
-  font-size:70px
+.eight-nav {
+  font-size: 70px;
 }
 
-.nav-img{
-  height:10%;
-  width:10%;
-  margin-bottom:4%;
-  margin-left:2%;
+.nav-img {
+  height: 10%;
+  width: 10%;
+  margin-bottom: 4%;
+  margin-left: 2%;
 }
 
 .navbar-brand {
   font-family: "Raleway";
   text-transform: lowercase;
   font-size: 40px;
-  font-weight:800;
+  font-weight: 800;
   padding: 0% 0% 0% 8.5%;
-  color: #ececec!important;
-  text-shadow: 1px 1px 1px #ececec
+  color: #ececec !important;
+  text-shadow: 1px 1px 1px #ececec;
 }
 
-.navbar-nav{
-  padding-right:12%
+.navbar-nav {
+  padding-right: 12%;
 }
 
-.nav-item{
-  margin-right:10%;
+.nav-item {
+  margin-right: 10%;
 }
 
 .logout {
-  font-family: "Raleway"!important;
-  text-transform: lowercase!important;
+  font-family: "Raleway" !important;
+  text-transform: lowercase !important;
 }
 
-.logout:hover{
-  font-weight:900!important;
-  text-decoration:none
+.logout:hover {
+  font-weight: 900 !important;
+  text-decoration: none;
 }
 
 .link-logout,
 .link-logout:hover {
-  color:#A8D0E6;
+  color: #a8d0e6;
 }
 
 .link-discover,
 .link-discover:hover {
-  color:#F76C6C
+  color: #f76c6c;
 }
 
 .link-profile,
 .link-profile:hover {
-  color:#F8E9A1
+  color: #f8e9a1;
 }
 
-#a{
-  color: #F76C6C;
-  font-weight:900
+#a {
+  color: #f76c6c;
+  font-weight: 900;
 }
 
-#c{
-  color:#4659a8;
-  font-weight:900
+#c {
+  color: #4659a8;
+  font-weight: 900;
 }
 
-#p{
-  color:#F8E9A1;
-  font-weight:900
+#p {
+  color: #f8e9a1;
+  font-weight: 900;
 }
 
-#t{
-  color:#A8D0E6;
-  font-weight:900
+#t {
+  color: #a8d0e6;
+  font-weight: 900;
 }
 
 /* RandomQuote */
 
-.quote-div{
-  color:#111;
+.quote-div {
+  color: #111;
   transition: color 1s ease-in-out;
 }
 
-.quote-div:hover{
-  color:#ececec;
-  transition: color 1s ease-in-out
+.quote-div:hover {
+  color: #ececec;
+  transition: color 1s ease-in-out;
 }
 
 .quote-body {
   font-family: "IM Fell Great Primer";
-  font-size:18px;
-  margin-bottom:1%;
+  font-size: 18px;
+  margin-bottom: 1%;
   font-style: italic;
-  color:inherit;
+  color: inherit;
 }
 
 .quote-attr {
   font-family: "IM Fell Great Primer";
-  font-size:12px;
-  margin-top:1%;
-  color:inherit;
+  font-size: 12px;
+  margin-top: 1%;
+  color: inherit;
 }
 
 /* ConnectionList */
 
-.connection-container{
-  height:497px;
+.connection-container {
+  height: 497px;
   border: 2px solid #2a2a2a;
-  border-radius:10px;
-  overflow-y:scroll;
-  background-color:#2a2a2a;
-  box-shadow:
-    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
-    0 4.7px 5.3px rgba(0, 0, 0, 0.048),
-    0 12.5px 10px rgba(0, 0, 0, 0.06),
-    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
-    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
-    0 100px 80px rgba(0, 0, 0, 0.12)
+  border-radius: 10px;
+  overflow-y: scroll;
+  background-color: #2a2a2a;
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 4.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
 }
 
 .follower-list,
-.following-list{
+.following-list {
   overflow: scroll;
 }
 
-.connection-col-header-left{
-  border-right:2px solid #2a2a2a
+.connection-col-header-left {
+  border-right: 2px solid #2a2a2a;
 }
 
 .connection-col-header,
@@ -834,91 +765,88 @@ h6 {
   border-bottom: 2px solid #2a2a2a;
 }
 
-.connection-li-row{
-  width:119%;
-  margin:0;
-  padding-top:5%;
+.connection-li-row {
+  width: 119%;
+  margin: 0;
+  padding-top: 5%;
 }
 
-.connection-link{
-  padding-top:1%;
-  padding-left:10%;
-  font-weight:600;
-  color:#ececec;
+.connection-link {
+  padding-top: 1%;
+  padding-left: 10%;
+  font-weight: 600;
+  color: #ececec;
 }
 
-.connection-link:hover{
-  font-weight:800;
-  text-decoration:none!important;
-  font-style: none!important;
+.connection-link:hover {
+  font-weight: 800;
+  text-decoration: none !important;
+  font-style: none !important;
   transition: font-weight 0.15s ease-in-out;
 }
 
-.btn-link:hover{
-  text-decoration:none!important;
+.btn-link:hover {
+  text-decoration: none !important;
 }
 
 .follower-btn {
-  color:#ececec;
-  font-weight:800;
-  font-size:20px
+  color: #ececec;
+  font-weight: 800;
+  font-size: 20px;
 }
 
-.col-md-1{
-  padding:0
+.col-md-1 {
+  padding: 0;
 }
 
-.fa-trash-o{
-font-size:20px;
-margin-top:55%;
-color:#ececec
+.fa-trash-o {
+  font-size: 20px;
+  margin-top: 55%;
+  color: #ececec;
 }
 
-.fa-trash-o:hover{
-  color:#F76C6C;
+.fa-trash-o:hover {
+  color: #f76c6c;
   transition: color 0.15s ease-in-out;
   cursor: pointer;
 }
 
 #show-followers {
-  display:"block";
-  transition:display 0.15ms ease-in-out;
+  display: "block";
+  transition: display 0.15ms ease-in-out;
 }
 
 #show-following {
-  display:"block";
+  display: "block";
 }
 
 #hide-followers {
-  display:none
+  display: none;
 }
 
 #hide-following {
-  display:none
+  display: none;
 }
 
 #invisible-border {
-  border-bottom:none
+  border-bottom: none;
 }
 
 #visible-border {
-  background-color:#ececec;
-  color:#2a2a2a;
-  box-shadow:
-    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
-    0 4.7px 5.3px rgba(0, 0, 0, 0.048),
-    0 12.5px 10px rgba(0, 0, 0, 0.06),
-    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
-    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
-    0 100px 80px rgba(0, 0, 0, 0.12)
+  background-color: #ececec;
+  color: #2a2a2a;
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 4.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
 }
 
 #light {
-  color:#ececec
+  color: #ececec;
 }
 
-#dark{
-  color:#2a2a2a
+#dark {
+  color: #2a2a2a;
 }
 
 /* AlbumList */
@@ -927,191 +855,187 @@ color:#ececec
   min-height: 335px;
 }
 
-.search-detail-album-text{
-  font-family:"Raleway";
+.search-detail-album-text {
+  font-family: "Raleway";
   font-size: 40px;
-  font-weight:800;
-  color:black;
+  font-weight: 800;
+  color: black;
   text-transform: lowercase;
-  padding-left:1%;
-  width:100%;
+  padding-left: 1%;
+  width: 100%;
 }
 
-.search-detail-artist-text{
-  font-family:"Raleway";
-  font-size:30px;
-  font-weight:600;
-  color:rgb(90, 90, 90);
+.search-detail-artist-text {
+  font-family: "Raleway";
+  font-size: 30px;
+  font-weight: 600;
+  color: rgb(90, 90, 90);
   text-transform: lowercase;
-  padding-left:2.5%;
-  width:100%;
+  padding-left: 2.5%;
+  width: 100%;
 }
 
-.detail-title-row{
-  margin-top:0%
+.detail-title-row {
+  margin-top: 0%;
 }
 
 .search-detail-btn-queue,
 .search-detail-btn-rec,
-.search-detail-link-ext{
-  color:#F76C6C;
-  font-family:"Raleway";
+.search-detail-link-ext {
+  color: #f76c6c;
+  font-family: "Raleway";
   font-size: 20px;
-  font-weight:600;
+  font-weight: 600;
   transition: font-weight 0.15s ease-in-out;
-  transition:color 0.15s ease-in-out
-
+  transition: color 0.15s ease-in-out;
 }
 
 .search-detail-btn-queue:hover,
 .search-detail-btn-rec:hover,
-.search-detail-link-ext:hover{
-  font-weight:800;
-  text-decoration:none;
-  transition:font-weight 0.15s ease-in-out
+.search-detail-link-ext:hover {
+  font-weight: 800;
+  text-decoration: none;
+  transition: font-weight 0.15s ease-in-out;
 }
 
-.search-detail-btn-queue:hover{
-  color:#4659a8;
-  transition:color 0.15s ease-in-out
+.search-detail-btn-queue:hover {
+  color: #4659a8;
+  transition: color 0.15s ease-in-out;
 }
 
-.search-detail-btn-rec:hover{
-  color:#F8E9A1;
-  transition:color 0.15s ease-in-out
+.search-detail-btn-rec:hover {
+  color: #f8e9a1;
+  transition: color 0.15s ease-in-out;
 }
 
 .search-detail-link-ext:hover {
-  color: #A8D0E6;
-  transition:color 0.15s ease-in-out
+  color: #a8d0e6;
+  transition: color 0.15s ease-in-out;
 }
 
 .search-detail-tracklist-header {
-  font-size:25px;
-  font-weight:800;
-  font-family:"Raleway";
+  font-size: 25px;
+  font-weight: 800;
+  font-family: "Raleway";
 }
 
-#hide{
-  display:none;
-  transition:display 0.5s ease-in-out
+#hide {
+  display: none;
+  transition: display 0.5s ease-in-out;
 }
 
-#show{
+#show {
   display: block;
-  transition:display 0.5s ease-in-out
+  transition: display 0.5s ease-in-out;
 }
 
-.rec-queue-stats-row{
-  padding-top:100%;
+.rec-queue-stats-row {
+  padding-top: 100%;
   padding-left: 10%;
 }
 
-.rec-queue-stats-text{
-  margin-bottom:0;
-  font-family:"Raleway";
-  font-size: 14px
-
+.rec-queue-stats-text {
+  margin-bottom: 0;
+  font-family: "Raleway";
+  font-size: 14px;
 }
 
-.rec-queue-stats-btn{
-  padding-top:2px;
-  padding-left:0;
-  font-size:14px;
-  font-weight:600;
+.rec-queue-stats-btn {
+  padding-top: 2px;
+  padding-left: 0;
+  font-size: 14px;
+  font-weight: 600;
   transition: color 0.15s ease-in-out;
 }
 
-.rec-queue-stats-btn:hover{
-  font-weight:800;
+.rec-queue-stats-btn:hover {
+  font-weight: 800;
   text-decoration: none;
-  color:#4659a8;
+  color: #4659a8;
   transition: color 0.15s ease-in-out;
 }
 
-.profile-link{
-  color:blue
+.profile-link {
+  color: blue;
 }
 
-.album-list-body{
-  opacity:0;
+.album-list-body {
+  opacity: 0;
   background-color: #2a2a2a;
   transition: opacity 0.5s ease-in-out;
-
 }
 
-.album-list-body:hover{
-  opacity:0.9;
+.album-list-body:hover {
+  opacity: 0.9;
   transition: opacity 0.5s ease-in-out;
 }
 
 .album-list-text-album,
 .album-list-text-artist,
-.album-list-text-link{
-  color:#ececec;
+.album-list-text-link {
+  color: #ececec;
   width: 100%;
   text-align: center;
   font-family: "Raleway";
   text-transform: lowercase;
 }
 
-.album-list-text-album{
-  font-size:20px;
-  font-weight:800;
+.album-list-text-album {
+  font-size: 20px;
+  font-weight: 800;
 }
 
-.album-list-text-artist{
-  font-size:20px;
-  font-weight:400;
+.album-list-text-artist {
+  font-size: 20px;
+  font-weight: 400;
 }
 
-.album-list-text-link{
-  font-weight:600;
-  margin-top:15%;
-  font-size:20px;
-  transition: font-weight 0.15s ease-in-out
+.album-list-text-link {
+  font-weight: 600;
+  margin-top: 15%;
+  font-size: 20px;
+  transition: font-weight 0.15s ease-in-out;
 }
 
-.album-list-text-link:hover{
-  font-weight:800;
+.album-list-text-link:hover {
+  font-weight: 800;
   cursor: pointer;
-  transition: font-weight 0.15s ease-in-out
+  transition: font-weight 0.15s ease-in-out;
 }
 
-.album-list-card{
-  height:280px
+.album-list-card {
+  height: 280px;
 }
 
 /* TrackList */
 
-.track-list-text{
-  font-family:"Raleway";
-  margin-bottom:10%;
-  font-size:15px;
-  color:rgb(90, 90, 90);
-  font-style:italic;
+.track-list-text {
+  font-family: "Raleway";
+  margin-bottom: 10%;
+  font-size: 15px;
+  color: rgb(90, 90, 90);
+  font-style: italic;
   text-transform: lowercase;
-  transition:font-weight 0.15s ease-in-out
-
+  transition: font-weight 0.15s ease-in-out;
 }
 
-.track-list-text:hover{
-  text-decoration:none!important;
-  color:black;
-  font-weight:600;
-  transition:font-weight 0.15s ease-in-out
+.track-list-text:hover {
+  text-decoration: none !important;
+  color: black;
+  font-weight: 600;
+  transition: font-weight 0.15s ease-in-out;
 }
 
-.track-list-div{
-  margin-bottom:3%;
+.track-list-div {
+  margin-bottom: 3%;
 }
 
 /* User List */
 
-.user-list-card{
+.user-list-card {
   height: 145px;
   width: 145px;
-  margin-top:15%;
+  margin-top: 15%;
   background-size: cover;
 }
 
@@ -1119,35 +1043,35 @@ color:#ececec
   background-color: #2a2a2a;
   opacity: 0;
   padding-bottom: 10%;
-  height:100%!important
+  height: 100% !important;
 }
 
 .list-card-body:hover {
-  opacity: .9;
-  transition: opacity 0.5s ease-in-out
+  opacity: 0.9;
+  transition: opacity 0.5s ease-in-out;
 }
 
 .userlist-card-hover-text {
   color: white;
   width: 100%;
   text-align: center;
-  margin-bottom:2%;
+  margin-bottom: 2%;
   font-family: "Raleway";
   font-size: 12px;
-  text-transform: lowercase
+  text-transform: lowercase;
 }
 
-.userlist-album-album{
-  font-weight: 600
+.userlist-album-album {
+  font-weight: 600;
 }
 
-.userlist-album-button{
+.userlist-album-button {
   margin-top: 0%;
 }
 
-.userlist-album-button:hover{
+.userlist-album-button:hover {
   text-decoration: none;
-  color: #A8D0E6
+  color: #a8d0e6;
 }
 
 /* WordCloud */
@@ -1157,240 +1081,222 @@ color:#ececec
   border-radius: 10px;
   max-height: 437px;
   width: 100%;
-  padding:3%;
+  padding: 3%;
   background-color: #2a2a2a;
-  font-weight:600;
+  font-weight: 600;
   text-transform: lowercase;
   overflow-y: scroll;
-  box-shadow:
-    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
-    0 4.7px 5.3px rgba(0, 0, 0, 0.048),
-    0 12.5px 10px rgba(0, 0, 0, 0.06),
-    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
-    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 4.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
     0 100px 80px rgba(0, 0, 0, 0.12);
-
 }
 
 /* ================== MEDIA ================== */
 
 @media only screen and (max-width: 768px) {
-
   /* Login Page */
 
-  .h1-logo{
-    margin-bottom:3%;
+  .h1-logo {
+    margin-bottom: 3%;
   }
 
-  .pronunciation-text{
-    padding-left:22%;
+  .pronunciation-text {
+    padding-left: 22%;
   }
 
   .definition-text {
     padding-right: 0%;
-    padding-left: 25%; 
+    padding-left: 25%;
   }
 
   .desc-header,
   .simple1,
   .simple2 {
-    font-size:20px
+    font-size: 20px;
   }
 
   .desc-body {
-    font-size:18px
+    font-size: 18px;
   }
 
   .img-card-login {
-    box-shadow: 0px 5px 95px 5px inset  #111,
-    0px -5px 95px 5px inset #111,
-    5px 0px 95px 5px inset  #111,
-    5px 0px 95px 5px inset #111,
-    0px 2px 5px    #111,
-    0px -2px 5px  #111,
-    2px 0px 5px    #111,
-    2px 0px 5px   #111;
-    background-image: url("./assets/content-imgs/gybe-media-768.jpeg")  
+    box-shadow: 0px 5px 95px 5px inset #111, 0px -5px 95px 5px inset #111,
+      5px 0px 95px 5px inset #111, 5px 0px 95px 5px inset #111, 0px 2px 5px #111,
+      0px -2px 5px #111, 2px 0px 5px #111, 2px 0px 5px #111;
+    background-image: url("./assets/content-imgs/gybe-media-768.jpeg");
   }
 
   .login-input {
-    margin-left:2%
+    margin-left: 2%;
   }
 
   /* Register Page */
 
   .outer-col {
-    background-image:url("./assets/content-imgs/badu-media-768.jpg");
-    box-shadow: 0px 5px 95px 5px inset  #111,
-    0px -5px 95px 5px inset #111,
-    5px 0px 95px 5px inset  #111,
-    5px 0px 95px 5px inset #111,
-    0px 2px 5px    #111,
-    0px -2px 5px  #111,
-    2px 0px 5px    #111,
-    2px 0px 5px   #111;
+    background-image: url("./assets/content-imgs/badu-media-768.jpg");
+    box-shadow: 0px 5px 95px 5px inset #111, 0px -5px 95px 5px inset #111,
+      5px 0px 95px 5px inset #111, 5px 0px 95px 5px inset #111, 0px 2px 5px #111,
+      0px -2px 5px #111, 2px 0px 5px #111, 2px 0px 5px #111;
   }
 
   /* Profile Page/ProfileCard Component */
 
   .profile-col {
-    padding-left:4%!important;
-    padding-right:4%!important;
+    padding-left: 4% !important;
+    padding-right: 4% !important;
   }
   .profile-username-text {
-    width:100%;
-    text-align: center
+    width: 100%;
+    text-align: center;
   }
 
   .profile-pic-card {
-    margin-left:18%;
-    width:400px;
-    height: 400px
+    margin-left: 18%;
+    width: 400px;
+    height: 400px;
   }
 
   .profile-realname-text,
   .profile-membersince-text,
   .follow-btn {
-    width:100%;
+    width: 100%;
     text-align: center;
-    font-size:28px
+    font-size: 28px;
   }
 
   /* Profile Page/ConnectionList Component */
 
-  .follower-btn{
-    font-size:24px
+  .follower-btn {
+    font-size: 24px;
   }
 
-  .connection-li-row{
+  .connection-li-row {
     width: 530px;
   }
   .connection-img-col {
-    width:150px
+    width: 150px;
   }
 
-  .connection-text-col{
+  .connection-text-col {
     width: 350px;
   }
-  .connection-img{
-    height:100px;
-    width:100px
+  .connection-img {
+    height: 100px;
+    width: 100px;
   }
 
   .connection-link {
-    font-size:28px;
-    padding-left:0%;
-    margin-top:10%;
+    font-size: 28px;
+    padding-left: 0%;
+    margin-top: 10%;
   }
 
   /* Profile Page/UserList Components */
 
-  .profile-list-col{
-    padding-left:4%!important;
-    padding-right:4%!important
+  .profile-list-col {
+    padding-left: 4% !important;
+    padding-right: 4% !important;
   }
 
   h3 {
-    font-size:32px;
-    width:100%;
-    text-align:center;
-
+    font-size: 32px;
+    width: 100%;
+    text-align: center;
   }
 
-  .user-list-col{
-    width:33%
+  .user-list-col {
+    width: 33%;
   }
 
-  .user-list-card{
-    width:100%;
-    height:181px
+  .user-list-card {
+    width: 100%;
+    height: 181px;
   }
 
   /* Profile Page/ProfileAlbumView Component */
 
-  .rec-queue-stats-row{
-    padding-top:5%;
+  .rec-queue-stats-row {
+    padding-top: 5%;
   }
 
   .search-detail-album-text,
-  .search-detail-artist-text{
-    width:100%;
-    text-align:center
+  .search-detail-artist-text {
+    width: 100%;
+    text-align: center;
   }
 
-  .list-detail-img{
-    width:507px;
-    height:507px;
-    margin-left:6%
+  .list-detail-img {
+    width: 507px;
+    height: 507px;
+    margin-left: 6%;
   }
 
   .search-detail-link-ext,
   .search-detail-btn-queue,
-  .search-detail-btn-rec{
-    width:100%;
-    text-align:center;
-    font-size:24px;
+  .search-detail-btn-rec {
+    width: 100%;
+    text-align: center;
+    font-size: 24px;
   }
 
-  .rec-queue-stats-row{
-    width:100%;
-    padding-left:24%;
+  .rec-queue-stats-row {
+    width: 100%;
+    padding-left: 24%;
   }
 
-  .rec-queue-stats-text{
-    font-size:20px
+  .rec-queue-stats-text {
+    font-size: 20px;
   }
 
-  .search-detail-tracklist-header{
-    margin-top:3%;
-    font-size:28px;
-    width:100%;
+  .search-detail-tracklist-header {
+    margin-top: 3%;
+    font-size: 28px;
+    width: 100%;
     text-align: center;
   }
 
-  .track-list-div{
-    text-align:center;
-    margin-bottom:0%
+  .track-list-div {
+    text-align: center;
+    margin-bottom: 0%;
   }
 
-  .track-list-text{
-    width:100%;
+  .track-list-text {
+    width: 100%;
     text-align: center;
-    font-size:18px
+    font-size: 18px;
   }
 
   /* Search Page/AlbumList Component */
 
-  .album-list-col{
-    width:33.3%
+  .album-list-col {
+    width: 33.3%;
   }
 
-  .search-results-card{
-    height:222px;
+  .search-results-card {
+    height: 222px;
   }
   .album-list-card,
-  .album-list-body{
-    height:181px;
+  .album-list-body {
+    height: 181px;
     width: 181px;
-    background-size:181px!important;
+    background-size: 181px !important;
   }
 
   .album-list-text-album,
   .album-list-text-artist,
-  .album-list-text-link{
-    font-size:18px
+  .album-list-text-link {
+    font-size: 18px;
   }
 
-  .album-list-text-link{
-    margin-top:5%;
+  .album-list-text-link {
+    margin-top: 5%;
   }
 
   /* Nav Component */
 
-  .nav-img{
-    height:40px;
-    width:40px
+  .nav-img {
+    height: 40px;
+    width: 40px;
   }
 }
-
-

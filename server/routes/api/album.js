@@ -1,9 +1,9 @@
-const router = require('express').Router();
-const fetch = require("node-fetch")
+const router = require("express").Router();
+const fetch = require("node-fetch");
 
 // Getting the actual album info from the top album for each artist
 
-router.get('/:artist/:album', async (req, res) => {
+router.get("/:artist/:album", async (req, res) => {
   const artist = req.params.artist;
   const album = req.params.album;
 
@@ -13,6 +13,7 @@ router.get('/:artist/:album', async (req, res) => {
 
   const retrieve = await fetch(url);
   const data = await retrieve.json();
-  res.json(data)});
+  res.json(data);
+});
 
 module.exports = router;

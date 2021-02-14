@@ -1,43 +1,41 @@
 {
+  "firstName": "",
 
-    "firstName": "",
+  "lastName": "",
 
-    "lastName": "",
+  "username": "",
 
-    "username": "",
+  "password": "",
 
-    "password": "",
+  "image": "",
 
-    "image": "",
+  "joinDate": "",
 
-    "joinDate": "",
-
-    "queue": [
+  "queue": [
     {
-        "album": "",
-        "artist": "",
-        "image": "",
-        "url": "",
-        "tags": "",
-        "tracks": "",
-        "mbid": ""
+      "album": "",
+      "artist": "",
+      "image": "",
+      "url": "",
+      "tags": "",
+      "tracks": "",
+      "mbid": ""
     }
-    ],
+  ],
 
-    "recommended": [
+  "recommended": [
     {
-        "album": "",
-        "artist": "",
-        "image": "",
-        "url": "",
-        "tags": "",
-        "tracks": "",
-        "mbid": ""
+      "album": "",
+      "artist": "",
+      "image": "",
+      "url": "",
+      "tags": "",
+      "tracks": "",
+      "mbid": ""
     }
-    ],
+  ],
 
-    "followers": [],
+  "followers": [],
 
-    "following": []
-
+  "following": []
 }
