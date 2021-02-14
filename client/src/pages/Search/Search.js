@@ -23,8 +23,9 @@ const Search = (props) => {
     })
     const [loggedIn, setLoggedIn] = useState() 
 
-// determine which three albums will display as search results
+// determine which three albums will display as search results, randomized from the top 15 results
     const [displayAlbums, setDisplayAlbums] = useState([])
+    const [allAlbums, setAllAlbums] = useState([])
 
 // determine which of the three search results will have full details displayed
     const [detailAlbum, setDetailAlbum] = useState(
@@ -80,9 +81,10 @@ const Search = (props) => {
    const match1 = [];
    const match2 = [];
    const match3 = []
+   const match2and3 = []
    const matchWithStrength = []
    const matchStrengthAvg = []
-   const albumsToShow = []
+   const albumArrTop = []
    const albumDisplayInfo = []
 
 // STEP 1:  Modifies artist state based off of user input
@@ -125,16 +127,23 @@ const Search = (props) => {
                 match1.push(band.name)
             }
         })
-        if (match3.length < 3) {
-            setVisibleError("visible-error")
-        } else {
-            
-// Loading all artists who matched as similar for all three entries into their own object
-            addBandObj(match3);
-
-// Making rows beyond the artist entry visible upon form submission
+        if (match3.length > 15) {
+            addBandObj(match3)
             setVisibleList("visible-list");
-            setVisibleCard("visible-card")
+            setVisibleCard("visible-card")            
+        } else {
+            match3.map(result => {
+                match2and3.push(result)
+            })
+            match2.map(result => {
+                match2and3.push(result)
+            })  
+            
+            if (match2and3.length > 15) {
+                addBandObj(match2and3)
+            } else {
+                setVisibleError("visible-error")
+            }
         }
     }   
 
@@ -145,10 +154,27 @@ const Search = (props) => {
             let nameIndex1 = await similarArr[0].findIndex(index => index.name === arrMatch[i])
             let nameIndex2 = await similarArr[1].findIndex(index => index.name === arrMatch[i])
             let nameIndex3 = await similarArr[2].findIndex(index => index.name === arrMatch[i])
-            matchWithStrength.push({
-                name: arrMatch[i],
-                ratings: [parseFloat(similarArr[0][nameIndex1].match), parseFloat(similarArr[1][nameIndex2].match), parseFloat(similarArr[2][nameIndex3].match)]
-            })
+            if (nameIndex1 === -1) {
+                matchWithStrength.push({
+                    name: arrMatch[i],
+                ratings: [parseFloat(similarArr[1][nameIndex2].match), parseFloat(similarArr[2][nameIndex3].match)]
+                })
+            } else if (nameIndex2 === -1) {
+                matchWithStrength.push({
+                    name: arrMatch[i],
+                    ratings: [parseFloat(similarArr[0][nameIndex1].match), parseFloat(similarArr[2][nameIndex3].match)]
+                })
+            } else if (nameIndex3 === -1) {
+                matchWithStrength.push({
+                    name: arrMatch[i],
+                    ratings: [parseFloat(similarArr[0][nameIndex1].match), parseFloat(similarArr[1][nameIndex2].match)]
+                })
+            } else {
+                matchWithStrength.push({
+                    name: arrMatch[i],
+                    ratings: [parseFloat(similarArr[0][nameIndex1].match), parseFloat(similarArr[1][nameIndex2].match), parseFloat(similarArr[2][nameIndex3].match)]
+                })
+            }
         }
         for (let i = 0; i < matchWithStrength.length; i++) {
             if (arrMatch === match3) {
@@ -170,14 +196,17 @@ const Search = (props) => {
         }
 // Sorting the array to have the highest aggregate match score be index 0, etc etc
         matchStrengthAvg.sort(function(a, b){return b.total-a.total})
+        console.log("matchwithstrength totals: ", matchStrengthAvg)
+
         findTopAlbums()
     }
 
 // STEP 4:  3rd party API call getting the top album for each of the applicable artists
     async function findTopAlbums () {
-        for (let i = 0; i < 3; i++) {
+        for (let i = 0; i < 15; i++) {
             let res = await LASTFM.getTopAlbum(matchStrengthAvg[i].name)
-            albumsToShow.push({
+            console.log("res: ", res.data.topalbums.album[0].artist.name, " | ", res.data.topalbums.album[0].name)
+            albumArrTop.push({
                 artist: res.data.topalbums.album[0].artist.name,
                 album: res.data.topalbums.album[0].name
             }) 
@@ -186,12 +215,42 @@ const Search = (props) => {
     }
 
 // STEP 5: 3rd party API call getting the details (track list, etc for the top album from each artist entered.)
-    async function getAlbumInfo () {    
-        for (let i = 0; i < albumsToShow.length; i++) {
-            let res = await LASTFM.getAlbumInfo(albumsToShow[i].artist, albumsToShow[i].album)
-            albumDisplayInfo.push(res.data.album)
+    async function getAlbumInfo () {  
+        for (let i = 0; i < albumArrTop.length; i++) {
+            if (albumArrTop[i].artist.indexOf("/") === -1 && albumArrTop[i].album.indexOf("/") === -1){
+                let res = await LASTFM.getAlbumInfo(albumArrTop[i].artist, albumArrTop[i].album)
+                console.log("res display album: ", res.data.album)
+                albumDisplayInfo.push(res.data.album)
+                console.log("displayinfo: ", albumDisplayInfo)
+            }
         }
-        await setDisplayAlbums(albumDisplayInfo)
+        await setAllAlbums(albumDisplayInfo)
+        pickRandomDisplays(albumDisplayInfo)
+    }
+
+// STEP 6.  Randomizing the result of 15 to show three albums only
+    async function pickRandomDisplays (arr) {
+        let arrOfThree = []
+        for (let i =0; i < 3; i++) {
+            let randomNum = Math.floor(Math.random() * arr.length)
+            if(arrOfThree.indexOf(arr[randomNum]) === -1 ) {
+                arrOfThree.push(arr[randomNum])
+            } else if (arrOfThree.indexOf(arr[0]) === -1) {
+                arrOfThree.push(arr[0])
+            } else {
+                arrOfThree.push(arr[1])
+            }
+        }
+        console.log("arrofthree: ", arrOfThree)
+
+        await setDisplayAlbums(arrOfThree)
+
+    }
+
+    function refreshResults () {
+        let resultRow = document.getElementsByClassName("result-row")
+        resultRow.innerHTML= ""
+        pickRandomDisplays(allAlbums)
     }
 
 // This determines which of the three albums shown as search results get their full information shown,
@@ -287,7 +346,7 @@ const Search = (props) => {
               <div className="col-md-9 pl-5 pt-5 pb-5 profile-col">
                   <div className="card search-results-card mt-3 mb-3" id={visibleCard}>
                   <div className="card-body search-results-card-body">
-                      <Row>
+                      <div className="row result-row">
                           {displayAlbums.map((album, index) => (
                               <AlbumList
                                 id={index}
@@ -302,6 +361,9 @@ const Search = (props) => {
                                 onClick={changeDetailAlbum}
                               />  
                             ))}
+                        </div>
+                        <Row>
+                            <button className="btn btn-link refresh-result-btn" onClick={refreshResults}>see more matches</button>
                         </Row>
                     </div>
                 </div>

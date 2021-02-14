@@ -590,7 +590,30 @@ h6 {
   10px 0px 15px 15px  #111
 }
 .search-results-card{
-  height:325px;
+  height:390px;
+}
+
+.refresh-result-btn{
+  margin-left:22%;
+  margin-top:2.5%;
+  padding-bottom:1%;
+  font-size:20px;
+  border: 2px solid #2a2a2a;
+  color: #2a2a2a;
+  border-radius: 10px;
+  transition: background-color 0.15s ease-in-out;
+  transition: color 0.15s ease-in-out;
+  transition: border 0.15s ease-in-out;
+}
+
+.refresh-result-btn:hover{
+  border: 2px solid #ececec;
+  color: #ececec;
+  background-color: #F76C6C;
+  transition: background-color 0.15s ease-in-out;
+  transition: color 0.15s ease-in-out;
+  transition: border 0.15s ease-in-out;
+
 }
 
 .search-results-card,
