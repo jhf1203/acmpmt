@@ -18,7 +18,6 @@ const AlbumDetail = (props) => {
   const [visibleMain, setVisibleMain] = useState("show");
   const [visibleQueue, setVisibleQueue] = useState("hide");
   const [visibleRecs, setVisibleRecs] = useState("hide");
-  const [visibleSuccess, setVisibleSuccess] = useState("hide");
 
   // Mapping an array of the album's tracklist to reduce data present in the 3rd party call vs what we want
   // to keep in the user's profile
@@ -64,34 +63,40 @@ const AlbumDetail = (props) => {
   // or a list of current users who have the album either queued or recommended.
 
   function closeQueue() {
-    setVisibleQueue("hide");
-    setVisibleMain("show");
+    toggleView(setVisibleQueue, setVisibleMain)
   }
 
   function closeRecs() {
-    setVisibleRecs("hide");
-    setVisibleMain("show");
+    toggleView(setVisibleRecs, setVisibleMain)
   }
 
   function openQueue() {
-    setVisibleMain("hide");
-    setVisibleQueue("show");
+    toggleView(setVisibleMain, setVisibleQueue)
   }
 
   function openRecs() {
-    setVisibleMain("hide");
-    setVisibleRecs("show");
+    toggleView(setVisibleMain, setVisibleRecs)
+
   }
 
   function moreInfo() {
     window.open(props.url, "_blank");
   }
 
+  function toggleView (stateToHide, stateToShow) {
+    stateToHide("hide-screen")
+    stateToShow("show-screen")
+  }
+
   // Notification that our list was successfully updated
 
   function toggleSuccess() {
-    setVisibleSuccess("show");
-    window.location.reload();
+
+    let successIcon = document.querySelector(".btn-confirm-list");
+    successIcon.id = "show"
+    setTimeout(() => {
+      window.location.reload();
+    }, 1000)
   }
 
   // Helper to "redirect" to the selected user's page
@@ -134,7 +139,7 @@ const AlbumDetail = (props) => {
                 height="372px"
               ></img>
             </div>
-            <div className="col-md-3" id={visibleMain}>
+            <div className="col-md-3 col-detail-action" id={visibleMain}>
               <div className="row">
                 <button
                   className="btn btn-link search-detail-btn-queue"
@@ -162,7 +167,7 @@ const AlbumDetail = (props) => {
               <div className="row">
                 <button
                   className="btn btn-link btn-confirm-list"
-                  id={visibleSuccess}
+                  id="hide"
                   onClick={moreInfo}
                 >
                   success!
@@ -190,9 +195,7 @@ const AlbumDetail = (props) => {
               </div>
             </div>
             <div
-              className="col-md-3 overflow-auto col-tracklist"
-              id={visibleMain}
-            >
+              className="col-md-3 overflow-auto col-tracklist" id={visibleMain}>
               <h5 className="search-detail-tracklist-header">tracks</h5>
               {props.tracks.track.map((track) => {
                 return <TrackList track={track.name} url={track.url} />;
@@ -201,7 +204,7 @@ const AlbumDetail = (props) => {
 
             {/* The below div is hidden initially, visibility is toggled with the state change */}
 
-            <div className="col-md-6" id={visibleQueue}>
+            <div className="col-md-6 queue-stats-col" id={visibleQueue}>
               <div className="card detail-card">
                 <div className="card-body detail-card-body">
                   <div className="row queue-row-header">
@@ -257,7 +260,7 @@ const AlbumDetail = (props) => {
 
             {/* The below div is hidden initially, visibility is toggled with the state change */}
 
-            <div className="col-md-6" id={visibleRecs}>
+            <div className="col-md-6 rec-stats-col" id={visibleRecs}>
               <div className="card detail-card">
                 <div className="card-body detail-card-body">
                   <div className="row queue-row-header">

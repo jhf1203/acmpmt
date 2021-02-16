@@ -1114,13 +1114,25 @@ h6 {
 #hide {
   display: none;
   animation-name: fade-out;
-  animation-duration: 2s;
+  animation-duration: 1500ms;
 }
 
 #show {
   display: block;
   animation-name: fade-in;
-  animation-duration: 2s;
+  animation-duration: 1500ms;
+}
+
+#show-screen {
+  display: block;
+  animation-name: fade-in;
+  animation-duration: 750ms
+}
+
+#hide-screen {
+  display: none;
+  animation-name: fade-out;
+  animation-duration: 750ms
 }
 
 @keyframes fade-in {
