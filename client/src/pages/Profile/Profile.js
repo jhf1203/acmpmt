@@ -32,7 +32,7 @@ const Profile = (props) => {
   const [detailAlbum, setDetailAlbum] = useState(PlaceholderAlbum);
 
   // Toggling the display property of the ProfileAlbumView component to hide until it has content
-  const [visibleDetail, setVisibleDetail] = useState("hide");
+  // const [visibleDetail, setVisibleDetail] = useState("hide");
 
   // Storing the info for all users, to obtain list data
   const [allUsers, setAllUsers] = useState([]);
@@ -101,6 +101,10 @@ const Profile = (props) => {
 
   // Populating the ProfileAlbumView component from the profile's queue list
   async function changeDetailFromQueue(event) {
+    let bottomRow = document.querySelector(".profile-detail-display-row")
+    setTimeout(() => {
+      bottomRow.id = "show"
+    }, 1500)
     let queuePeople = [];
     let recPeople = [];
     allUsers.map((person) => {
@@ -118,12 +122,16 @@ const Profile = (props) => {
     setQueueUsers(queuePeople);
     setRecUsers(recPeople);
     setDetailAlbum(profile.queue[event.target.title]);
-    setVisibleDetail("visible-detail");
+    // setVisibleDetail("visible-detail");
     setVisibleAdd("hide");
   }
 
   // Populating the ProfileAlbumView component from the profile's recommendation list
   async function changeDetailFromRec(event, list) {
+    let bottomRow = document.querySelector(".profile-detail-display-row")
+    setTimeout(() => {
+      bottomRow.id = "show"
+    }, 1500)    
     let queuePeople = [];
     let recPeople = [];
     allUsers.map((person) => {
@@ -141,7 +149,7 @@ const Profile = (props) => {
     setQueueUsers(queuePeople);
     setRecUsers(recPeople);
     setDetailAlbum(profile.recommended[event.target.title]);
-    setVisibleDetail("visible-detail");
+    // setVisibleDetail("visible-detail");
   }
 
   // Creating ourselves as a profile user's follower, and them as a followee
@@ -347,7 +355,7 @@ const Profile = (props) => {
 visibleDetail state */}
       <div
         className="row search-row-bottom profile-detail-display-row"
-        id={visibleDetail}
+        id="hide"
       >
         <div className="col-md-3"></div>
         <div className="col-md-9 pr-5 pt-5 pb-5">

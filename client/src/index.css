@@ -467,6 +467,7 @@ h6 {
 .search-submit-btn {
   width: 100%;
   text-align: left;
+  font-family: "Raleway";
   font-size: 30px;
   font-weight: 800;
   padding-left: 0;
@@ -506,6 +507,30 @@ h6 {
   font-size: 13px;
   margin-bottom: 4%;
   text-transform: lowercase;
+}
+
+.success-msg {
+  color:#ececec;
+  background-color:#4659a8;
+  border-radius:10px;
+  font-size: 25px;
+  text-align: center;
+  font-weight:600;
+  padding-top:2%;
+  padding-bottom:2%;
+}
+
+.loading-text {
+  width: 100%;
+  background-color: #f8e9a1;
+  text-align: center;
+  color: #2a2a2a;
+  border-radius: 10px;
+  font-family: "Raleway";
+  font-size: 22px;
+  font-weight: 400;
+  padding-top: 2%;
+  padding-bottom: 2%;
 }
 
 .search-row-middle {
@@ -568,21 +593,6 @@ h6 {
     0 100px 80px rgba(0, 0, 0, 0.12);
 }
 
-#invisible-list,
-#invisible-detail,
-#invisible-card,
-#invisible-error {
-  display: none;
-  transition: display 2s ease-in-out;
-}
-
-#visible-list,
-#visible-detail,
-#visible-card,
-#visible-error {
-  display: flex;
-  transition: display 2s ease-in-out;
-}
 
 .detail-card {
   width: 100%;
@@ -592,16 +602,14 @@ h6 {
 }
 
 .error-msg {
-  background-color: #f76c6c;
-  color: #2a2a2a;
-  font-size: 17px;
-  font-weight: 700;
-  height: 100%;
-  border: 1px solid black;
-  border-radius: 10px;
-  padding-top: 3%;
-  padding-left: 4%;
-  width: 100%;
+  color:#ececec;
+  background-color:#f76c6c;
+  border-radius:10px;
+  font-size: 20px;
+  text-align: center;
+  font-weight:600;
+  padding-top:2%;
+  padding-bottom:2%;
 }
 
 .btn-confirm-list {
@@ -624,6 +632,22 @@ h6 {
   font-weight: 900;
   transition: font-weight 0.15s ease-in-out;
 }
+
+#text-show {
+  animation-name: fade-in;
+  animation-duration: 700ms
+}
+
+#text-hide {
+  animation-name: fade-out;
+  animation-duration: 700ms
+}
+
+#msg-show {
+  display: block;
+  animation-name: fade-in;
+  animation-duration: 1500ms
+};
 
 /* ========    COMPONENTS    ======== */
 
@@ -919,16 +943,6 @@ h6 {
   font-family: "Raleway";
 }
 
-#hide {
-  display: none;
-  transition: display 0.5s ease-in-out;
-}
-
-#show {
-  display: block;
-  transition: display 0.5s ease-in-out;
-}
-
 .rec-queue-stats-row {
   padding-top: 100%;
   padding-left: 10%;
@@ -1091,6 +1105,34 @@ h6 {
     0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
     0 100px 80px rgba(0, 0, 0, 0.12);
 }
+
+
+/* global utils */
+
+
+
+#hide {
+  display: none;
+  animation-name: fade-out;
+  animation-duration: 2s;
+}
+
+#show {
+  display: block;
+  animation-name: fade-in;
+  animation-duration: 2s;
+}
+
+@keyframes fade-in {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes fade-out {
+  from {opacity: 1}
+  to {opacity: 0 }
+}
+
 
 /* ================== MEDIA ================== */
 

@@ -32,9 +32,6 @@ const Search = (props) => {
 
   // toggling ids that determine the display property of some divs that we want to keep hidden
   // since they have empty information at the beginning.
-  const [visibleList, setVisibleList] = useState("invisible-list");
-  const [visibleDetail, setVisibleDetail] = useState("invisible-detail");
-  const [visibleCard, setVisibleCard] = useState("invisible-card");
   const [visibleError, setVisibleError] = useState("invisible-error");
 
   // All users, from which we need queue and recommended list data
@@ -103,6 +100,23 @@ const Search = (props) => {
   // for each artist the user submitted (most is 3, least is 1)
   async function handleFormSubmit(event) {
     event.preventDefault();
+    let middleRow = document.querySelector(".search-row-middle")
+    let loadText = document.querySelector(".loading-text")
+    let successMsg = document.querySelector(".success-msg")
+    let errorMsg = document.querySelector(".error-msg")
+    middleRow.id = "hide"
+    errorMsg.id = "hide"
+    successMsg.id = "hide"
+    loadText.id = "text-show"
+    let textFade = setInterval(() => {
+        loadText.id === "text-show" ? loadText.id = "text-hide" : loadText.id = "text-show"
+      }, 700)
+    setTimeout(() => {
+      middleRow.id = "show"
+      clearInterval(textFade)
+      loadText.id = "hide"
+    }, 7000)
+    
     setVisibleError("invisible-error");
     await getSimilarArtists(artists.artist1);
     await getSimilarArtists(artists.artist2);
@@ -128,9 +142,10 @@ const Search = (props) => {
       }
     });
     if (match3.length > 15) {
+      setTimeout(() => {
+        successMsg.id = "show"
+      }, 7000)
       addBandObj(match3);
-      setVisibleList("visible-list");
-      setVisibleCard("visible-card");
     } else {
       match3.map((result) => {
         match2and3.push(result);
@@ -138,11 +153,16 @@ const Search = (props) => {
       match2.map((result) => {
         match2and3.push(result);
       });
-
       if (match2and3.length > 15) {
+        setTimeout(() => {
+          successMsg.id = "show"
+        }, 7000)
         addBandObj(match2and3);
       } else {
-        setVisibleError("visible-error");
+        let errorMsg = document.querySelector(".error-msg")
+        setTimeout(() => {
+          errorMsg.id = "show"
+        }, 7000)
       }
     }
   }
@@ -296,6 +316,8 @@ const Search = (props) => {
   // including the number of users who currently have it marked either as recommended or in their queue.
   async function changeDetailAlbum(event) {
     event.preventDefault();
+    let bottomRow = document.querySelector(".search-row-bottom")
+    bottomRow.id = "show"
     let queuePeople = [];
     let recPeople = [];
     allUsers.map((person) => {
@@ -313,8 +335,8 @@ const Search = (props) => {
     setQueueUsers(queuePeople);
     setRecUsers(recPeople);
     setDetailAlbum(displayAlbums[event.target.id]);
-    setVisibleDetail("visible-detail");
   }
+
 
   return (
     <Container fluid>
@@ -379,8 +401,16 @@ const Search = (props) => {
                     </button>
                   </div>
                   <div className="col-md-9">
-                    <div className="error-msg" id={visibleError}>
+                    {/* <div className="loading-div"> */}
+                      <p className="loading-text" id="hide">
+                        fetching results
+                      </p>
+                    {/* </div> */}
+                    <div className="error-msg" id="hide">
                       uh oh, you stumped us! no great matches, please try again.
+                    </div>
+                    <div className="success-msg" id="hide">
+                      success!  check out your results below!
                     </div>
                   </div>
                 </div>
@@ -389,20 +419,11 @@ const Search = (props) => {
           </div>
         </div>
       </div>
-      <div className="row profile-quote-row">
-        <Col size="md-12">
-          <RandomQuote
-            artist={quoteArr[0].artist}
-            quote={quoteArr[0].quote}
-            year={quoteArr[0].year}
-          />
-        </Col>
-      </div>
 
       {/* The below div will not be visible upon initial load, until the visibleList state is changed */}
-      <div className="row search-row-middle" id={visibleList}>
+      <div className="row search-row-middle" id="hide" >
         <div className="col-md-9 pl-5 pt-5 pb-5 profile-col">
-          <div className="card search-results-card mt-3 mb-3" id={visibleCard}>
+          <div className="card search-results-card mt-3 mb-3">
             <div className="card-body search-results-card-body">
               <div className="row result-row">
                 {displayAlbums.map((album, index) => (
@@ -434,8 +455,18 @@ const Search = (props) => {
         <Col size="md-3"></Col>
       </div>
 
+      <div className="row profile-quote-row">
+        <Col size="md-12">
+          <RandomQuote
+            artist={quoteArr[0].artist}
+            quote={quoteArr[0].quote}
+            year={quoteArr[0].year}
+          />
+        </Col>
+      </div>
+
       {/* The below div will not be visible upon initial load, until the visibleDetail state is changed */}
-      <div className="row search-row-bottom" id={visibleDetail}>
+      <div className="row search-row-bottom" id="hide">
         <div className="col-md-3"></div>
         <div className="col-md-9 pr-5 pt-5 pb-5 profile-col">
           <div className="card search-detail-card">

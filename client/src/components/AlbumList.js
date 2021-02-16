@@ -7,7 +7,8 @@ import Bkgd4 from "../assets/logos/logo-animate-4.png";
 const AlbumList = (props) => {
   const styles = {
     backgroundImage: `url(${props.image[3]["#text"]})`,
-    backgroundSize: "280px 280px",
+    backgroundSize: "contain",
+    
   };
 
   let animationArr = [Bkgd1, Bkgd2, Bkgd3, Bkgd4];
