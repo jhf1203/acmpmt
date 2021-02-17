@@ -40,8 +40,8 @@ function LoginForm({ login }) {
       <Container>
         <div className="row title-row">
           <Col size="md-7">
-            <h1>
-              cr<span className="eight-text">8</span>ed
+            <h1 className="h1-login">
+              CR8ED
               <img className="h1-logo" src={logo} alt="logo" />{" "}
             </h1>
           </Col>
