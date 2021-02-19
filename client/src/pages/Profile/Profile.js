@@ -97,7 +97,7 @@ const Profile = (props) => {
   async function findUsers() {
     let userList = await API.getAllProfiles();
     setAllUsers(userList.data.users);
-    console.log("user: ", user)
+    console.log("user: ", user);
   }
 
   // Populating the ProfileAlbumView component from the profile's queue list

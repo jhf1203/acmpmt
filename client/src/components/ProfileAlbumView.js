@@ -17,6 +17,8 @@ import API from "../utils/API";
 const ProfileAlbumView = (props) => {
   // States to manage when certain elements are visible and not
 
+  console.log("props from userpage: ", props);
+
   const [visibleMain, setVisibleMain] = useState("show");
   const [visibleQueue, setVisibleQueue] = useState("hide");
   const [visibleRecs, setVisibleRecs] = useState("hide");
@@ -43,7 +45,7 @@ const ProfileAlbumView = (props) => {
       tracks: trackArr,
       url: props.url,
     };
-    API.addToQueue(props.user, albumData);
+    API.addToQueue(props.user._id, albumData);
     toggleSuccess().catch((err) => console.log(err));
   }
 
@@ -59,7 +61,7 @@ const ProfileAlbumView = (props) => {
       tracks: trackArr,
       url: props.url,
     };
-    API.addToRecs(props.user, albumData);
+    API.addToRecs(props.user._id, albumData);
     toggleSuccess().catch((err) => console.log(err));
   }
 
@@ -126,7 +128,7 @@ const ProfileAlbumView = (props) => {
             <div className="col-md-6">
               <img
                 className="list-detail-img"
-                src={props.image[4]["#text"]}
+                src={props.image}
                 alt={props.album}
                 height="372px"
                 width="372px"

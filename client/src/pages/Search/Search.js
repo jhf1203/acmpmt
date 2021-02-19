@@ -311,9 +311,9 @@ const Search = (props) => {
   async function changeDetailAlbum(event) {
     event.preventDefault();
     let bottomRow = document.querySelector(".search-row-bottom");
-    let scrollText = document.querySelector(".scroll-down-text")
+    let scrollText = document.querySelector(".scroll-down-text");
     bottomRow.id = "show-flex";
-    scrollText.id = "show"
+    scrollText.id = "show";
     let queuePeople = [];
     let recPeople = [];
     allUsers.map((person) => {
@@ -438,15 +438,18 @@ const Search = (props) => {
               </div>
               <div className="result-action-row">
                 <div className="col-md-4 refresh-btn-col">
-                    <button
-                      className="btn btn-link refresh-result-btn"
-                      onClick={refreshResults}
-                    >
-                      see more matches
-                    </button>
+                  <button
+                    className="btn btn-link refresh-result-btn"
+                    onClick={refreshResults}
+                  >
+                    see more matches
+                  </button>
                 </div>
                 <div className="col-md-8 next-step-col">
-                  <p className="scroll-down-text" id="hide"> scroll down for details! </p>
+                  <p className="scroll-down-text" id="hide">
+                    {" "}
+                    scroll down for details!{" "}
+                  </p>
                 </div>
               </div>
             </div>

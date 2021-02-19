@@ -39,7 +39,7 @@ h6 {
 /* Login Page */
 
 .h1-login {
-  padding-top:5%
+  padding-top: 5%;
 }
 
 .h1-logo {
@@ -295,7 +295,7 @@ h6 {
 
 .profile-col {
   height: inherit;
-  margin-right: 0px!important
+  margin-right: 0px !important;
 }
 
 .profile-card-top {
@@ -510,14 +510,14 @@ h6 {
 }
 
 .success-msg {
-  color:#ececec;
-  background-color:#4659a8;
-  border-radius:10px;
+  color: #ececec;
+  background-color: #4659a8;
+  border-radius: 10px;
   font-size: 25px;
   text-align: center;
-  font-weight:600;
-  padding-top:2%;
-  padding-bottom:2%;
+  font-weight: 600;
+  padding-top: 2%;
+  padding-bottom: 2%;
 }
 
 .loading-text {
@@ -562,16 +562,16 @@ h6 {
 
 .result-row {
   border-bottom: 2px solid #2a2a2a;
-  padding-bottom: 2%
+  padding-bottom: 2%;
 }
 
 .result-action-row {
   padding-top: 1%;
-  display: flex
+  display: flex;
 }
 
 .refresh-result-btn {
-  width:100%;
+  width: 100%;
   margin-top: 2.5%;
   padding-bottom: 2%;
   padding-right: 1%;
@@ -600,7 +600,7 @@ h6 {
   font-size: 24px;
   width: 100%;
   text-align: center;
-  margin-top:0.6%;
+  margin-top: 0.6%;
   padding-top: 1%;
   padding-bottom: 1%;
 }
@@ -616,7 +616,6 @@ h6 {
     0 100px 80px rgba(0, 0, 0, 0.12);
 }
 
-
 .detail-card {
   width: 100%;
   height: 375px;
@@ -625,14 +624,14 @@ h6 {
 }
 
 .error-msg {
-  color:#ececec;
-  background-color:#f76c6c;
-  border-radius:10px;
+  color: #ececec;
+  background-color: #f76c6c;
+  border-radius: 10px;
   font-size: 20px;
   text-align: center;
-  font-weight:600;
-  padding-top:2%;
-  padding-bottom:2%;
+  font-weight: 600;
+  padding-top: 2%;
+  padding-bottom: 2%;
 }
 
 .btn-confirm-list {
@@ -658,19 +657,19 @@ h6 {
 
 #text-show {
   animation-name: fade-in;
-  animation-duration: 700ms
+  animation-duration: 700ms;
 }
 
 #text-hide {
   animation-name: fade-out;
-  animation-duration: 700ms
+  animation-duration: 700ms;
 }
 
 #msg-show {
   display: block;
   animation-name: fade-in;
-  animation-duration: 1500ms
-};
+  animation-duration: 1500ms;
+}
 
 /* ========    COMPONENTS    ======== */
 
@@ -861,13 +860,12 @@ h6 {
   display: "block";
   animation-name: fade-in;
   animation-duration: 750ms;
-
 }
 
 #show-following {
   display: "block";
   animation-name: fade-in;
-  animation-duration: 750ms
+  animation-duration: 750ms;
 }
 
 #hide-followers {
@@ -902,13 +900,13 @@ h6 {
 #light {
   color: #ececec;
   animation-name: light-to-dark;
-  animation-duration: 50ms
+  animation-duration: 50ms;
 }
 
 #dark {
   color: #2a2a2a;
   animation-name: dark-to-light;
-  animation-duration: 50ms
+  animation-duration: 50ms;
 }
 
 /* AlbumList */
@@ -1144,10 +1142,7 @@ h6 {
     0 100px 80px rgba(0, 0, 0, 0.12);
 }
 
-
 /* global utils */
-
-
 
 #hide {
   display: none;
@@ -1161,7 +1156,7 @@ h6 {
   animation-duration: 1500ms;
 }
 
-#show-flex{
+#show-flex {
   display: flex;
   animation-name: fade-in;
   animation-duration: 1500ms;
@@ -1170,35 +1165,50 @@ h6 {
 #show-screen {
   display: block;
   animation-name: fade-in;
-  animation-duration: 750ms
+  animation-duration: 750ms;
 }
 
 #hide-screen {
   display: none;
   animation-name: fade-out;
-  animation-duration: 750ms
+  animation-duration: 750ms;
 }
 
 @keyframes fade-in {
-  from {opacity: 0;}
-  to {opacity: 1;}
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes fade-out {
-  from {opacity: 1}
-  to {opacity: 0 }
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
 
 @keyframes light-to-dark {
-  from {color: #ececec};
-  to {color: #2a2a2a}
+  from {
+    color: #ececec;
+  }
+  to {
+    color: #2a2a2a;
+  }
 }
 
 @keyframes dark-to-light {
-  from {color:#2a2a2a};
-  to {color:#ececec}
+  from {
+    color: #2a2a2a;
+  }
+  to {
+    color: #ececec;
+  }
 }
-
 
 /* ================== MEDIA ================== */
 
