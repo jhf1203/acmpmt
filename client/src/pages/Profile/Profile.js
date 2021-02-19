@@ -83,7 +83,7 @@ const Profile = (props) => {
   // Setting the profile state based on whose page we should be on
   async function loadProfile() {
     let foundUser = await AUTH.getUser();
-    setUser(foundUser.data.user);
+    setUser(foundUser.data.user._id);
     if (params) {
       let foundProfile = await API.getProfile(params);
       setProfile(foundProfile.data.result);
@@ -101,10 +101,10 @@ const Profile = (props) => {
 
   // Populating the ProfileAlbumView component from the profile's queue list
   async function changeDetailFromQueue(event) {
-    let bottomRow = document.querySelector(".profile-detail-display-row")
+    let bottomRow = document.querySelector(".profile-detail-display-row");
     setTimeout(() => {
-      bottomRow.id = "show"
-    }, 1500)
+      bottomRow.id = "show";
+    }, 1500);
     let queuePeople = [];
     let recPeople = [];
     allUsers.map((person) => {
@@ -128,10 +128,10 @@ const Profile = (props) => {
 
   // Populating the ProfileAlbumView component from the profile's recommendation list
   async function changeDetailFromRec(event, list) {
-    let bottomRow = document.querySelector(".profile-detail-display-row")
+    let bottomRow = document.querySelector(".profile-detail-display-row");
     setTimeout(() => {
-      bottomRow.id = "show"
-    }, 1500)    
+      bottomRow.id = "show";
+    }, 1500);
     let queuePeople = [];
     let recPeople = [];
     allUsers.map((person) => {

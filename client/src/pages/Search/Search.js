@@ -14,6 +14,7 @@ import RandomQuote from "../../components/RandomQuote";
 const Search = (props) => {
   // Setting our component's initial state
   const [profile, setProfile] = useState({});
+  const [user, setUser] = useState();
 
   // determine which artists will be looked up to find similar ones.
   const [artists, setArtists] = useState({
@@ -55,7 +56,7 @@ const Search = (props) => {
     AUTH.getUser()
       .then((res) => {
         setProfile(res.data.profile);
-        setLoggedIn(res.data.user._id);
+        setUser(res.data.user._id);
       })
       .catch((err) => console.log(err));
   }
@@ -67,7 +68,6 @@ const Search = (props) => {
   // Creates an object of all users from which to pull the queue and recommended data per album
   async function findUsers() {
     let userList = await API.getAllProfiles();
-    console.log("userlist: ", userList.data.users);
     setAllUsers(userList.data.users);
   }
 
@@ -100,23 +100,27 @@ const Search = (props) => {
   // for each artist the user submitted (most is 3, least is 1)
   async function handleFormSubmit(event) {
     event.preventDefault();
-    let middleRow = document.querySelector(".search-row-middle")
-    let loadText = document.querySelector(".loading-text")
-    let successMsg = document.querySelector(".success-msg")
-    let errorMsg = document.querySelector(".error-msg")
-    middleRow.id = "hide"
-    errorMsg.id = "hide"
-    successMsg.id = "hide"
-    loadText.id = "text-show"
+    let middleRow = document.querySelector(".search-row-middle");
+    let bottomRow = document.querySelector(".search-row-bottom");
+    let loadText = document.querySelector(".loading-text");
+    let successMsg = document.querySelector(".success-msg");
+    let errorMsg = document.querySelector(".error-msg");
+    middleRow.id = "hide";
+    bottomRow.id = "hide";
+    errorMsg.id = "hide";
+    successMsg.id = "hide";
+    loadText.id = "text-show";
     let textFade = setInterval(() => {
-        loadText.id === "text-show" ? loadText.id = "text-hide" : loadText.id = "text-show"
-      }, 700)
+      loadText.id === "text-show"
+        ? (loadText.id = "text-hide")
+        : (loadText.id = "text-show");
+    }, 700);
     setTimeout(() => {
-      middleRow.id = "show"
-      clearInterval(textFade)
-      loadText.id = "hide"
-    }, 7000)
-    
+      middleRow.id = "show";
+      clearInterval(textFade);
+      loadText.id = "hide";
+    }, 7000);
+
     setVisibleError("invisible-error");
     await getSimilarArtists(artists.artist1);
     await getSimilarArtists(artists.artist2);
@@ -143,8 +147,8 @@ const Search = (props) => {
     });
     if (match3.length > 15) {
       setTimeout(() => {
-        successMsg.id = "show"
-      }, 7000)
+        successMsg.id = "show";
+      }, 7000);
       addBandObj(match3);
     } else {
       match3.map((result) => {
@@ -155,14 +159,14 @@ const Search = (props) => {
       });
       if (match2and3.length > 15) {
         setTimeout(() => {
-          successMsg.id = "show"
-        }, 7000)
+          successMsg.id = "show";
+        }, 7000);
         addBandObj(match2and3);
       } else {
-        let errorMsg = document.querySelector(".error-msg")
+        let errorMsg = document.querySelector(".error-msg");
         setTimeout(() => {
-          errorMsg.id = "show"
-        }, 7000)
+          errorMsg.id = "show";
+        }, 7000);
       }
     }
   }
@@ -243,7 +247,6 @@ const Search = (props) => {
     matchStrengthAvg.sort(function (a, b) {
       return b.total - a.total;
     });
-    console.log("matchwithstrength totals: ", matchStrengthAvg);
 
     findTopAlbums();
   }
@@ -252,12 +255,6 @@ const Search = (props) => {
   async function findTopAlbums() {
     for (let i = 0; i < 15; i++) {
       let res = await LASTFM.getTopAlbum(matchStrengthAvg[i].name);
-      console.log(
-        "res: ",
-        res.data.topalbums.album[0].artist.name,
-        " | ",
-        res.data.topalbums.album[0].name
-      );
       albumArrTop.push({
         artist: res.data.topalbums.album[0].artist.name,
         album: res.data.topalbums.album[0].name,
@@ -277,9 +274,7 @@ const Search = (props) => {
           albumArrTop[i].artist,
           albumArrTop[i].album
         );
-        console.log("res display album: ", res.data.album);
         albumDisplayInfo.push(res.data.album);
-        console.log("displayinfo: ", albumDisplayInfo);
       }
     }
     await setAllAlbums(albumDisplayInfo);
@@ -299,7 +294,6 @@ const Search = (props) => {
         arrOfThree.push(arr[1]);
       }
     }
-    console.log("arrofthree: ", arrOfThree);
 
     await setDisplayAlbums(arrOfThree);
   }
@@ -316,8 +310,10 @@ const Search = (props) => {
   // including the number of users who currently have it marked either as recommended or in their queue.
   async function changeDetailAlbum(event) {
     event.preventDefault();
-    let bottomRow = document.querySelector(".search-row-bottom")
-    bottomRow.id = "show"
+    let bottomRow = document.querySelector(".search-row-bottom");
+    let scrollText = document.querySelector(".scroll-down-text")
+    bottomRow.id = "show-flex";
+    scrollText.id = "show"
     let queuePeople = [];
     let recPeople = [];
     allUsers.map((person) => {
@@ -336,7 +332,6 @@ const Search = (props) => {
     setRecUsers(recPeople);
     setDetailAlbum(displayAlbums[event.target.id]);
   }
-
 
   return (
     <Container fluid>
@@ -402,15 +397,15 @@ const Search = (props) => {
                   </div>
                   <div className="col-md-9">
                     {/* <div className="loading-div"> */}
-                      <p className="loading-text" id="hide">
-                        fetching results
-                      </p>
+                    <p className="loading-text" id="hide">
+                      fetching results
+                    </p>
                     {/* </div> */}
                     <div className="error-msg" id="hide">
                       uh oh, you stumped us! no great matches, please try again.
                     </div>
                     <div className="success-msg" id="hide">
-                      success!  check out your results below!
+                      success! check out your results below!
                     </div>
                   </div>
                 </div>
@@ -421,7 +416,7 @@ const Search = (props) => {
       </div>
 
       {/* The below div will not be visible upon initial load, until the visibleList state is changed */}
-      <div className="row search-row-middle" id="hide" >
+      <div className="row search-row-middle" id="hide">
         <div className="col-md-9 pl-5 pt-5 pb-5 profile-col">
           <div className="card search-results-card mt-3 mb-3">
             <div className="card-body search-results-card-body">
@@ -441,14 +436,19 @@ const Search = (props) => {
                   />
                 ))}
               </div>
-              <Row>
-                <button
-                  className="btn btn-link refresh-result-btn"
-                  onClick={refreshResults}
-                >
-                  see more matches
-                </button>
-              </Row>
+              <div className="result-action-row">
+                <div className="col-md-4 refresh-btn-col">
+                    <button
+                      className="btn btn-link refresh-result-btn"
+                      onClick={refreshResults}
+                    >
+                      see more matches
+                    </button>
+                </div>
+                <div className="col-md-8 next-step-col">
+                  <p className="scroll-down-text" id="hide"> scroll down for details! </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -479,7 +479,7 @@ const Search = (props) => {
                 tags={detailAlbum.tags}
                 tracks={detailAlbum.tracks}
                 mbid={detailAlbum.mbid}
-                user={loggedIn}
+                user={user}
                 queue={queueUsers}
                 rec={recUsers}
               />

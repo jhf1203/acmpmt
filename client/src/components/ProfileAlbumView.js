@@ -7,9 +7,10 @@ import {
   useParams,
 } from "react-router-dom";
 
-import API from "../utils/API";
 import { Col, Row } from "./Grid";
 import TrackList from "./TrackList";
+
+import API from "../utils/API";
 
 // ====THIS COMPONENT HAS THE SAME PROPERTIES AS ALBUMDETAIL, BUT RECEIVES DIFFERENT PROPS SO IT'S IT'S OWN COMPONENT.
 
@@ -42,7 +43,7 @@ const ProfileAlbumView = (props) => {
       tracks: trackArr,
       url: props.url,
     };
-    API.addToQueue(props.user._id, albumData);
+    API.addToQueue(props.user, albumData);
     toggleSuccess().catch((err) => console.log(err));
   }
 
@@ -58,7 +59,7 @@ const ProfileAlbumView = (props) => {
       tracks: trackArr,
       url: props.url,
     };
-    API.addToRecs(props.user._id, albumData);
+    API.addToRecs(props.user, albumData);
     toggleSuccess().catch((err) => console.log(err));
   }
 
@@ -125,7 +126,7 @@ const ProfileAlbumView = (props) => {
             <div className="col-md-6">
               <img
                 className="list-detail-img"
-                src={props.image}
+                src={props.image[4]["#text"]}
                 alt={props.album}
                 height="372px"
                 width="372px"

@@ -15,6 +15,8 @@ import API from "../utils/API";
 const AlbumDetail = (props) => {
   // States to manage when certain elements are visible and not
 
+  console.log("all props: ", props);
+
   const [visibleMain, setVisibleMain] = useState("show");
   const [visibleQueue, setVisibleQueue] = useState("hide");
   const [visibleRecs, setVisibleRecs] = useState("hide");
@@ -26,6 +28,12 @@ const AlbumDetail = (props) => {
   props.tracks.track.map((track) => {
     trackArr.push(track.name);
   });
+
+  // const trackArr = [];
+
+  // for (let i = 0; i < props.tracks.length; i++) {
+  //   trackArr.push(props.tracks[i]);
+  // }
 
   // Adds the album to my queue
 
@@ -63,40 +71,38 @@ const AlbumDetail = (props) => {
   // or a list of current users who have the album either queued or recommended.
 
   function closeQueue() {
-    toggleView(setVisibleQueue, setVisibleMain)
+    toggleView(setVisibleQueue, setVisibleMain);
   }
 
   function closeRecs() {
-    toggleView(setVisibleRecs, setVisibleMain)
+    toggleView(setVisibleRecs, setVisibleMain);
   }
 
   function openQueue() {
-    toggleView(setVisibleMain, setVisibleQueue)
+    toggleView(setVisibleMain, setVisibleQueue);
   }
 
   function openRecs() {
-    toggleView(setVisibleMain, setVisibleRecs)
-
+    toggleView(setVisibleMain, setVisibleRecs);
   }
 
   function moreInfo() {
     window.open(props.url, "_blank");
   }
 
-  function toggleView (stateToHide, stateToShow) {
-    stateToHide("hide-screen")
-    stateToShow("show-screen")
+  function toggleView(stateToHide, stateToShow) {
+    stateToHide("hide-screen");
+    stateToShow("show-screen");
   }
 
   // Notification that our list was successfully updated
 
   function toggleSuccess() {
-
     let successIcon = document.querySelector(".btn-confirm-list");
-    successIcon.id = "show"
+    successIcon.id = "show";
     setTimeout(() => {
       window.location.reload();
-    }, 1000)
+    }, 1000);
   }
 
   // Helper to "redirect" to the selected user's page
@@ -195,7 +201,9 @@ const AlbumDetail = (props) => {
               </div>
             </div>
             <div
-              className="col-md-3 overflow-auto col-tracklist" id={visibleMain}>
+              className="col-md-3 overflow-auto col-tracklist"
+              id={visibleMain}
+            >
               <h5 className="search-detail-tracklist-header">tracks</h5>
               {props.tracks.track.map((track) => {
                 return <TrackList track={track.name} url={track.url} />;
