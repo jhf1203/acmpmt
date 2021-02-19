@@ -83,7 +83,7 @@ const Profile = (props) => {
   // Setting the profile state based on whose page we should be on
   async function loadProfile() {
     let foundUser = await AUTH.getUser();
-    setUser(foundUser.data.user._id);
+    setUser(foundUser.data.user);
     if (params) {
       let foundProfile = await API.getProfile(params);
       setProfile(foundProfile.data.result);
@@ -97,6 +97,7 @@ const Profile = (props) => {
   async function findUsers() {
     let userList = await API.getAllProfiles();
     setAllUsers(userList.data.users);
+    console.log("user: ", user)
   }
 
   // Populating the ProfileAlbumView component from the profile's queue list
