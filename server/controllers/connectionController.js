@@ -7,8 +7,8 @@ module.exports = {
   followUser: function (req, res) {
     if (req) {
       db.User.findOneAndUpdate(
-        { _id: req.user._id },
-        { $push: { following: new ObjectId(req.params.id) } }
+        { _id: req.body.myId },
+        { $push: { following: new ObjectId(req.body.theirId) } }
       )
         .then((cnxn) => {
           res.json(cnxn);

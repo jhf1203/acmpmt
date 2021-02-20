@@ -9,11 +9,14 @@ export default {
     return axios.get("/api/profile/");
   },
 
-  followUser: function (user, id) {
+  followUser: function (me, them) {
     return axios({
       method: "put",
-      url: "/api/connection/" + id,
-      data: user,
+      url: "/api/connection/" + me,
+      data: {
+        theirId: them,
+        myId: me,
+      },
     });
   },
 

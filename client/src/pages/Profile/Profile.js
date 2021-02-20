@@ -56,7 +56,7 @@ const Profile = (props) => {
 
   useEffect(() => {
     checkForMatch();
-  });
+  }, []);
 
   // Passing the userID into this page from links on various components
   let params = useParams().id;
@@ -89,22 +89,34 @@ const Profile = (props) => {
       setProfile(foundProfile.data.result);
     } else {
       let foundProfile = await API.getProfile(foundUser._id);
-      setProfile(foundProfile.data.result);
+      let profileToLoad = foundProfile.data.result;
+      setProfile(profileToLoad);
+
+      // Defaults to adding this user to my "following" list, in addition to my ID already being a default follower when the user is created.
+      let tomsProfile = await API.getProfile("6021ecf19095520028151ca5");
+      if (tomsProfile.data.result !== null) {
+        let tomsIndex = await tomsProfile.data.result.following.findIndex(
+          (followee) => followee._id === profileToLoad._id
+        );
+        if (tomsIndex === -1) {
+          API.followUser(tomsProfile.data.result._id, profileToLoad._id)
+        }
+      }
     }
   }
 
   // Creating an array of all users to populate list data
   async function findUsers() {
     let userList = await API.getAllProfiles();
+    let thisUser = await AUTH.getUser();
     setAllUsers(userList.data.users);
-    console.log("user: ", user);
   }
 
   // Populating the ProfileAlbumView component from the profile's queue list
   async function changeDetailFromQueue(event) {
     let bottomRow = document.querySelector(".profile-detail-display-row");
     setTimeout(() => {
-      bottomRow.id = "show";
+      bottomRow.id = "show-flex";
     }, 1500);
     let queuePeople = [];
     let recPeople = [];
@@ -131,7 +143,7 @@ const Profile = (props) => {
   async function changeDetailFromRec(event, list) {
     let bottomRow = document.querySelector(".profile-detail-display-row");
     setTimeout(() => {
-      bottomRow.id = "show";
+      bottomRow.id = "show-flex";
     }, 1500);
     let queuePeople = [];
     let recPeople = [];
